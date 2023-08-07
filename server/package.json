@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZoxDev/ECF_Garage.git"
+  },
+  "author": "Zox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZoxDev/ECF_Garage/issues"
+  },
+  "homepage": "https://github.com/ZoxDev/ECF_Garage#readme"
+}
