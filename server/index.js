@@ -8,6 +8,8 @@ app.use(express.json()); // req.body
 
 // Routes
 
+
+// Tout les appel API
 // Create user
 app.post("/users", async(req, res) => {
     try {
@@ -32,18 +34,6 @@ app.get("/users", async(req,res) => {
     } catch (err) {
       console.error(err.message);  
     }
-});
-
-// get a user
-app.get("/users/:id", async (req,res) => {
-try {
-    const { id } = req.params;
-    const user = await pool.query("SELECT * FROM users WHERE userid = $1", [id]);
-
-    res.json(user.rows[0]);
-} catch (err) {
-   console.error(err.message); 
-}
 });
 
 // update user
@@ -74,11 +64,6 @@ app.delete("/users/:id", async(req,res) =>{
     }
 });
 
-
-
-
-
-// Tout les appel API
 // Presentation page (GET UPDATE) infoid | infotitle | infotext
 // Get infos
 app.get("/infos", async(req,res) => {
@@ -93,20 +78,16 @@ app.get("/infos", async(req,res) => {
 // Post info
 app.post("/infos", async(req, res) => {
     try {
-        // Add info
-            // Si <3 ok else you can't put new info
+    // Add info  
+    const {infoTitle, infoText} = req.body;
 
-            // SELECT COUNT(column_name)
-
-            const {infoTitle, infoText} = req.body;
-
-            const newInfo = await pool.query("INSERT INTO presinfo (infotitle, infotext) VALUES($1, $2) RETURNING *", 
-            [infoTitle, infoText]
-            );
-            console.log(req.body);
-            res.json(newInfo.rows[0]);
- 
-        
+    const newInfo = await pool.query("INSERT INTO presinfo (infotitle, infotext) VALUES($1, $2) RETURNING *", 
+    [infoTitle, infoText]
+    );
+    console.log(req.body);
+    res.json(newInfo.rows[0]);
+            
+            
     } catch (err) {
         console.error(err.message);
     }
@@ -118,8 +99,6 @@ app.put("/infos/:id", async(req,res) =>{
         const {id} = req.params;
         const {infoTitle, infoText} = req.body;
 
-    
-
         const updateInfo = await pool.query("UPDATE presinfo SET (infoTitle, infoText) =($1,$2) WHERE infoid = $3",
         [infoTitle, infoText, id]);
 
@@ -129,6 +108,22 @@ app.put("/infos/:id", async(req,res) =>{
         console.error(err.message);
     }
 });
+
+// Delte (rare)
+app.delete("/infos/:id", async(req,res) =>{
+    try {
+        const {id} = req.params;
+        const deleteInfo = await pool.query("DELETE FROM presinfo WHERE infoid = $1",
+        [id])
+
+        res.json("deleted");
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Schedule (Dayname | hourstart | hourpause | hourstoppause | hourstop)(Get & Update)
+
 
 
 // Listening app

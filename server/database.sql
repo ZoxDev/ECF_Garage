@@ -47,3 +47,13 @@ CREATE TABLE carsMessage(
     dateMeet DATE,
     hourMeet DATE
 );
+
+
+
+-- Insert schedule basics
+INSERT INTO schedule VALUES ('Lundi', '8:00', '12:00', '14:00', '18:00');
+INSERT INTO schedule VALUES ('Mardi', '8:00', '12:00', '14:00', '18:00');
+INSERT INTO schedule VALUES ('Mercredi', '8:00', '12:00', '14:00', '18:00');
+INSERT INTO schedule VALUES ('Jeudi', '8:00', '12:00', '14:00', '18:00');
+INSERT INTO schedule VALUES ('Vendredi', '8:00', '12:00', '14:00', '18:00');
+INSERT INTO schedule VALUES ('Samedi', '8:00','12:00');
