@@ -155,6 +155,8 @@ app.put("/schedule/:id", async(req, res) =>{
 
 // Cars (post / get / delete) (carid (primarikey) | carbrand | carmodel | circulationdate | engine | distancetravel)
 // get cars
+
+// ADD IMAGES SYSTEME
 app.get("/cars", async(req, res) =>{
     try {
         const getCars = await pool.query("SELECT * FROM cars");
@@ -195,9 +197,89 @@ app.delete("/cars/:id", async(req, res) =>{
     }
 });
 
+// Car message (visitor post) (employee get & delete) (carmessageid | carusername | caruserlastname | carusermail | carusermessage | datemeet | hourmeet)
+
+// User can send message (form)
+app.post("/carsmessage", async(req, res) =>{
+    try {
+        const {carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet} = req.body;
+        const createMessage = await pool.query("INSERT INTO carsmessage (carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet) VALUES($1, $2, $3, $4, $5, $6)",
+        [carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet]);
+
+        console.log("Work");
+        res.json(createMessage.rows[0]);
+
+    } catch (err) {
+       console.error(err.message);
+    }
+    });
+
+// get message for employee
+app.get("/carsmessage", async(req, res) =>{
+    try {
+        const getCarMessage = await pool.query("SELECT * FROM carsmessage");
+        res.json(getCarMessage.rows);
+    } catch (err) {
+        console.error(err.message);   
+    }
+});
+
+// employee can delete the message
+app.delete("/carsmessage/:id", async(req,res) =>{
+    try {
+        const {id} = req.params;
+        const deleteCarMessage = await pool.query("DELETE FROM carsmessage WHERE carmessageid = $1",
+        [id]);
+
+        console.log(id + "deleted");
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Notice message (visitor post) (admin get & delete) (noticeid | noticeusername | noticeuserlastname | noticeusermessage | noticeusernote )
+// User can send message (form)
+app.post("/noticemessage", async(req, res) =>{
+    try {
+        const {noticeusername ,noticeuserlastname, noticeusermessage, noticeusernote} = req.body;
+        const createNotice = await pool.query("INSERT INTO noticemessage (noticeusername, noticeuserlastname, noticeusermessage, noticeusernote) VALUES($1, $2, $3, $4)",
+        [noticeusername, noticeuserlastname, noticeusermessage, noticeusernote]);
+
+        console.log("Notice send !");
+        res.json(createNotice.rows[0]);
+
+    } catch (err) {
+       console.error(err.message);
+    }
+    });
+
+// get message for admin
+app.get("/noticemessage", async(req, res) =>{
+    try {
+        const getNotice = await pool.query("SELECT * FROM noticemessage");
+        console.log("work");
+        res.json(getNotice.rows);
+    } catch (err) {
+        console.error(err.message);   
+    }
+});
+
+// admin can delete the message
+app.delete("/noticemessage/:id", async(req,res) =>{
+    try {
+        const {id} = req.params;
+        const deleteCarMessage = await pool.query("DELETE FROM noticemessage WHERE noticeid = $1",
+        [id]);
+
+        console.log("Notice deleted");
+    } catch (err) {
+        console.error(err.message);
+    }
+});
 
 
 // Comment all
+// create multiple .js 
 // Listening app
 app.listen(5000, () =>{
     console.log("server start port : 5000")

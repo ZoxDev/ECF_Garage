@@ -35,7 +35,8 @@ CREATE TABLE noticeMessage(
     noticeId serial PRIMARY KEY,
     noticeUserNAME VARCHAR(50) NOT NULL,
     noticeUserLASTNAME VARCHAR (50) NOT NULL,
-    noticeUserMessage VARCHAR (350) NOT NULL
+    noticeUserMessage VARCHAR (350) NOT NULL,
+    noticeUserNote SMALLINT NOT NULL
 );
 
 CREATE TABLE carsMessage(
@@ -45,10 +46,8 @@ CREATE TABLE carsMessage(
     carUserMAIL VARCHAR (50) NOT NULL,
     carUserMessage VARCHAR (350) NOT NULL,
     dateMeet DATE,
-    hourMeet DATE
+    hourMeet TIME
 );
-
-
 
 -- Insert schedule basics
 INSERT INTO schedule VALUES ('Lundi', '8:00', '12:00', '14:00', '18:00');
