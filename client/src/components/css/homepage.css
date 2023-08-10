@@ -1,0 +1,32 @@
+/* Mobile */
+
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Quicksand', sans-serif; */
+
+.first-section{
+    width: auto;
+    height: 100vh;
+    background-image: url("../../assets/images/car.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.second-section{
+    width: auto;
+    height: 100vh;
+    background: linear-gradient(190deg, #090909 10%, #D94350 0%);
+}
+
+.text{
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    left: calc(50% - 175px);
+    top: 15%;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+
