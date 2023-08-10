@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 export default function Navbar(){    
 
-    const [burgerOpen, setBurgerOpen] = useState('false');
+    const [burgerOpen, setBurgerOpen] = useState('');
 
     const toogleBurger = () =>{
         setBurgerOpen(!burgerOpen);
@@ -16,7 +16,7 @@ export default function Navbar(){
 
 
     const Navigation = styled.div`
-            display: ${burgerOpen ? `inline` : `none`};
+            visibility: ${burgerOpen ? `visible` : `hidden`};
             position: fixed;
             top: 50px;
             left: calc(50% - 50px);
@@ -29,7 +29,7 @@ export default function Navbar(){
             padding-right: 10px;
             border-radius: 0px 0px 15px 15px;
             font-family: 'Quicksand', sans-serif;
-            font-size: 10px;
+            font-size: 10px;  
     `
 
     return(

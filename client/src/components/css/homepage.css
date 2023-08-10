@@ -15,7 +15,13 @@ font-family: 'Quicksand', sans-serif; */
 .second-section{
     width: auto;
     height: 100vh;
-    background: linear-gradient(190deg, #090909 10%, #D94350 0%);
+    background: linear-gradient(190deg, #090909 8%, #D94350 0%);
+}
+
+.third-section{
+    width: auto;
+    height: 100vh;
+    background: linear-gradient(165deg, #D94350 11.2%, #FFF 0%);
 }
 
 .text{
@@ -29,4 +35,5 @@ font-family: 'Quicksand', sans-serif; */
     font-size: 24px;
     text-align: center;
 }
+ 
 
