@@ -1,38 +1,45 @@
-import { Component, useState, useEffect} from 'react';
+// Eslint problems
+/* eslint-disable react/jsx-key */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+
+
+import { useState, useEffect} from 'react';
 import '../components/css/info.css';
-import styled from 'styled-components';
 // anime.js or gsap
 
 export default function Info(props) {
+    // Get info in an array 
     const [info, setInfo] = useState([]);
     
+    // Request
     const getText = async () =>{
         try {
             const response = await fetch("http://localhost:5000/infos");
             const jsonData = await response.json();
-
+            console.log(jsonData);
             setInfo(jsonData);
         } catch (err) {
             console.error(err.message);
         }
     }
 
+    // Request do once
     useEffect(() => {
         getText();
-    }, [])
+        }, [])
+
 
     // Get the id of the to select the good index of arry then in return get his infotext
-    // Bug return 3 times the info
-    const id = (info[props.infid]);
+    const selectedInfo = info[props.infid];
+    const infotext = selectedInfo ? selectedInfo.infotext : "";
    
     return (
         <>
         <article className='container'>
-        <img className='image' src={props.url}/>
-            <div className='text-box'>
-                {info.map(info => 
-                    <p className='textinfo'>{id.infotext}</p>
-                )}
+        <img className='image' src={props.url} />
+            <div className='text-box'>          
+                    <p className='textinfo'>{infotext}</p>         
             </div>
         </article>
         </>
