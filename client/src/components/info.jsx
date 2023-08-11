@@ -17,7 +17,7 @@ export default function Info(props) {
         try {
             const response = await fetch("http://localhost:5000/infos");
             const jsonData = await response.json();
-            console.log(jsonData);
+            
             setInfo(jsonData);
         } catch (err) {
             console.error(err.message);

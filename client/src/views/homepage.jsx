@@ -9,6 +9,7 @@ import Navbar from "../components/navbar"
 import ServicesButton from '../components/servicesbut'
 import Info from '../components/info'
 import Banderole from '../components/banderole'
+import Noticecard from '../components/noticecard'
 
 function Homepage() {
 
@@ -32,6 +33,7 @@ function Homepage() {
         {/* Third section */}
         <section className='third-section'>
         <Banderole/>
+        <Noticecard notid={0}/>
         </section>
       </>
     )
