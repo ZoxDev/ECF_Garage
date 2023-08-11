@@ -8,9 +8,11 @@ import cardeal from '../assets/images/cardeal.jpg'
 import Navbar from "../components/navbar"
 import ServicesButton from '../components/servicesbut'
 import Info from '../components/info'
+import Banderole from '../components/banderole'
 
 function Homepage() {
 
+    // TO FIX ! PSEUDO ELEMENTS NOT WORKING
     return (
       <>
         <Navbar />
@@ -29,7 +31,7 @@ function Homepage() {
 
         {/* Third section */}
         <section className='third-section'>
-
+        <Banderole/>
         </section>
       </>
     )

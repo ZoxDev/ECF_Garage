@@ -277,11 +277,8 @@ app.delete("/noticemessage/:id", async(req,res) =>{
     }
 });
 
-
-// Comment all
 // create multiple .js 
 // Listening app
 app.listen(5000, () =>{
     console.log("server start port : 5000")
 });
-

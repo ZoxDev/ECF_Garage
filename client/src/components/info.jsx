@@ -33,12 +33,15 @@ export default function Info(props) {
     // Get the id of the to select the good index of arry then in return get his infotext
     const selectedInfo = info[props.infid];
     const infotext = selectedInfo ? selectedInfo.infotext : "";
+    const infotitle = selectedInfo ? selectedInfo.infotitle : "";
    
     return (
         <>
         <article className='container'>
         <img className='image' src={props.url} />
-            <div className='text-box'>          
+            
+            <div className='text-box'>     
+            <h1>{infotitle}</h1>     
                     <p className='textinfo'>{infotext}</p>         
             </div>
         </article>

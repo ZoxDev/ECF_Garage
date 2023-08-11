@@ -24,7 +24,6 @@ CREATE TABLE schedule(
     hourStop TIME
 );
 
-
 CREATE TABLE presInfo(
     infoId serial PRIMARY KEY,
     infoTitle VARCHAR(50) NOT NULL,
