@@ -22,9 +22,9 @@ function Homepage() {
 
         {/* Second section */}
         <section id='second' className="second-section">
-          <Info url={motor}/>
-          <Info url={entretien}/>
-          <Info url={cardeal}/>
+          <Info infid={0} url={motor}/>
+          <Info infid={1} url={entretien}/>
+          <Info infid={2} url={cardeal}/>
         </section>
 
         {/* Third section */}
