@@ -11,13 +11,31 @@ import Info from '../components/info'
 import Banderole from '../components/banderole'
 import Noticecard from '../components/noticecard'
 
+import { useState} from 'react'
+
+  
+
+
 function Homepage() {
 
-  // Create an array that show notice in function of there id / max of 10 notice
-  const noticeCardArray = []
-  for(let i = 0 ; i < 10; i++){
-    noticeCardArray.push(<Noticecard notid={i}/>)
+  // Carrousel
+  let [currentNotice, setCurrentNotice] = useState(0);
+
+  const nextNotice = () => {
+      setCurrentNotice(currentNotice+1);
   }
+
+  const prevNotice = () =>{
+      setCurrentNotice(currentNotice-1);
+
+      if(currentNotice <= 0){
+        setCurrentNotice(currentNotice = 0);
+      }
+  }
+
+
+
+  console.log(currentNotice)
 
   return (
     <>
@@ -38,7 +56,9 @@ function Homepage() {
       {/* Third section */}
       <section className='third-section'>
         <Banderole />
-        {noticeCardArray}
+        <button className='prev-button' onClick={prevNotice}></button>
+        <Noticecard notid={currentNotice}/>
+        <button className='next-button' onClick={nextNotice}></button>
       </section>
     </>
   )

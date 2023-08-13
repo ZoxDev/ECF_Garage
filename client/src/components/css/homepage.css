@@ -36,5 +36,29 @@ font-family: 'Quicksand', sans-serif; */
     text-align: center;
 }
 
+/* Carrousel */
+
+.prev-button{
+    width: 25px;
+    height: 25px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    position: relative;
+    top: 52vh;
+    left: 5%;
+    transform: rotate(-130deg);
+}
+
+.next-button{
+    width: 25px;
+    height: 25px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    position: relative;
+    top: -35vh;
+    left: 85vw;
+    transform: rotate(45deg);
+}
+
 
 
