@@ -10,6 +10,7 @@ font-family: 'Quicksand', sans-serif; */
     background-image: url("../../assets/images/car.jpg");
     background-size: cover;
     background-position: center;
+    
 }
 
 .second-section{
@@ -60,5 +61,7 @@ font-family: 'Quicksand', sans-serif; */
     transform: rotate(45deg);
 }
 
-
-
+footer{
+    width: 100%;
+    height: 100vh;
+}

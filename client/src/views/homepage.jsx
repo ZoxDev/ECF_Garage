@@ -11,10 +11,10 @@ import Info from '../components/info'
 import Banderole from '../components/banderole'
 import Noticecard from '../components/noticecard'
 
+// page
+import Footer from './footer'
+
 import { useState} from 'react'
-
-  
-
 
 function Homepage() {
 
@@ -32,10 +32,6 @@ function Homepage() {
         setCurrentNotice(currentNotice = 0);
       }
   }
-
-
-
-  console.log(currentNotice)
 
   return (
     <>
@@ -60,6 +56,10 @@ function Homepage() {
         <Noticecard notid={currentNotice}/>
         <button className='next-button' onClick={nextNotice}></button>
       </section>
+
+      <footer>
+        <Footer/>
+      </footer>
     </>
   )
 }

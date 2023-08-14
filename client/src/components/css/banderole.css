@@ -14,8 +14,8 @@
 .banderole-text{
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
-    font-size: 18px;
-    animation: mooving-banderole 10s linear infinite;
+    font-size: 17px;
+    animation: mooving-banderole 5s linear infinite;
 }
 
 .span-spacing{

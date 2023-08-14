@@ -45,7 +45,7 @@ export default function Noticecard(props) {
             <div className='container-notice'>
             <h1 className='title'>Vos avis !</h1>  
                 <div className='card-container'>
-                    <h2 className='card-name'>{noticename} {noticelastname}</h2>
+                    <h2 className='card-name'>{noticename}<br></br>{noticelastname}</h2>
                     <div className='card-note'>
                         {noteArray}
                     </div>

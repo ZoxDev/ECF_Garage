@@ -9,7 +9,7 @@
     border-radius: 0px 0px 15px 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     z-index: 6;
 }
 
@@ -21,23 +21,24 @@
 
 .burger{
     width: 32px;
-    height: 30px;
+    height: 25px;
     background-color: #c3baba5d;
-    border-radius: 30%;
+    border-radius: 45%;
     margin-right: 5px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    gap: 3px;
     align-items: center;
     cursor: pointer;
-    outline: 1px solid rgb(116, 116, 116);
+    outline: 1px solid rgba(116, 116, 116, 0.473);
 }
 
 .burgerline
 {
-    width: 20px;
-    height: 2px;
-    background-color: black;
+    width: 15px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.699);
 }
 
 
