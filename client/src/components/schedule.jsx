@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import '../components/css/schedule.css'
 
 export default function Schedule(props) {
 

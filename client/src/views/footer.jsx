@@ -1,7 +1,6 @@
 import '../components/css/footer.css'
 import '../../src/index.css'
 
-import { useEffect, useState } from 'react';
 import Schedule from '../components/schedule';
 
 
@@ -20,8 +19,8 @@ export default function Footer() {
                             <tr>
                                 <th>Jours</th>
                                 <th>Début</th>
-                                <th>Pause-midi</th>
-                                <th>Pause-midi</th>
+                                <th>Pause</th>
+                                <th>Fin-pause</th>
                                 <th>Fin</th>
                             </tr>
                         </thead>
@@ -35,6 +34,9 @@ export default function Footer() {
                             <Schedule dayid={4}/>
                         </tbody>
                     </table>
+                </div>
+                <div className='google-map'>
+                    
                 </div>
             </footer>
         </>
