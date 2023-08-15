@@ -6,8 +6,6 @@ import Schedule from '../components/schedule';
 
 export default function Footer() {
 
-
-
     return (
         <>
             <footer>
@@ -26,18 +24,18 @@ export default function Footer() {
                         </thead>
                         <tbody>
                             {/* In function of the name of day (todolater) */}
-                            <Schedule dayid={0}/>
-                            <Schedule dayid={1}/>
-                            <Schedule dayid={2}/>
-                            <Schedule dayid={3}/>
-                            <Schedule dayid={5}/>
-                            <Schedule dayid={4}/>
+                            <Schedule dayid={0} />
+                            <Schedule dayid={1} />
+                            <Schedule dayid={2} />
+                            <Schedule dayid={3} />
+                            <Schedule dayid={5} />
+                            <Schedule dayid={4} />
                         </tbody>
                     </table>
                 </div>
-                <div className='google-map'>
-                    
-                </div>
+            {/* See how to render a map */}
+            <p className='text-footer'>Made by : ZoxxxDev</p>
+            <p className='text-footer'>© GarageVParrot / All Rights Reserved</p>
             </footer>
         </>
     );
