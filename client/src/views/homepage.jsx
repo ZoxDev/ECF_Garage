@@ -71,7 +71,7 @@ function Homepage() {
 
       {/* Third section */}
       <section className='third-section'>
-        <Banderole />
+        {/* <Banderole /> */}
         <button className='prev-button' onClick={prevNotice}></button>
         <Noticecard notid={currentNotice} />
         <button className='next-button' onClick={nextNotice}></button>

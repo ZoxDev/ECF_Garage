@@ -35,3 +35,23 @@ footer {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     border-radius: 30px;
 }
+
+@media screen and (min-width: 768px) {
+    .text-footer{
+        font-size: 24px;
+    }
+
+    .button-footer{
+        width: 200px;
+        height: 75px;
+        font-size: 22px;
+    }
+
+    .schedule{
+        font-size: 22px;
+    }
+
+    .text-footer{
+        margin-top: 65px;
+    }
+}

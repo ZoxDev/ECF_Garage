@@ -30,6 +30,16 @@ export default function Navbar(){
             border-radius: 0px 0px 15px 15px;
             font-family: 'Quicksand', sans-serif;
             font-size: 10px;  
+
+
+            /* Responsive */
+            @media screen and (min-width: 768px){
+                width: 200px;
+                height: 75px;
+                left: calc(50% - 100px);
+                font-size: 19px;
+                top: 75px;
+            }
     `
 
     return(

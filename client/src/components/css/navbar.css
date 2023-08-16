@@ -48,6 +48,21 @@
     .navbar{
         width: 400px;
         left: calc((50% - 200px));
+        height: 75px;
+    }
+
+    .logo{
+        width: 125px;
+    }
+
+    .burger{
+        width: 75px;
+        height: 55px;
+    }
+
+    .burgerline{
+        width: 25px;
+        height: 2px;
     }
     
 }

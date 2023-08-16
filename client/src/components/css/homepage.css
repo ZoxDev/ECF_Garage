@@ -10,6 +10,10 @@ font-family: 'Quicksand', sans-serif; */
     background-image: url("../../assets/images/car.jpg");
     background-size: cover;
     background-position: center;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
 }
 
@@ -23,15 +27,17 @@ font-family: 'Quicksand', sans-serif; */
     width: auto;
     height: 100vh;
     background: linear-gradient(165deg, #D94350 11.2%, #FFF 0%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
 
 .text{
+    margin-top: 15vh;
     width: 350px;
     height: 200px;
-    position: absolute;
-    left: calc(50% - 175px);
     top: 15%;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -42,23 +48,43 @@ font-family: 'Quicksand', sans-serif; */
 /* Carrousel */
 
 .prev-button{
+    margin-left: 20px;
     width: 25px;
     height: 25px;
     border-top: 2px solid black;
     border-right: 2px solid black;
-    position: relative;
-    top: 52vh;
-    left: 5%;
     transform: rotate(-130deg);
 }
 
 .next-button{
+    margin-right: 20px;
     width: 25px;
     height: 25px;
     border-top: 2px solid black;
     border-right: 2px solid black;
-    position: relative;
-    top: -35vh;
-    left: 85vw;
     transform: rotate(45deg);
+}
+
+
+/* Repsonvie */
+/* Tablet (768px) */
+
+@media screen and (min-width: 768px){
+    /* First section */
+
+    .text{
+        width: 700px;
+        font-size: 32px;
+    }
+
+    /* Second-section */
+    .second-section{
+        background: linear-gradient(187deg, #090909 8%, #D94350 0%);
+        background-color: blue;
+    }
+
+    /* Third-section */
+    .third-section{
+        background: linear-gradient(170deg, #D94350 11.2%, #FFF 0%);
+    }
 }
