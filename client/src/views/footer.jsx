@@ -4,11 +4,17 @@ import '../../src/index.css'
 import Schedule from '../components/schedule';
 
 
+
+
 export default function Footer() {
+
+
+
+
 
     return (
         <>
-            <footer>
+            <footer id='foot' className='foot'>
                 <p className="text-footer">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>
                 <button className='button-footer'>UN AVIS ?</button>
                 <div className='schedule'>
@@ -33,9 +39,9 @@ export default function Footer() {
                         </tbody>
                     </table>
                 </div>
-            {/* See how to render a map */}
-            <p className='text-footer'>Made by : ZoxxxDev</p>
-            <p className='text-footer'>© GarageVParrot / All Rights Reserved</p>
+                {/* See how to render a map */}
+                <p className='text-footer'>Made by : ZoxxxDev</p>
+                <p className='text-footer'>© GarageVParrot / All Rights Reserved</p>
             </footer>
         </>
     );

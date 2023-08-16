@@ -14,7 +14,9 @@ import Noticecard from '../components/noticecard'
 // page
 import Footer from './footer'
 
-import { useState} from 'react'
+// Use
+import { useState, useLayoutEffect } from 'react'
+// import { gsap } from 'gsap'
 
 function Homepage() {
 
@@ -22,16 +24,34 @@ function Homepage() {
   let [currentNotice, setCurrentNotice] = useState(0);
 
   const nextNotice = () => {
-      setCurrentNotice(currentNotice+1);
+    setCurrentNotice(currentNotice + 1);
   }
 
-  const prevNotice = () =>{
-      setCurrentNotice(currentNotice-1);
+  const prevNotice = () => {
+    setCurrentNotice(currentNotice - 1);
 
-      if(currentNotice <= 0){
-        setCurrentNotice(currentNotice = 0);
-      }
+    if (currentNotice <= 0) {
+      setCurrentNotice(currentNotice = 0);
+    }
   }
+
+  // Gsap anim of footer
+
+  // useLayoutEffect(() => {
+
+
+    //  gsap.set("footer",
+    //   {
+    //      yPercent: -50,
+    //      display: "none",
+    //   })
+
+  //     gsap.to(".footer",
+  //     {
+  //       duration: 10,
+  //     })
+  // }, [])
+
 
   return (
     <>
@@ -53,13 +73,15 @@ function Homepage() {
       <section className='third-section'>
         <Banderole />
         <button className='prev-button' onClick={prevNotice}></button>
-        <Noticecard notid={currentNotice}/>
+        <Noticecard notid={currentNotice} />
         <button className='next-button' onClick={nextNotice}></button>
       </section>
 
+      {/* Footer */}
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
+      
     </>
   )
 }
