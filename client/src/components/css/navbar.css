@@ -1,5 +1,9 @@
 
 /* Mobile */
+.navbar-desktop{
+    display: none;
+}
+
 .navbar{
     width: 160px;
     height: 50px;
@@ -65,6 +69,44 @@
         height: 2px;
     }
     
+}
+
+@media screen and (min-width: 1280px) and (min-height: 720px){
+    .navbar{display: none;}
+
+    .navbar-desktop{
+        width: 800px;
+        height: 60px;
+        position: fixed;
+        left: calc(50% - 400px);
+        background-color: rgb(255, 255, 255);
+        border-radius: 0px 0px 15px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 6;
+    }
+
+    .nav-links{
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    .nav-link{
+        margin-right: 20px;
+    }
+    .nav-link:hover{
+        cursor: pointer;
+        border-bottom: 1px solid black;
+
+        transition: 400ms ease border-bottom;
+    }
+
+    .svg-auth:hover{
+        cursor: pointer;
+    }
+
 }
 
 

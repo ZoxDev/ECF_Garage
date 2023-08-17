@@ -4,26 +4,26 @@
 font-family: 'Poppins', sans-serif;
 font-family: 'Quicksand', sans-serif; */
 
-.first-section{
+.first-section {
     width: auto;
     height: 100vh;
     background-image: url("../../assets/images/car.jpg");
     background-size: cover;
     background-position: center;
-   
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
-.second-section{
+.second-section {
     width: auto;
     height: 100vh;
     background: linear-gradient(190deg, #090909 8%, #D94350 0%);
 }
 
-.third-section{
+.third-section {
     width: auto;
     height: 100vh;
     background: linear-gradient(165deg, #D94350 11.2%, #FFF 0%);
@@ -34,7 +34,7 @@ font-family: 'Quicksand', sans-serif; */
 
 
 
-.text{
+.text {
     margin-top: 15vh;
     width: 350px;
     height: 200px;
@@ -47,7 +47,7 @@ font-family: 'Quicksand', sans-serif; */
 
 /* Carrousel */
 
-.prev-button{
+.prev-button {
     margin-left: 20px;
     width: 25px;
     height: 25px;
@@ -56,7 +56,7 @@ font-family: 'Quicksand', sans-serif; */
     transform: rotate(-130deg);
 }
 
-.next-button{
+.next-button {
     margin-right: 20px;
     width: 25px;
     height: 25px;
@@ -69,22 +69,53 @@ font-family: 'Quicksand', sans-serif; */
 /* Repsonvie */
 /* Tablet (768px) */
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
     /* First section */
 
-    .text{
+    .text {
         width: 700px;
         font-size: 32px;
     }
 
     /* Second-section */
-    .second-section{
+    .second-section {
         background: linear-gradient(187deg, #090909 8%, #D94350 0%);
-        background-color: blue;
     }
 
     /* Third-section */
-    .third-section{
+    .third-section {
         background: linear-gradient(170deg, #D94350 11.2%, #FFF 0%);
     }
+}
+
+@media screen and (min-width: 1280px) and (min-height: 720px) {
+
+    .first-section {
+        background-image: url("../../assets/images/car.jpg");
+        background-size: 1280px 720px;
+        aspect-ratio: auto;
+        background-position: center;
+    }
+
+    .second-section{
+        background: linear-gradient(182.5deg, #090909 8%, #D94350 0%);
+    }
+
+    .third-section{
+        background: linear-gradient(176deg, #D94350 11.2%, #FFF 0%);
+    }
+}
+
+@media screen and (min-width: 1400px) and (min-height: 720px) {
+
+    .first-section {
+        background-image: url("../../assets/images/car.jpg");
+        background-size: contain;
+        
+        background-repeat: no-repeat;
+        background-position: center; 
+    }
+
+
+
 }

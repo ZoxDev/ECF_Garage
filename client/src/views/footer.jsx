@@ -3,22 +3,35 @@ import '../../src/index.css'
 
 import Schedule from '../components/schedule';
 
+import { useState } from 'react';
 
 
 
 export default function Footer() {
 
-
+const [] = useState("");
+const [] = useState("");
+const [message, setMessage] = useState("");
+const [note, setNote] = useState("");
 
 
 
     return (
         <>
             <footer id='foot' className='foot'>
-                <p className="text-footer">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>
+                <p className="text-footer pres-text">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>
                 <button className='button-footer'>UN AVIS ?</button>
+
+                <form className='notice-form'>
+                    <input type='text' placeholder='Nom'/>
+                    <input type='text' placeholder='Prénom'/>
+                    <input type='text' placeholder='Message'/>
+                    <input type='text' placeholder='Note'/>
+                    <button>ENVOYÉ</button>
+                </form>
+
                 <div className='schedule'>
-                    <table className=" text-white">
+                    <table className="table-style text-white">
                         <thead>
                             <tr>
                                 <th>Jours</th>
@@ -40,8 +53,8 @@ export default function Footer() {
                     </table>
                 </div>
                 {/* See how to render a map */}
-                <p className='text-footer'>Made by : ZoxxxDev</p>
-                <p className='text-footer'>© GarageVParrot / All Rights Reserved</p>
+                <p className='text-footer credits-text'>Made by : ZoxxxDev</p>
+                <p className='text-footer copy-text'>© GarageVParrot / All Rights Reserved</p>
             </footer>
         </>
     );

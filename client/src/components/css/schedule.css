@@ -10,3 +10,12 @@ td{
         padding: 13px;
     }
 }
+
+@media screen and (min-width: 1280px) and (min-height: 720px) {
+
+    td{
+        font-size: 14px;
+        padding: 10px;
+    }
+
+}
