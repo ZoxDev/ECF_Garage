@@ -24,6 +24,7 @@ export default function Noticecard(props) {
     }, [])
 
     // Get all the information only when the fetch is ended
+
     const selectedInfo = notice[props.notid];
     const noticemessage = selectedInfo ? selectedInfo.noticeusermessage : "";
     const noticename = selectedInfo ? selectedInfo.noticeusername : "";
@@ -38,8 +39,7 @@ export default function Noticecard(props) {
     return (
         <>
             
-            <div className='container-notice'>
-            <h1 className='title'>Vos avis !</h1>  
+            <div className='container-notice'> 
                 <div className='card-container'>
                     <h2 className='card-name'>{noticename}<br></br>{noticelastname}</h2>
                     <div className='card-note'>

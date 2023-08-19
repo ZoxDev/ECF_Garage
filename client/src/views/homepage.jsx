@@ -40,11 +40,11 @@ function Homepage() {
   // useLayoutEffect(() => {
 
 
-    //  gsap.set("footer",
-    //   {
-    //      yPercent: -50,
-    //      display: "none",
-    //   })
+  //  gsap.set("footer",
+  //   {
+  //      yPercent: -50,
+  //      display: "none",
+  //   })
 
   //     gsap.to(".footer",
   //     {
@@ -64,16 +64,24 @@ function Homepage() {
 
       {/* Second section */}
       <section id='second' className="second-section">
-        <Info infid={0} url={motor} />
-        <Info infid={1} url={entretien} />
-        <Info infid={2} url={cardeal} />
+        <Info infid={0} url={motor} id='inf1' />
+        <Info infid={1} url={entretien} id='inf2' />
+        <Info infid={2} url={cardeal} id='inf3' />
       </section>
 
       {/* Third section */}
       <section className='third-section'>
         {/* <Banderole /> */}
         <button className='prev-button' onClick={prevNotice}></button>
+        <div className='notice-side'>
+          <Noticecard notid={currentNotice - 1} />
+        </div>
+
         <Noticecard notid={currentNotice} />
+
+        <div className='notice-side'>
+          <Noticecard notid={currentNotice + 1} />
+        </div>
         <button className='next-button' onClick={nextNotice}></button>
       </section>
 
@@ -81,7 +89,7 @@ function Homepage() {
       <footer>
         <Footer />
       </footer>
-      
+
     </>
   )
 }

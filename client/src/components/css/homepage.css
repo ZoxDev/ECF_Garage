@@ -47,6 +47,10 @@ font-family: 'Quicksand', sans-serif; */
 
 /* Carrousel */
 
+.notice-side{
+    display: none;
+}
+
 .prev-button {
     margin-left: 20px;
     width: 25px;
@@ -80,6 +84,12 @@ font-family: 'Quicksand', sans-serif; */
     /* Second-section */
     .second-section {
         background: linear-gradient(187deg, #090909 8%, #D94350 0%);
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        align-items: center;
+        justify-items: start;
     }
 
     /* Third-section */
@@ -92,9 +102,8 @@ font-family: 'Quicksand', sans-serif; */
 
     .first-section {
         background-image: url("../../assets/images/car.jpg");
-        background-size: 1280px 720px;
-        aspect-ratio: auto;
-        background-position: center;
+        background-size: cover;
+        background-position: bottom;
     }
 
     .second-section{
@@ -106,16 +115,17 @@ font-family: 'Quicksand', sans-serif; */
     }
 }
 
-@media screen and (min-width: 1400px) and (min-height: 720px) {
+@media screen and (min-width: 1440px) {
 
     .first-section {
         background-image: url("../../assets/images/car.jpg");
-        background-size: contain;
-        
-        background-repeat: no-repeat;
-        background-position: center; 
+        background-position: bottom;
     }
 
+    /* Carrousel */
 
-
+    .notice-side{
+        display: block;
+        opacity: 0.2;
+    }
 }

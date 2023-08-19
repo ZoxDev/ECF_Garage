@@ -41,8 +41,8 @@ export default function Footer() {
                     <div className='form-container'>
                     <p>Un avis ?</p>
                         <div className='form-user-info'>
-                            <input className='form-user-info-box' type='text' placeholder='Nom' value={noticeuserlastname} onChange={e => setLastName(e.target.value)} />
-                            <input className='form-user-info-box' type='text' placeholder='Prénom' value={noticeusername} onChange={e => setName(e.target.value)} />
+                            <input className='form-user-info-box' type='text' placeholder='Prénom' value={noticeuserlastname} onChange={e => setLastName(e.target.value)} />
+                            <input className='form-user-info-box' type='text' placeholder='Nom' value={noticeusername} onChange={e => setName(e.target.value)} />
                         </div>
                         <textarea className='form-message' type='text' placeholder='Message' value={noticeusermessage} onChange={e => setMessage(e.target.value)} />
                         <input className='form-user-note' type='number' placeholder='Note' value={noticeusernote} onChange={e => setNote(e.target.value)} />
