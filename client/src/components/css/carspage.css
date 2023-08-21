@@ -1,0 +1,5 @@
+.search-bar{
+    position: absolute;
+    top: 10%;
+    left: calc(50% - 45vw);
+}

@@ -1,11 +1,13 @@
-// Components
+// Pages
 import Homepage from "./views/homepage"
+import CarsPage from "./views/carspage"
+
 
 function App() {
 
   return (
     <>
-      <Homepage></Homepage>
+      <CarsPage></CarsPage>
     </>
   )
 }
