@@ -6,7 +6,12 @@ import Navbar from '../components/navbar'
 import Carscard from '../components/carscard'
 import Filterbar from '../components/filterbar'
 
+// Utilities
+
+
 export default function CarsPage(){
+
+
     return(
         <>
         <Navbar/>
@@ -14,7 +19,7 @@ export default function CarsPage(){
             <Filterbar/>
         </div>
         <section className='cars-card-container'>
-        <Carscard/>
+        
         </section>
         </>
     )

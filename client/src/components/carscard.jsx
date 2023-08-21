@@ -4,33 +4,21 @@ import '../components/css/carscard.css'
 // Utilites
 import { useState, useEffect } from 'react'
 
-export default function Carscard() {
-
-    const getCars = async () => {
-        try {
-            const response = await fetch("http://localhost:5000/cars");
-            const jsonData = await response.json();
-
-            console.log(jsonData)
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    useEffect(() => {
-        getCars();
-    }, [])
-
+export default function Carscard(props) {
 
 
     return (
         <>
             <div className='cards-container'>
                 <div className='card-image'>
-                    IMAGE
+                    {/* Image of the card */}
                 </div>
                 <div className='card-content'>
 
+                </div>
+
+                <div className='btn-card'>
+                    {/* Button for message a car */}
                 </div>
             </div>
         </>
