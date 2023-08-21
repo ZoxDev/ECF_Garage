@@ -2,29 +2,45 @@
 import '../components/css/carscard.css'
 
 // Utilites
-import { useState, useEffect } from 'react'
 import { useFetch } from './queryget';
 
-export default function Carscard() {
+export default function Carscard(props) {
 
     const [data, loading, error] = useFetch("http://localhost:5000/cars")
 
-    useEffect(() =>{
-        console.log(data)
-    }, [])
+    if (loading) {
+        return <p>Loading...</p>;
+    }
 
-
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
 
     return (
         <>
-            <div className='cards-container'>
+            <section className='cards-container'>
                 <div className='card-image'>
                     IMAGE
                 </div>
                 <div className='card-content'>
-
+                    <div className='main-info'>
+                        <p>{data[props.carid].carbrand}</p>
+                        <p>{data[props.carid].carmodel}</p>
+                    </div>
+                    <div className='price-info'>
+                        <p>{data[props.carid].price} €</p>
+                    </div>
+                   
+                        <p className='circu-date'>{data[props.carid].circulationdate}</p>
+                        <p className='engine'>{data[props.carid].engine}</p>
+                        <p className='distance-tavel'>{data[props.carid].distancetravel} Km</p>
+                    
                 </div>
-            </div>
+                <div className='btn-card'>
+                    <button className='btn'>CONTACTEZ</button>
+                </div>
+
+            </section>
         </>
     )
 }

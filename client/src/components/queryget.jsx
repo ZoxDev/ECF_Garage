@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 
 
 export const useFetch = (url) => {
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
   
     useEffect(() => {
-      fetch(url)
+        fetch(url)
         .then(res => res.json())
         .then(data => {
           setError(data.error);

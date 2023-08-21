@@ -1,5 +1,20 @@
+.page-container{
+    background: linear-gradient(174deg, #DA4350 45.31%, #FFF 45.32%);
+    width: 100%;
+}
+
 .search-bar{
     position: absolute;
     top: 10%;
     left: calc(50% - 45vw);
+}
+
+.cars-card-container{
+    margin-left: 10%;
+    margin-top: 55%;
+}
+
+.multiple-div-card{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

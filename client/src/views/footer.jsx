@@ -47,9 +47,8 @@ export default function Footer() {
                         <textarea className='form-message' type='text' placeholder='Message' value={noticeusermessage} onChange={e => setMessage(e.target.value)} />
                         <input className='form-user-note' type='number' placeholder='Note' value={noticeusernote} onChange={e => setNote(e.target.value)} />
 
-                        <button className='form-button'>ENVOYÉ</button>
+                        <button type='submit' className='form-button'>ENVOYÉ</button>
                     </div>
-
                 </form>
 
                 <div className='schedule'>
