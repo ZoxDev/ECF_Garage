@@ -3,6 +3,7 @@ import '../components/css/carscard.css'
 
 // Utilites
 import { useFetch } from './queryget';
+import Contactcars from './contact-cars';
 
 export default function Carscard(props) {
 
@@ -15,6 +16,7 @@ export default function Carscard(props) {
     if (error) {
         return <p>Error: {error}</p>;
     }
+    const name = data[props.carid].carbrand;
 
     return (
         <>
@@ -37,7 +39,7 @@ export default function Carscard(props) {
                     
                 </div>
                 <div className='btn-card'>
-                    <button className='btn'>CONTACTEZ</button>
+                   <Contactcars carName={name}/>
                 </div>
 
             </section>
