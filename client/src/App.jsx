@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <CarsPage></CarsPage>
+     <CarsPage></CarsPage>
     </>
   )
 }

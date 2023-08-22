@@ -1,45 +1,46 @@
+// CSS
 import '../components/css/footer.css'
 import '../../src/index.css'
 
+// Component
 import Schedule from '../components/schedule';
 
+// Hook
 import { useState } from 'react';
-
+import { useFetchPost } from '../components/querypost';
 
 
 export default function Footer() {
-
+    // Data to sent
     const [noticeusername, setName] = useState("");
     const [noticeuserlastname, setLastName] = useState("");
     const [noticeusermessage, setMessage] = useState("");
     const [noticeusernote, setNote] = useState("");
 
-    const sendForm = async e => {
-        e.preventDefault();
-        try {
-            const body = { noticeusername, noticeuserlastname, noticeusermessage, noticeusernote };
-            const response = await fetch("http://localhost:5000/noticemessage", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body)
-            })
+    // Fetch api
+    const { callback: postNotice } = useFetchPost("http://localhost:5000/noticemessage");
 
-            console.log(response)
-        } catch (err) {
-            console.error(err);
-        }
+    // await for the callback and post the data
+    const sendFormFoot = async (e) => {
+    e.preventDefault();
+      await postNotice({
+        noticeusername,
+        noticeuserlastname,
+        noticeusermessage,
+        noticeusernote,
+      });
     }
 
     return (
-        <>      
-            
+        <>
+
             <footer id='foot' className='foot'>
                 <p className="text-footer pres-text">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>
                 <button className='button-footer'>UN AVIS ?</button>
 
-                <form className='notice-form' onSubmit={sendForm}>
+                <form className='notice-form' onSubmit={sendFormFoot}>
                     <div className='form-container'>
-                    <p>Un avis ?</p>
+                        <p>Un avis ?</p>
                         <div className='form-user-info'>
                             <input className='form-user-info-box' type='text' placeholder='Prénom' value={noticeuserlastname} onChange={e => setLastName(e.target.value)} />
                             <input className='form-user-info-box' type='text' placeholder='Nom' value={noticeusername} onChange={e => setName(e.target.value)} />
