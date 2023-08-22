@@ -7,7 +7,7 @@ import Schedule from '../components/schedule';
 
 // Hook
 import { useState } from 'react';
-import { useFetchPost } from '../components/querypost';
+import { useFetchPost } from '../hooks/querypost';
 
 
 export default function Footer() {

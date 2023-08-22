@@ -4,7 +4,13 @@ import styled from 'styled-components'
 
 // Hook
 import { useState } from 'react';
-import { useFetchPost } from './querypost';
+import { useFetchPost } from '../hooks/querypost';
+
+// Styled div
+const MyModal = styled.div`
+    display: ${props => props.show ? `block` : `none`};
+`
+
 
 export default function Contactcars(props) {
     // Data to sent
@@ -14,7 +20,7 @@ export default function Contactcars(props) {
     const [carusermessage, setMessage] = useState("");
 
     // Requête 
-    const {callback : postMessage} = useFetchPost("http://localhost:5000/carsmessage")
+    const { callback: postMessage } = useFetchPost("http://localhost:5000/carsmessage")
     const sendForm = async (e) => {
         e.preventDefault();
         await postMessage({
@@ -26,23 +32,18 @@ export default function Contactcars(props) {
     }
 
     // Modal
-    const [modal, setModal] = useState('');
+    const [showModal, setModal] = useState(false);
 
     const toogleModal = () => {
-        setModal(!modal);
+        setModal(!showModal);
     }
-
-    // Styled div
-    const MyModal = styled.div`
-       display: ${modal ? `block` : `none`};
-    `
 
     return (
         <>
             <div className='btn' onClick={toogleModal}>
                 CONTACTEZ
             </div>
-            <MyModal>
+            <MyModal show={showModal}>
                 <div className='modal'>
                     <span onClick={toogleModal} className='btn-close'><svg width="20" height="20" viewBox="0 0 117 118" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M108.533 9.31885L8.68677 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
@@ -55,23 +56,26 @@ export default function Contactcars(props) {
                     <form className='modal-form' onSubmit={sendForm}>
                         <div className='input-text'>
                             <h4 className='name-text'>Nom</h4>
-                            <input type='text' placeholder='Nom' defaultValue={caruserlastname} onChange={e => setNom(e.target.value)} />
+                            <input className='input-style' type='text' placeholder='Nom' defaultValue={caruserlastname} onChange={e => setNom(e.target.value)} />
                         </div>
                         <div className='input-text'>
                             <h4 className='name-text'>Prénom</h4>
-                            <input type='text' placeholder='Prénom' value={carusername} onChange={e => setPrenom(e.target.value)} />
+                            <input className='input-style' type='text' placeholder='Prénom' value={carusername} onChange={e => setPrenom(e.target.value)} />
                         </div>
                         <div className='input-text'>
                             <h4 className='name-text'>Mail</h4>
-                            <input placeholder='Mail' type='text' value={carusermail} onChange={e => setMail(e.target.value)} />
+                            <input className='input-style' placeholder='Mail' type='text' value={carusermail} onChange={e => setMail(e.target.value)} />
                         </div>
                         <div>
                             <textarea className='text-area' placeholder='Votre message' value={carusermessage} onChange={e => setMessage(e.target.value)} />
                         </div>
-                        <button type='submit'>ENVOYÉ</button>
+
+                        <button className='button-form' type='submit'>ENVOYÉ</button>
+
                     </form>
                 </div>
             </MyModal>
+
         </>
     );
 }

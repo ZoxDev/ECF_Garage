@@ -2,7 +2,7 @@
 import '../components/css/carscard.css'
 
 // Utilites
-import { useFetch } from './queryget';
+import { useFetch } from '../hooks/queryget';
 import Contactcars from './contact-cars';
 
 export default function Carscard(props) {

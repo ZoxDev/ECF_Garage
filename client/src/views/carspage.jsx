@@ -10,7 +10,7 @@ import Filterbar from '../components/filterbar'
 
 // Utilities
 import Footer from './footer'
-import { useFetch } from '../components/queryget'
+import { useFetch } from '../hooks/queryget'
 
 export default function CarsPage() {
 

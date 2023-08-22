@@ -46,8 +46,9 @@
 }
 
 .modal-header{
-    
-    margin-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 25px;
     height: 10%;
     width: 100%;
     text-align: center;
@@ -58,10 +59,29 @@
     margin-left: 5%;
     width: 90%;
     height: 150px;
+    background-color: rgba(128, 128, 128, 0.5);
 }
 
 .input-text{
     width: 50%;
     margin-top: 10px;
     margin-left: 75px;
+}
+
+.button-form{
+    margin-top: 25px;
+    margin-left: calc(50% - 50px);
+    border-radius: 15px;
+    width: 100px;
+    height: 5%;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.input-style{
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.flex-box{
+    display: flex;
+    flex-wrap: wrap;
 }
