@@ -11,7 +11,6 @@ const MyModal = styled.div`
     display: ${props => props.show ? `block` : `none`};
 `
 
-
 export default function Contactcars(props) {
     // Data to sent
     const [caruserlastname, setNom] = useState("");
@@ -75,7 +74,6 @@ export default function Contactcars(props) {
                     </form>
                 </div>
             </MyModal>
-
         </>
     );
 }
