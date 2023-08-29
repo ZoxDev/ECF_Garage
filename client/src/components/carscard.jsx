@@ -16,7 +16,7 @@ export default function Carscard(props) {
     if (error) {
         return <p>Error: {error}</p>;
     }
-    const name = data[props.carid].carbrand;
+    const name = props.carid.carbrand;
 
     return (
         <>
@@ -26,16 +26,16 @@ export default function Carscard(props) {
                 </div>
                 <div className='card-content'>
                     <div className='main-info'>
-                        <p>{data[props.carid].carbrand}</p>
-                        <p>{data[props.carid].carmodel}</p>
+                        <p>{props.carid.carbrand}</p>
+                        <p>{props.carid.carmodel}</p>
                     </div>
                     <div className='price-info'>
-                        <p>{data[props.carid].price} €</p>
+                        <p>{props.carid.price} €</p>
                     </div>
                    
-                        <p className='circu-date'>{data[props.carid].circulationdate}</p>
-                        <p className='engine'>{data[props.carid].engine}</p>
-                        <p className='distance-tavel'>{data[props.carid].distancetravel} Km</p>
+                        <p className='circu-date'>{props.carid.circulationdate}</p>
+                        <p className='engine'>{props.carid.engine}</p>
+                        <p className='distance-tavel'>{props.carid.distancetravel} Km</p>
                     
                 </div>
                 <div className='btn-card'>
