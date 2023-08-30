@@ -38,6 +38,40 @@
     margin-bottom: 20px;
 }
 
+
+
+/* No data */
+.section-nodata{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-size: 32px;
+}
+.rolling-image{
+    font-size: 100px;
+    animation: rotate 3s linear infinite;
+}
+.text-nodata{
+    font-family: 'Poppins', sans-serif;
+}
+.btn-nodata{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 @media screen and (min-width: 768px) {
     .search-bar{
         margin-top: 15%;

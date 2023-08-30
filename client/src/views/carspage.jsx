@@ -76,7 +76,7 @@ export default function CarsPage() {
                 newData = data.filter(car => car.engine == engine);
             }
         }
-        
+
         setFilteredData(newData)
         setIsFiltered(true);
     }
@@ -96,10 +96,26 @@ export default function CarsPage() {
     const NormalData = styled.div`
         display: ${isFiltered ? `none` : `block`};
     `
+
+    if (filteredData.length == 0 && isFiltered == true) {
+        return (
+            <>
+                <button onClick={stopFilter} className='btn-nodata'><svg width="30" height="30" viewBox="0 0 117 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M108.533 9.31885L8.68677 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M8.68677 9.31885L108.533 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
+                </svg></button>
+                <section className='section-nodata'>
+                    <div className='rolling-image'>😭</div>
+                    <p className='text-nodata'>Nous n'avons pas de voiture qui vous convienne chez nous.</p>
+                </section>
+            </>
+
+        )
+    }
     // Basic render
     return (
         <>
-            <Navbar/>
+            <Navbar />
             <section className='page-container'>
                 <div className='search-bar'>
                     <FilterBar
@@ -110,17 +126,17 @@ export default function CarsPage() {
                     />
 
                     <div className='btn-filter'>
-                    <button className='btn-carspage' onClick={globalFilter}>RECHERCHER</button>
-                    <button className='stop-filter' onClick={stopFilter}><svg width="20" height="20" viewBox="0 0 117 118" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M108.533 9.31885L8.68677 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M8.68677 9.31885L108.533 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    </button>
+                        <button className='btn-carspage' onClick={globalFilter}>RECHERCHER</button>
+                        <button className='stop-filter' onClick={stopFilter}><svg width="20" height="20" viewBox="0 0 117 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M108.533 9.31885L8.68677 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M8.68677 9.31885L108.533 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        </button>
                     </div>
-                    
+
                 </div>
 
-                < NewData >
+                <NewData>
                     <section className='cars-card-container'>
                         {filteredData.map(element => (
                             <div className='multiple-div-card'>
