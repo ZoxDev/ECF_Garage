@@ -4,13 +4,14 @@ import '../components/css/carscard.css'
 // Utilites
 import { useFetch } from '../hooks/queryget';
 import Contactcars from './contact-cars';
+import Loading from './loading';
 
 export default function Carscard(props) {
 
     const [data, loading, error] = useFetch("http://localhost:5000/cars")
 
     if (loading) {
-        return <p>Loading...</p>;
+        <Loading></Loading>
     }
 
     if (error) {

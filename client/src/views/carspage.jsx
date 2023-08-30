@@ -6,6 +6,7 @@ import '../components/css/carspage.css'
 import Navbar from '../components/navbar'
 import Carscard from '../components/carscard'
 import FilterBar from '../components/filterbar'
+import Loading from '../components/loading'
 
 // Utilities
 import Footer from './footer'
@@ -32,8 +33,7 @@ export default function CarsPage() {
     // Get all the cars
     const [data, loading, error] = useFetch("http://localhost:5000/cars")
     if (loading) {
-        // Faire une loading page
-        return <p>Loading...</p>;
+        <Loading></Loading>
     }
     if (error) {
         return <p>Error: {error}</p>;
@@ -103,7 +103,8 @@ export default function CarsPage() {
                 <button onClick={stopFilter} className='btn-nodata'><svg width="30" height="30" viewBox="0 0 117 118" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M108.533 9.31885L8.68677 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M8.68677 9.31885L108.533 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
-                </svg></button>
+                </svg>
+                </button>
                 <section className='section-nodata'>
                     <div className='rolling-image'>😭</div>
                     <p className='text-nodata'>Nous n'avons pas de voiture qui vous convienne chez nous.</p>

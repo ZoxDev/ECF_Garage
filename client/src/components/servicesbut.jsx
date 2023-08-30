@@ -5,8 +5,6 @@ import "../components/css/servicebut.css"
 
 
 export default function ServicesButton(props) {
-
-
     return (
         <>
             <div className="btn-container">
