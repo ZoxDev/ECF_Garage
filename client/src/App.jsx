@@ -1,13 +1,14 @@
 // Pages
 import Homepage from "./views/homepage"
 import CarsPage from "./views/carspage"
+import Noticepage from "./views/noticepage"
 
 
 function App() {
 
   return (
     <>
-     <CarsPage></CarsPage>
+     <Homepage></Homepage>
     </>
   )
 }

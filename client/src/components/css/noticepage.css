@@ -1,0 +1,122 @@
+.notice-page-section {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(168deg, #DA4350 45.08%, #FFF 45.09%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.circles {
+    box-shadow: -5px 5px 3px rgba(0, 0, 0, 0.425);
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(70%);
+    left: 2%;
+    background-color: #DA4350;
+    border-radius: 100%;
+}
+
+.circles:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+
+.circles:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    background-color: white;
+
+}
+
+h3 {
+    font-size: 32px;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.form-notice {
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: rgb(170, 164, 164) 2px solid;
+    width: 90%;
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.055);
+    justify-items: center;
+    display: grid;
+    grid-template-rows: 4;
+}
+
+.perso-info {
+    margin-left: 20px;
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    grid-row: 1;
+}
+
+.perso-info-text {
+    width: 80%;
+    height: 30px;
+    border-radius: 5px;
+    background: #070707;
+    color: white;
+}
+
+.label-text {
+    font-size: 18px;
+    font-weight: 1000;
+}
+
+.message-box {
+    margin-left: 5%;
+    grid-row: 2;
+}
+
+.message {
+    width: 90%;
+    height: 250px;
+    border-radius: 5px;
+    background: #070707;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.number-box {
+    margin-top: 10px;
+    grid-row: 3;
+}
+
+.number {
+    width: 75px;
+    border-radius: 5px;
+    background: #070707;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.number-box>h3 {
+    color: black;
+}
+
+.form-button {
+    background: rgb(33, 33, 33);
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border-radius: 100px;
+    grid-row: 4;
+}

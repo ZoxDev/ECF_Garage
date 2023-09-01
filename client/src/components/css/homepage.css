@@ -18,23 +18,27 @@ font-family: 'Quicksand', sans-serif; */
 }
 
 .second-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: auto;
     height: 100vh;
-    background: linear-gradient(190deg, #090909 8%, #D94350 0%);
+    background: linear-gradient(182.5deg, #090909 8%, #414141 0%);
 }
 
 .third-section {
     width: auto;
     height: 100vh;
-    background: linear-gradient(165deg, #D94350 11.2%, #FFF 0%);
+    background: linear-gradient(183.5deg, #414141 11.2%, #FFF 0%);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-
-
 .text {
+    padding-left: 25px;
+    padding-right: 25px;
     margin-top: 15vh;
     width: 350px;
     height: 200px;
@@ -83,7 +87,7 @@ font-family: 'Quicksand', sans-serif; */
 
     /* Second-section */
     .second-section {
-        background: linear-gradient(187deg, #090909 8%, #D94350 0%);
+        background: linear-gradient(182.5deg, #090909 8%, #414141 0%);
 
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -94,7 +98,7 @@ font-family: 'Quicksand', sans-serif; */
 
     /* Third-section */
     .third-section {
-        background: linear-gradient(170deg, #D94350 11.2%, #FFF 0%);
+        background: linear-gradient(183.5deg, #414141 11.2%, #FFF 0%);
     }
 }
 
@@ -107,11 +111,11 @@ font-family: 'Quicksand', sans-serif; */
     }
 
     .second-section{
-        background: linear-gradient(182.5deg, #090909 8%, #D94350 0%);
+        background: linear-gradient(182.5deg, #090909 8%, #414141 0%);
     }
 
     .third-section{
-        background: linear-gradient(176deg, #D94350 11.2%, #FFF 0%);
+        background: linear-gradient(183.5deg, #414141 11.2%, #FFF 0%);
     }
 }
 
