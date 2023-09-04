@@ -10,60 +10,10 @@ app.use(express.json()); // req.body
 
 
 // Tout les appel API
-// Users routes for admin
-// Create user
-app.post("/users", async(req, res) => {
-    try {
-        const {userMail, userPassword} = req.body;
+// Create user JWT AUTH
+app.use("/auth", require("./routes/jwtAuth"));
 
-        const newUserMail = await pool.query("INSERT INTO users (userMail, userPassword) VALUES($1, $2) RETURNING *", 
-        [userMail, userPassword]
-        );
-        console.log(req.body);
-        res.json(newUserMail.rows[0]);
-        
-    } catch (err) {
-        console.error(err.message);
-    }
-});
 
-// get all user
-app.get("/users", async(req,res) => {
-    try {
-        const getUsers = await pool.query("SELECT * FROM users")
-        res.json(getUsers.rows);
-    } catch (err) {
-      console.error(err.message);  
-    }
-});
-
-// update user
-
-app.put("/users/:id", async(req,res) => {
-    try {
-        const {id} = req.params;
-        const { userMail, userPassword} = req.body;
-        const updateUser = await pool.query("UPDATE users SET (userMail, userPassword) =($1, $2) WHERE userid = $3", 
-        [userMail, userPassword, id]);
-
-        res.json("updated");
-    } catch (err) {
-        console.error(err.message);
-    }
-});
-
-// Delete user
-app.delete("/users/:id", async(req,res) =>{
-    try {
-        const {id} = req.params;
-        const deleteUser = await pool.query("DELETE FROM users WHERE userid = $1",
-        [id])
-
-        res.json("deleted");
-    } catch (err) {
-        console.error(err.message);
-    }
-});
 
 // Presentation page (GET UPDATE) infoid | infotitle | infotext
 // Get infos
@@ -171,10 +121,10 @@ app.get("/cars", async(req, res) =>{
 // post new car
 app.post("/cars", async(req, res) =>{
     try {
-        const {carbrand, carmode, circulationdate, engine, distancetravel} = req.body;
+        const {carbrand, carmodel, circulationdate, engine, price ,distancetravel} = req.body;
 
-        const createCar = await pool.query("INSERT INTO cars (carbrand, carmodel, circulationdate, engine, distancetravel) VALUES($1, $2, $3, $4, $5)",
-        [carbrand, carmode, circulationdate, engine, distancetravel]);
+        const createCar = await pool.query("INSERT INTO cars (carbrand, carmodel, circulationdate, engine, price ,distancetravel) VALUES($1, $2, $3, $4, $5 ,$6)",
+        [carbrand, carmodel, circulationdate, engine, price ,distancetravel]);
 
         res.json(createCar.rows[0]);
 
@@ -206,7 +156,7 @@ app.post("/carsmessage", async(req, res) =>{
         const createMessage = await pool.query("INSERT INTO carsmessage (carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet) VALUES($1, $2, $3, $4, $5, $6)",
         [carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet]);
 
-        console.log("Work");
+        console.log("car message sent");
         res.json(createMessage.rows[0]);
 
     } catch (err) {

@@ -2,9 +2,11 @@
 
 
 CREATE TABLE users (
-    userId serial PRIMARY KEY,
-    userMail VARCHAR (150) NOT NULL,
-    userPassword VARCHAR (150) NOT NULL
+    user_id uuid PRIMARY KEY DEFAULT
+    uuid_generate_v4(),
+    user_name VARCHAR(50) NOT NULL,
+    user_email VARCHAR(125) NOT NULL,
+    user_paswword VARCHAR(75) NOT NULL
 );
 
 CREATE TABLE Cars (
@@ -13,6 +15,7 @@ CREATE TABLE Cars (
    carModel VARCHAR(25) NOT NULL,
    circulationDate int NOT NULL,
    engine VARCHAR (15),
+   price int NOT NULL,
    distanceTravel int NOT NULL
 );
 
