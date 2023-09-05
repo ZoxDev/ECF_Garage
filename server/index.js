@@ -13,7 +13,8 @@ app.use(express.json()); // req.body
 // Create user JWT AUTH
 app.use("/auth", require("./routes/jwtAuth"));
 
-
+// Dashboard
+app.use("/dashboard", require("./routes/dashboard"));
 
 // Presentation page (GET UPDATE) infoid | infotitle | infotext
 // Get infos

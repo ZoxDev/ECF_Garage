@@ -75,10 +75,10 @@ router.post("/login", async(req, res) =>{
 
 
 // Verify
-router.get("/verify", async (req, res) => {
+router.get("/verify", auth ,async (req, res) => {
     try {
         
-        
+        res.json(true);
 
     } catch (err) {
         console.error(err);
