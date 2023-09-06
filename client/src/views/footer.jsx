@@ -77,9 +77,9 @@ export default function Footer() {
                 {/* See how to render a map */}
                 <p className='text-footer credits-text'>Made by : ZoxxxDev</p>
                 <div className='footer-links'>
-                    <p className='footer-link'>Se connecter</p>
-                    <p className='footer-link'>Nos services</p>
-                    <p className='footer-link'>Ventes</p>
+                    <a href='' className='footer-link'>Se connecter</a>
+                    <a href='#second' className='footer-link'>Nos services</a>
+                    <a href='/ventes' className='footer-link'>Ventes</a>
                 </div>
                 <p className='text-footer copy-text'>© GarageVParrot / All Rights Reserved</p>
             </footer>
