@@ -12,7 +12,7 @@ import Loading from '../components/loading'
 import Footer from './footer'
 import { useFetch } from '../hooks/queryget'
 import styled from 'styled-components'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 
 

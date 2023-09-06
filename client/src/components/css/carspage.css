@@ -1,5 +1,6 @@
 .page-container{
     background: linear-gradient(174deg, #DA4350 45.31%, #FFF 45.32%);
+    height: auto;
     width: 100%;
 }
 
@@ -78,25 +79,36 @@
     }    
 }
 
-@media screen and (min-width: 1280px) {
-    .search-bar{
-        margin-top: 5%;
-    }
-}
+
 
 @media screen and (min-width: 1024px) {
     .cars-card-container{
         margin-left: 0%;
         display: flex; 
+        flex-wrap: wrap;
+ 
     }
     .multiple-div-card {
+        
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         margin-top: 20px;
         margin-bottom: 20px;
-        width: 100%;
+        width: 50%;
     }
+}
 
+@media screen and (min-width: 1280px) {
+    .search-bar{
+        margin-top: 5%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .multiple-div-card{
+        width: 33%;
+        
+    }
 }
