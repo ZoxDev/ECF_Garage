@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Homepage from './views/homepage.jsx';
 import CarsPage from './views/carspage.jsx';
 import Noticepage from './views/noticepage.jsx';
+import LoginPage from './views/login.jsx';
 
 import {
   createBrowserRouter,
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/se-connecter",
-    element: <CarsPage></CarsPage>,
+    element: <LoginPage />,
   },
 
 
