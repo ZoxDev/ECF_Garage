@@ -48,11 +48,11 @@ router.post("/register", async(req, res) =>{
 router.post("/login", async(req, res) =>{
     try {
         // Destructure
-        const {email, password} = req.body;
+        const {name, password} = req.body;
 
         // User exist ?
-        const user = await pool.query("SELECT * FROM users WHERE user_email = $1",
-        [email]);
+        const user = await pool.query("SELECT * FROM users WHERE user_name = $1",
+        [name]);
 
         if(user.rows.length === 0){
             return res.status(401).json("Mail ou mot de passe incorect...");
@@ -64,6 +64,7 @@ router.post("/login", async(req, res) =>{
         if(!validPassword){
             res.status(401).json("Mail ou mot de passe incorect...");
         } 
+
         // give a token
         const token = jwtGenerator(user.rows[0].user_id);
         res.json({token})
@@ -77,9 +78,7 @@ router.post("/login", async(req, res) =>{
 // Verify
 router.get("/verify", auth ,async (req, res) => {
     try {
-        
         res.json(true);
-
     } catch (err) {
         console.error(err);
     }
