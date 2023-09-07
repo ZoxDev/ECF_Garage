@@ -18,7 +18,6 @@ export const useFetchPost = (url) => {
             })
             const data = await res.json();
             setResponse(data);
-            console.log(data);
             setLoading(false);
         } catch (e) {
             setError(e);
