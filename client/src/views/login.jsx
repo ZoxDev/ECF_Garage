@@ -14,7 +14,7 @@ export default function LoginPage(props) {
     // Fetch api
     const { callback: logIn, data } = useFetchPost("http://localhost:5000/auth/login");
 
-    
+
 
     // await for the callback and post the data
     const onSubmitForm = async (e) => {
@@ -25,9 +25,11 @@ export default function LoginPage(props) {
         });
 
         localStorage.setItem("token", data.response.token);
-
-        props.isAuth(true);
+        if (data.resStatus == 200) {
+            props.setAuth(true);
         }
+
+    }
 
 
 

@@ -6,6 +6,7 @@ export const useFetchPost = (url) => {
     const [response, setResponse] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
+    const [resStatus, setResStatus] = useState();
   
     // Create the callback for function with postData
     const callback = useCallback(async (postData) => {
@@ -17,12 +18,14 @@ export const useFetchPost = (url) => {
                 body: JSON.stringify(postData),
             })
             const data = await res.json();
+            const resStat = res.status;
             setResponse(data);
+            setResStatus(resStat);
             setLoading(false);
         } catch (e) {
             setError(e);
             setLoading(false);
         }
     }, [url]);
-    return {callback, data: { response, loading, error }};
+    return {callback, data: { response, resStatus,loading, error }};
 }
