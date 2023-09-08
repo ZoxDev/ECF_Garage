@@ -11,7 +11,7 @@ router.post("/register", async(req, res) =>{
     try {
         
         //Destructure
-        const {name, email, password} = req.body;
+        const {name, email, password, role} = req.body;
         
         // User already exist ?
         const user = await pool.query("SELECT * FROM users WHERE user_email = $1",
@@ -29,15 +29,11 @@ router.post("/register", async(req, res) =>{
 
         // Enter new user
         const newUser = await pool.query
-        ("INSERT INTO users (user_name, user_email, user_paswword) VALUES ($1, $2, $3) RETURNING *",
-        [name, email, bcryptPassword]
+        ("INSERT INTO users (user_name, user_email, user_paswword, user_role) VALUES ($1, $2, $3, $4) RETURNING *",
+        [name, email, bcryptPassword, role]
         );
 
-        // res.json(newUser.rows[0])
-
-        // Create token
-        const token = jwtGenerator(newUser.rows[0].user_id)
-        res.json({token})
+        // The user is created
 
     } catch (err) {
         console.error(err.message);
@@ -65,9 +61,12 @@ router.post("/login", async(req, res) =>{
             res.status(401).json("Mail ou mot de passe incorect...");
         } 
 
+        // Get the role
+        const role = user.rows[0].user_role;
+
         // give a token
         const token = jwtGenerator(user.rows[0].user_id);
-        res.json({token})
+        res.json({token, role});
 
     } catch (err) {
         console.error(err);

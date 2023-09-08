@@ -58,3 +58,12 @@ INSERT INTO schedule VALUES ('Mercredi', '8:00', '12:00', '14:00', '18:00');
 INSERT INTO schedule VALUES ('Jeudi', '8:00', '12:00', '14:00', '18:00');
 INSERT INTO schedule VALUES ('Vendredi', '8:00', '12:00', '14:00', '18:00');
 INSERT INTO schedule VALUES ('Samedi', '8:00','12:00');
+
+
+-- Inset new column
+
+ALTER TABLE users
+ADD user_role VARCHAR(255);
+
+
+-- There is also the SET ROLE
