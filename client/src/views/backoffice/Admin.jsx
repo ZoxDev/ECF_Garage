@@ -7,7 +7,6 @@ import Loading from '../../components/loading';
 
 // Utils
 import { useFetch } from "../../hooks/queryget";
-import { useFetchPost } from '../../hooks/querypost';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -28,14 +27,9 @@ export default function AdminBack() {
             setIsOpen(!isOpen);
         }
         
-        
 
 
       
-           
-       
-
-
         // Get to see on table (infoid | infotitle | infotext)
         const [data, loading, error] = useFetch("http://localhost:5000/infos")
 
