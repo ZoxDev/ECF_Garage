@@ -1,25 +1,33 @@
 import { useState, useCallback } from "react";
+import Cookies from 'universal-cookie';
 
 // Create the hook with url to route to specify
-export const useFetchPost = (url) => {
+export const useFetchPut = (url) => {
+    // Cookie
+    const cookie = new Cookies(null, {path: "/"});
+    const tokenValue = cookie.get("token");
+
     // Set response loading and error
     const [response, setResponse] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
-    const [resStatus, setResStatus] = useState();   
-  
+    const [resStatus, setResStatus] = useState();
+
     // Create the callback for function with PutData
     const callback = useCallback(async (putData) => {
         try {
             setLoading(true)
             const res = await fetch(url, {
                 method: 'PUT',
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "token" : tokenValue
+                },
                 body: JSON.stringify(putData),
             })
-            const data = await res.json();
+            const dataPut = await res.json();
             const resStat = res.status;
-            setResponse(data);
+            setResponse(dataPut);
             setResStatus(resStat);
             setLoading(false);
         } catch (e) {
@@ -27,5 +35,5 @@ export const useFetchPost = (url) => {
             setLoading(false);
         }
     }, [url]);
-    return {callback, data: { response, resStatus,loading, error }};
+    return { callback, dataPut: { response, resStatus, loading, error } };
 }
