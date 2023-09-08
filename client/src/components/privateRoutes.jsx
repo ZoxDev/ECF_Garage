@@ -9,15 +9,21 @@ export default function PrivateRoutes(){
     // Get cookie
     const jwtToken = cookieTok.get("token")
     const role = cookieRole.get("role");
-    console.log(role);
+
+    
     let isAuth = false
 
     if(jwtToken != undefined){
        isAuth = true
     }
 
+    // If employee try to access Admin dashboard
+    if(isAuth == true && role == 'employee'){
+        return <Navigate to='/dashboard/employee'/>
+    }
+
+    // All privates routes
     return(
         isAuth ? <Outlet/> : <Navigate to='/se-connecter'/>
     )
-
 }

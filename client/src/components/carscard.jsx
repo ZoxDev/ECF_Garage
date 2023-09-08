@@ -7,7 +7,7 @@ import Contactcars from './contact-cars';
 import Loading from './loading';
 
 export default function Carscard(props) {
-
+    // Get cars
     const [data, loading, error] = useFetch("http://localhost:5000/cars")
 
     if (loading) {

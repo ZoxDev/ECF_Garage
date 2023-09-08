@@ -3,7 +3,8 @@ import Homepage from './views/homepage.jsx';
 import CarsPage from './views/carspage.jsx';
 import Noticepage from './views/noticepage.jsx';
 import LoginPage from './views/login.jsx';
-import Dashboard from './views/dashboard.jsx';
+import AdminBack from './views/backoffice/Admin.jsx';
+import EmployeeBack from './views/backoffice/Employee.jsx';
 
 // PrivateRoutes
 import PrivateRoutes from './components/privateRoutes.jsx';
@@ -37,7 +38,8 @@ export default function App() {
 
                 {/* Admin & Employee */}
                 <Route element={<PrivateRoutes />}>
-                    <Route element={<Dashboard />} path='/dashboard' />
+                    <Route element={<AdminBack />} path='/dashboard/admin' />
+                    <Route element={<EmployeeBack/>} path='/dashboard/employee'/>
                 </Route>
 
                 {/* Only phone */}

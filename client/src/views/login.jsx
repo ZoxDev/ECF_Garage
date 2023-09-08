@@ -36,7 +36,14 @@ export default function LoginPage() {
     if (data.resStatus == 200) {
         cookieTok.set('token', data.response.token);
         cookieRole.set('role', data.response.role);
-        return <Navigate to='/dashboard' />
+        
+        // Redirect to admin back office if his admin else go to employee back office
+        if(data.response.role == "admin"){
+            return <Navigate to='/dashboard/admin'/>
+        }
+        else{
+            return <Navigate to='/dashboard/employee'/>
+        }
     }
 
     return (
