@@ -13,6 +13,9 @@ app.use(express.json()); // req.body
 // Create user JWT AUTH
 app.use("/auth", require("./routes/jwtAuth"));
 
+// Middle ware
+const authorization = require("../server/middleware/authorization")
+
 // Dashboard
 app.use("/dashboard", require("./routes/dashboard"));
 
@@ -28,7 +31,7 @@ app.get("/infos", async(req,res) => {
 });
 
 // Post info
-app.post("/infos", async(req, res) => {
+app.post("/infos", authorization ,async(req, res) => {
     try {
     // Add info  
     const {infoTitle, infoText} = req.body;
@@ -46,29 +49,16 @@ app.post("/infos", async(req, res) => {
 });
 
 // Put info
-app.put("/infos/:id", async(req,res) =>{
+app.put("/infos/:id", authorization,async(req,res) =>{
     try {
         const {id} = req.params;
         const {infoTitle, infoText} = req.body;
 
-        const updateInfo = await pool.query("UPDATE presinfo SET (infoTitle, infoText) =($1,$2) WHERE infoid = $3",
+        const updateInfo = await pool.query("UPDATE presinfo SET (infoTitle, infoText) = ($1,$2) WHERE infoid = $3",
         [infoTitle, infoText, id]);
 
         console.log(req.body);
         res.json("updated")
-    } catch (err) {
-        console.error(err.message);
-    }
-});
-
-// Delte (rare)
-app.delete("/infos/:id", async(req,res) =>{
-    try {
-        const {id} = req.params;
-        const deleteInfo = await pool.query("DELETE FROM presinfo WHERE infoid = $1",
-        [id])
-
-        res.json("deleted");
     } catch (err) {
         console.error(err.message);
     }
@@ -87,7 +77,7 @@ app.get("/schedule", async(req,res) =>{
 });
 
 // Update
-app.put("/schedule/:id", async(req, res) =>{
+app.put("/cars/:id", authorization,async(req, res) =>{
     try {
         const {id} = req.params;
         
@@ -120,7 +110,7 @@ app.get("/cars", async(req, res) =>{
 });
 
 // post new car
-app.post("/cars", async(req, res) =>{
+app.post("/cars", authorization,async(req, res) =>{
     try {
         const {carbrand, carmodel, circulationdate, engine, price ,distancetravel} = req.body;
 
@@ -134,8 +124,25 @@ app.post("/cars", async(req, res) =>{
     }
 });
 
+// Update car
+app.put("/cars/:id", authorization,async(req, res) =>{
+    try {
+        const {id} = req.params;
+        
+        const {carbrand, carmodel, circulationdate, engine, price ,distancetravel} = req.body;
+        const dayUpdate = await pool.query("UPDATE cars SET (carbrand, carmodel, circulationdate, engine, price ,distancetravel) = ($1,$2,$3,$4,$5,$6) WHERE dayname = $7",
+        [carbrand, carmodel, circulationdate, engine, price ,distancetravel, id]);
+        
+        res.json("Car update");
+
+    } catch (err) {
+        console.error(err.message);
+    }
+});
+
+
 // delete car
-app.delete("/cars/:id", async(req, res) =>{
+app.delete("/cars/:id", authorization,async(req, res) =>{
     try {
         const {id} = req.params;
 
@@ -166,7 +173,7 @@ app.post("/carsmessage", async(req, res) =>{
     });
 
 // get message for employee
-app.get("/carsmessage", async(req, res) =>{
+app.get("/carsmessage", authorization ,async(req, res) =>{
     try {
         const getCarMessage = await pool.query("SELECT * FROM carsmessage");
         res.json(getCarMessage.rows);
@@ -176,7 +183,7 @@ app.get("/carsmessage", async(req, res) =>{
 });
 
 // employee can delete the message
-app.delete("/carsmessage/:id", async(req,res) =>{
+app.delete("/carsmessage/:id", authorization ,async(req,res) =>{
     try {
         const {id} = req.params;
         const deleteCarMessage = await pool.query("DELETE FROM carsmessage WHERE carmessageid = $1",
@@ -205,7 +212,7 @@ app.post("/noticemessage", async(req, res) =>{
     });
 
 // get message for admin
-app.get("/noticemessage", async(req, res) =>{
+app.get("/noticemessage", authorization ,async(req, res) =>{
     try {
         const getNotice = await pool.query("SELECT * FROM noticemessage");
         console.log("work");
@@ -216,7 +223,7 @@ app.get("/noticemessage", async(req, res) =>{
 });
 
 // admin can delete the message
-app.delete("/noticemessage/:id", async(req,res) =>{
+app.delete("/noticemessage/:id", authorization ,async(req,res) =>{
     try {
         const {id} = req.params;
         const deleteCarMessage = await pool.query("DELETE FROM noticemessage WHERE noticeid = $1",
