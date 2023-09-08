@@ -1,20 +1,27 @@
 import '../components/css/login.css'
 
 // Utils
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useFetchPost } from '../hooks/querypost'
+import { Navigate } from 'react-router-dom'
+
+// Cookie
+import Cookies from 'universal-cookie'
 
 // Components
 import Navbar from '../components/navbar'
 import Footer from './footer'
 
-export default function LoginPage(props) {
+export default function LoginPage() {
     const [name, setUserName] = useState();
     const [password, setUserPassword] = useState();
+
+    // Cookie
+    const cookieTok = new Cookies({ path: "/" })
+    const cookieRole = new Cookies({path: "/"});
+
     // Fetch api
     const { callback: logIn, data } = useFetchPost("http://localhost:5000/auth/login");
-
-
 
     // await for the callback and post the data
     const onSubmitForm = async (e) => {
@@ -23,15 +30,14 @@ export default function LoginPage(props) {
             name: name,
             password: password,
         });
-
-        localStorage.setItem("token", data.response.token);
-        if (data.resStatus == 200) {
-            props.setAuth(true);
-        }
-
     }
 
 
+    if (data.resStatus == 200) {
+        cookieTok.set('token', data.response.token);
+        cookieRole.set('role', data.response.role);
+        return <Navigate to='/dashboard' />
+    }
 
     return (
         <>

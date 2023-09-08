@@ -5,6 +5,9 @@ import Noticepage from './views/noticepage.jsx';
 import LoginPage from './views/login.jsx';
 import Dashboard from './views/dashboard.jsx';
 
+// PrivateRoutes
+import PrivateRoutes from './components/privateRoutes.jsx';
+
 // Router
 import {
     createRoutesFromElements,
@@ -12,11 +15,6 @@ import {
     Route,
     RouterProvider,
 } from "react-router-dom";
-
-// Utils
-import { useState, useEffect } from 'react';
-
-
 
 export default function App() {
     const router = createBrowserRouter(
@@ -32,10 +30,15 @@ export default function App() {
                     element={<CarsPage />}
                 />
 
-
+                <Route
+                    path='/se-connecter'
+                    element={<LoginPage />}
+                />
 
                 {/* Admin & Employee */}
-                
+                <Route element={<PrivateRoutes />}>
+                    <Route element={<Dashboard />} path='/dashboard' />
+                </Route>
 
                 {/* Only phone */}
                 <Route
@@ -47,7 +50,6 @@ export default function App() {
             </>
         )
     );
-
 
     // Just return the router provider
     return (

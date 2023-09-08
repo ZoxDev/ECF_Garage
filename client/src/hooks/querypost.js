@@ -6,7 +6,7 @@ export const useFetchPost = (url) => {
     const [response, setResponse] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
-    const [resStatus, setResStatus] = useState();
+    const [resStatus, setResStatus] = useState();   
   
     // Create the callback for function with postData
     const callback = useCallback(async (postData) => {
