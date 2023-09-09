@@ -15,6 +15,7 @@ export const useFetchPut = (url) => {
 
     // Create the callback for function with PutData
     const callback = useCallback(async (putData) => {
+        console.log(putData);
         try {
             setLoading(true)
             const res = await fetch(url, {
@@ -27,6 +28,7 @@ export const useFetchPut = (url) => {
             })
             const dataPut = await res.json();
             const resStat = res.status;
+            
             setResponse(dataPut);
             setResStatus(resStat);
             setLoading(false);
