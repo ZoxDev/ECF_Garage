@@ -77,7 +77,7 @@ app.get("/schedule", async(req,res) =>{
 });
 
 // Update
-app.put("/cars/:id", authorization,async(req, res) =>{
+app.put("/schedule/:id", authorization,async(req, res) =>{
     try {
         const {id} = req.params;
         
@@ -212,7 +212,7 @@ app.post("/noticemessage", async(req, res) =>{
     });
 
 // get message for admin
-app.get("/noticemessage", authorization ,async(req, res) =>{
+app.get("/noticemessage" ,async(req, res) =>{
     try {
         const getNotice = await pool.query("SELECT * FROM noticemessage");
         console.log("work");
