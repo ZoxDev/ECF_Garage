@@ -4,12 +4,23 @@ const bcrypt = require("bcrypt")
 const jwtGenerator = require("../utils/jwtGenerator");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/authorization");
+const authorization = require("../middleware/authorization");
 
 // Routes
-// Register (Admin create users)
-router.post("/register", async(req, res) =>{
+// Get
+router.get("/getemployee", async(req, res) =>{
     try {
-        
+        const getUser = await pool.query("SELECT * FROM users")
+        res.json(getUser.rows);
+
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+// Register (Admin create users)
+router.post("/createemployee", authorization, async(req, res) =>{
+    try {
         //Destructure
         const {name, email, password, role} = req.body;
         
