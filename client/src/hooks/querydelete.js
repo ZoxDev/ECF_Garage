@@ -1,22 +1,27 @@
+// utilites
 import { useState, useCallback } from "react";
+import Cookies from "universal-cookie";
 
+export const useFetchDelete = (url) => {
 
-// Create the hook with url to route to specify
-export const useFetchPost = (url) => {
-    // Cookie
-    const [resStatus, setResStatus] = useState();
+    const [dataDelete, setDataDelete] = useState([]);
 
-    // Create the callback for function with postData
     const callback = useCallback(async () => {
+        const cookie = new Cookies(null, { path: "/" });
+        const tokenValue = cookie.get("token");
+
         try {
             const res = await fetch(url, {
-                method: 'DELETE',
-            })
-            const resStat = res.status;
-            setResStatus(resStat);
-        } catch (e) {
-            console.error(e);
+                method: "DELETE",
+                headers: {
+                    "token" : tokenValue
+                }
+            });
+            setDataDelete(res.status);
+        } catch (err) {
+            console.error(err);
         }
-    }, [url]);
-    return { callback, data: { resStatus } };
+
+    }, [url])
+    return { callback, dataDelete };
 }
