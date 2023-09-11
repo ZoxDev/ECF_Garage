@@ -19,7 +19,7 @@ router.get("/getemployee", async(req, res) =>{
 });
 
 // Register (Admin create users)
-router.post("/createemployee", authorization, async(req, res) =>{
+router.post("/createemployee", async(req, res) =>{
     try {
         //Destructure
         const {name, email, password, role} = req.body;
@@ -50,6 +50,18 @@ router.post("/createemployee", authorization, async(req, res) =>{
         console.error(err.message);
     }
 })
+
+// Delete user 
+router.delete("/delete/:id", authorization, async(req, res) =>{
+    try {
+        const {id} = req.params;
+
+        const deleteCar = await pool.query("DELETE FROM users WHERE user_id = $1", [id])
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+
 
 // Login
 router.post("/login", async(req, res) =>{
