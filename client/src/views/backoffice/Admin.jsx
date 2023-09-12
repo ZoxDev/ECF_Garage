@@ -367,22 +367,18 @@ export default function AdminBack() {
         const [id, setId] = useState("");
 
         // Delete fetch
-        const { callback: deleteData, dataDelete } = useFetchDelete("http://localhost:5000/noticemessage/" + id)
+        const { callback: deleteData } = useFetchDelete("http://localhost:5000/noticemessage/" + id)
 
         // Get fetch
-        const [data, loading, error] = useFetch("http://localhost:5000/noticemessage")
+        let [data, loading, error] = useFetch("http://localhost:5000/noticemessage")
 
         // Delete
         const clickDelete = async () => {
-            console.log(id)
             await deleteData();
-            if (dataDelete == 200) {
-                console.log("less go");
-            }
-            
-            // If res = 200 then filter the data to delete the good one for update data.
+            console.log()
+            data = data.filter(notice => notice.noticeid == id);
+            console.log(data);
         }
-
 
         // btn
         const closeDelete = () => {
@@ -399,7 +395,6 @@ export default function AdminBack() {
 
         // Instance each rows of the table (noticeid | noticeusername | noticeuserlastname | noticeusermessage | noticeusernote )
         const rows = data.map((user) => (
-            
             <tr key={user.noticeid}>
                 <td>{user.noticeuserlastname}</td>
                 <td>{user.noticeusername}</td>
