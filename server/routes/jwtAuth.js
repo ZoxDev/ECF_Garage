@@ -57,7 +57,7 @@ router.delete("/delete/:id", authorization, async(req, res) =>{
     try {
         const {id} = req.params;
 
-        const deleteCar = await pool.query("DELETE FROM users WHERE user_id = $1", [id])
+        const deleteUser = await pool.query("DELETE FROM users WHERE user_id = $1", [id])
     } catch (err) {
         console.error(err.message);
     }

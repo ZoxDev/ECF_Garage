@@ -173,7 +173,7 @@ app.post("/carsmessage", async(req, res) =>{
     });
 
 // get message for employee
-app.get("/carsmessage", authorization ,async(req, res) =>{
+app.get("/carsmessage" ,async(req, res) =>{
     try {
         const getCarMessage = await pool.query("SELECT * FROM carsmessage");
         res.json(getCarMessage.rows);
