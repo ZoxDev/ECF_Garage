@@ -22,7 +22,8 @@ router.get("/getemployee", async(req, res) =>{
 router.post("/createemployee", authorization,async(req, res) =>{
     try {
         //Destructure
-        const {name, email, password, role} = req.body;
+        const {name, email, password} = req.body;
+        const role = "employee";
         
         // User already exist ?
         const user = await pool.query("SELECT * FROM users WHERE user_email = $1",
