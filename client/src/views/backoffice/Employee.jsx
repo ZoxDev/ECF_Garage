@@ -5,11 +5,10 @@ import '../../components/css/employee.css'
 import Navbar from '../../components/navbar';
 
 // Utils
-import { useFetch } from "../../hooks/queryget";
-import { useFetchPost } from '../../hooks/querypost';
 
 
-export default function EmployeeBack() {
+
+export default function Employee() {
 
     // Buttons
 

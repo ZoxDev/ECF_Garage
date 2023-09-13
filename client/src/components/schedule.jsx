@@ -14,7 +14,6 @@ export default function Schedule(props) {
             const jsonData = await response.json();
 
             setSchedule(jsonData);
-            console.log(jsonData);
         } catch (err) {
             console.error(err.message);
         }
@@ -24,15 +23,16 @@ export default function Schedule(props) {
     useEffect(() => {
         getSchedule();
     }, [])
+    
+    console.log()
 
     //Check if the value is available
-    const selectedSchedule = schedule[props.dayid];
+    const selectedSchedule = schedule.find((element) => element.dayname == props.dayid);
     const dayname = selectedSchedule ? selectedSchedule.dayname : "";
     const hourstart = selectedSchedule ? selectedSchedule.hourstart : "";
     const hourpause = selectedSchedule ? selectedSchedule.hourpause : "";
     const hourstoppause = selectedSchedule ? selectedSchedule.hourstoppause : "";
     const hourstop = selectedSchedule ? selectedSchedule.hourstop : "";
-
 
     return (
         <>
@@ -41,20 +41,12 @@ export default function Schedule(props) {
                     {dayname}
                 </td>
                 <td>
-                    {hourstart}
+                    {hourstart} à {hourpause}
                 </td>
                 <td>
-                    {hourpause}
-                </td>
-                <td>
-                    {hourstoppause}
-                </td>
-                <td>
-                    {hourstop}
+                    {hourstoppause} à {hourstop}
                 </td>
             </tr>
-
-
         </>
     );
 

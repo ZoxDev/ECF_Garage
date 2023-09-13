@@ -9,41 +9,59 @@ font-family: 'Quicksand', sans-serif; */
     display: flex;
 }
 
-.admin-menu{
+.admin-menu-desktop{
+    display: none;
+}
+.admin-menu-mobile{
     background-color: white;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     box-shadow: 5px 5px 15px 5px #00000050;
     font-family: 'Poppins', sans-serif;
     height: 100vh;
-    width: 20vw;
+    width: 15vw;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:50px;
+    justify-content: space-evenly;
+}
+.panel{
+    margin-top: 40px;
+    font-size: 20px;
 }
 
 .admin-content{
     background-color: white;
     border-radius: 10px;
-    margin-left: 5vh;
+    margin-left: 1.5vh;
     margin-top: 10vh;
     height: 87.5vh;
-    width: 75vw;
+    width: 80vw;
     box-shadow: 5px 5px 15px 5px #00000050;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-h2{
-    font-size: 3rem;
+.btn-add{
+    background-color: rgb(5, 255, 5);
+    width: 100px;
+    height: 40px;
+    border-radius: 100px;
 }
 
 .btn-admin{
-    width: 50%;
-    height: 40px;
-    background-color: rgb(59, 59, 59);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(209, 209, 209);
     color: rgb(255, 255, 255);
-    border-radius: 20px;
+    border-radius: 50px;
+    font-size: 9px;
     box-shadow: 2px 5px 16px 0px #8a8a8a;
 }
 button:hover{
@@ -53,4 +71,113 @@ button:hover{
 button:not(:hover){
     scale: 1;
     transition: scale 100ms ease-out;
+}
+
+/* The table */
+table{
+    margin-top: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+thead{
+    font-size: 14px;
+}
+
+td{
+    font-size: 12px;
+}
+
+/* Modal */
+.modal-panel{
+    position: fixed;
+    background-color: rgb(216, 216, 216);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    height: 80vh;
+    z-index: 1;
+}
+.form-panel{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.form-panel > button{
+    background-color: #c3ff7e;
+    border-radius: 30px;
+}
+.label-panel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.label-panel > textarea{
+    height: 200px;
+}
+.btn-panel{
+    position: absolute;
+    right: 20%;
+    top: 5%;
+    
+}
+
+@media screen and (min-width : 768px) {
+    .admin-menu-mobile{
+        display: none;
+    }
+
+    .admin-menu-desktop{
+        background-color: white;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        box-shadow: 5px 5px 15px 5px #00000050;
+        font-family: 'Poppins', sans-serif;
+        height: 100vh;
+        width: 12vw;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .btn-admin{
+        width: 50px;
+        height: 50px;
+    }
+
+    thead{
+        font-size: 16px;
+    }
+    
+    td{
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .admin-content{
+        margin-left: 5vw;
+    }
+
+    .admin-menu-desktop{
+        width: 7vw;
+    }
+
+    .btn-admin{
+        width: 50px;
+        height: 50px;
+    }
+
+    thead{
+        font-size: 22px;
+    }
+    
+    td{
+        font-size: 20px;
+    }
 }

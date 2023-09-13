@@ -57,20 +57,18 @@ export default function Footer() {
                         <thead>
                             <tr>
                                 <th>Jours</th>
-                                <th>Début</th>
-                                <th>Pause</th>
-                                <th>Fin-pause</th>
-                                <th>Fin</th>
+                                <th>Matinée</th>
+                                <th>Après-midi</th>
                             </tr>
                         </thead>
                         <tbody>
                             {/* In function of the name of day (todolater) */}
-                            <Schedule dayid={0} />
-                            <Schedule dayid={1} />
-                            <Schedule dayid={2} />
-                            <Schedule dayid={3} />
-                            <Schedule dayid={5} />
-                            <Schedule dayid={4} />
+                            <Schedule dayid={"Lundi"} />
+                            <Schedule dayid={"Mardi"} />
+                            <Schedule dayid={"Mercredi"} />
+                            <Schedule dayid={"Jeudi"} />
+                            <Schedule dayid={"Vendredi"} />
+                            <Schedule dayid={"Samedi"} />
                         </tbody>
                     </table>
                 </div>

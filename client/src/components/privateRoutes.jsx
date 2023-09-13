@@ -1,4 +1,4 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useLocation } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 export default function PrivateRoutes(){
@@ -17,8 +17,12 @@ export default function PrivateRoutes(){
        isAuth = true
     }
 
-    // If employee try to access Admin dashboard
-    if(isAuth == true && role == 'employee'){
+    // If employee try to access Admin dashboard 
+    // RTFM <3
+    const location = useLocation();
+
+
+    if(location.pathname == "/dashboard/admin" && role == 'employee'){
         return <Navigate to='/dashboard/employee'/>
     }
 
@@ -26,4 +30,6 @@ export default function PrivateRoutes(){
     return(
         isAuth ? <Outlet/> : <Navigate to='/se-connecter'/>
     )
+
+ 
 }
