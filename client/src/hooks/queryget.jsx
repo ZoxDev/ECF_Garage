@@ -6,6 +6,7 @@ export const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
+    
   
     useEffect(() => {
         fetch(url)
@@ -15,8 +16,6 @@ export const useFetch = (url) => {
           setData(data);
           setLoading(false);
         });
-
-        
     }, [url]);
   
     return [data, loading, error];

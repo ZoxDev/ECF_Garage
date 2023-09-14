@@ -24,13 +24,13 @@ font-family: 'Quicksand', sans-serif; */
     align-items: center;
     width: auto;
     height: 100vh;
-    background: linear-gradient(182.5deg, #090909 8%, #414141 0%);
+    background: linear-gradient(182.5deg, #090909 8%, #222222 0%);
 }
 
 .third-section {
     width: auto;
     height: 100vh;
-    background: linear-gradient(183.5deg, #414141 11.2%, #FFF 0%);
+    background: linear-gradient(183.5deg, #222222 11.2%, #FFF 0%);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,12 +88,11 @@ font-family: 'Quicksand', sans-serif; */
     /* Second-section */
     .second-section {
         background: linear-gradient(182.5deg, #090909 8%, #414141 0%);
-
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        align-items: center;
-        justify-items: start;
+        justify-items: center;
+        align-content: center;
     }
 
     /* Third-section */

@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import {    useState, useCallback } from "react";
 import Cookies from "universal-cookie";
 
 // Create the hook with url to route to specify
@@ -6,7 +6,6 @@ export const useFetchPost = (url) => {
     // Cookie
     const cookie = new Cookies(null, { path: "/" });
     const tokenValue = cookie.get("token");
-
 
     // Set response loading and error
     const [response, setResponse] = useState();
@@ -26,15 +25,16 @@ export const useFetchPost = (url) => {
                 },
                 body: JSON.stringify(postData),
             })
-            const data = await res.json();
-            const resStat = res.status;
-            setResponse(data);
+            const dataPost = await res.json();
+            const resStat = await res.status;
+            setResponse(dataPost);
             setResStatus(resStat);
             setLoading(false);
         } catch (e) {
             setError(e);
             setLoading(false);
         }
+        
     }, [url]);
-    return { callback, data: { response, resStatus, loading, error } };
+    return { callback, dataPost: { response, resStatus, loading, error } };
 }

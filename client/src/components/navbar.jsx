@@ -21,7 +21,7 @@ export default function Navbar() {
             top: 50px;
             left: calc(50% - 50px);
             width: 100px;
-            height: 40px;
+            height: 50px;
             background-color: #ffffff;
             padding-left: 25px;
             transition: ease-in-out display 0.4s;
@@ -44,8 +44,9 @@ export default function Navbar() {
 
     return (
         <>
+            {/* Mobile */}
             <nav className="navbar">
-                <img className="logo" src={parrotLogo} alt="logo of Vincent Parrot"></img>
+                <a href="/"><img className="logo" src={parrotLogo} alt="logo of Vincent Parrot"></img></a>
 
                 {/* burger menu (Mobile)*/}
                 <div className="burger" onClick={toogleBurger}>
@@ -56,8 +57,10 @@ export default function Navbar() {
 
                 <Navigation display={burgerOpen}>
                     <ul>
-                        <li>Ventes</li>
-                        <li>Se connecter</li>
+                        <a href="/ventes"><li>Ventes</li></a>
+                        <a href="/avis" className="nav-link"><li>Avis</li></a>
+                        <a href="/se-connecter"><li>Se connecter</li></a>
+                        
                     </ul>
                 </Navigation>
             </nav>

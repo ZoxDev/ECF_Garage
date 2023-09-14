@@ -4,6 +4,7 @@ import '../components/css/noticepage.css'
 
 // Components
 import Footer from './footer'
+import Navbar from '../components/navbar';
 
 // Hook
 import { useState } from 'react';
@@ -32,6 +33,8 @@ export default function Noticepage() {
 
     return (
         <>
+            <Navbar/>
+
             <section className='notice-page-section'>
                 <div className="circles" />
                 <div className="circles" />

@@ -6,6 +6,10 @@ import LoginPage from './views/login.jsx';
 import AdminBack from './views/backoffice/Admin.jsx';
 import Employee from './views/backoffice/Employee.jsx';
 
+// Error views
+import PageNotFound from './views/ErrorPages/PageNotFound.jsx';
+import PageForbOrUnauth from './views/ErrorPages/PageForbidenUnauth.jsx';
+
 // PrivateRoutes
 import PrivateRoutes from './components/privateRoutes.jsx';
 
@@ -48,7 +52,10 @@ export default function App() {
                     element={<Noticepage />}
                 />
 
-                {/* 404 */}
+                {/* 404 | 401 | 403 | 503*/}
+                <Route path="*" element={<PageNotFound />} />
+
+                <Route path='/error' element={<PageForbOrUnauth errInfo={"none"} errName={"none"}/>}/>
             </>
         )
     );

@@ -45,6 +45,10 @@ font-family: 'Quicksand', sans-serif; */
     gap: 15px;
 }
 
+.section-title{
+    font-size: 26px;
+}
+
 .btn-add{
     background-color: rgb(5, 255, 5);
     width: 100px;
@@ -122,7 +126,35 @@ td{
     position: absolute;
     right: 20%;
     top: 5%;
-    
+}
+
+/* Modal delete */
+.delete-modal{
+    border-radius: 10px;
+    top: calc(50% - 12.5%);
+    left: calc(50% - 150px);
+    position: fixed;
+    width: 300px;
+    height: 25%;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+}
+
+.delete-modal-hone{
+    color: white;
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+.delete-modal-btns{
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 26px;
 }
 
 @media screen and (min-width : 768px) {

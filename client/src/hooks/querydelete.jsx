@@ -1,10 +1,11 @@
 // utilites
 import { useState, useCallback } from "react";
+import { Navigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 export const useFetchDelete = (url) => {
 
-    const [dataDelete, setDataDelete] = useState([]);
+    const [dataDelete, setDataDelete] = useState();
 
     const callback = useCallback(async () => {
         const cookie = new Cookies(null, { path: "/" });
@@ -17,11 +18,11 @@ export const useFetchDelete = (url) => {
                     "token" : tokenValue
                 }
             });
-            setDataDelete(res.status);
+            const resStat = await res.status;
+            setDataDelete(resStat);
         } catch (err) {
             console.error(err);
         }
-
     }, [url])
     return { callback, dataDelete };
 }

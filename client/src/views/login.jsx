@@ -17,11 +17,12 @@ export default function LoginPage() {
     const [password, setUserPassword] = useState();
 
     // Cookie
+    
     const cookieTok = new Cookies({ path: "/" })
     const cookieRole = new Cookies({path: "/"});
 
     // Fetch api
-    const { callback: logIn, data } = useFetchPost("http://localhost:5000/auth/login");
+    const { callback: logIn, dataPost } = useFetchPost("http://localhost:5000/auth/login");
 
     // await for the callback and post the data
     const onSubmitForm = async (e) => {
@@ -32,13 +33,14 @@ export default function LoginPage() {
         });
     }
 
+    
 
-    if (data.resStatus == 200) {
-        cookieTok.set('token', data.response.token);
-        cookieRole.set('role', data.response.role);
+    if (dataPost.resStatus == 200) {
+        cookieTok.set('token', dataPost.response.token)
+        cookieRole.set('role', dataPost.response.role);
         
         // Redirect to admin back office if his admin else go to employee back office
-        if(data.response.role == "admin"){
+        if(dataPost.response.role == "admin"){
             return <Navigate to='/dashboard/admin'/>
         }
         else{

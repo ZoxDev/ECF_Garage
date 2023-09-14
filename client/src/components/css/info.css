@@ -5,8 +5,8 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    border-radius: 5px;
 }
-
 
 .image {
     width: 100%;
@@ -25,14 +25,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
-
-h1 {
+.text-box > h1{
     color: white;
     font-family: 'Quicksand', sans-serif;
 }
-
 .textinfo {
+    
     color: white;
     font-size: 12px;
     font-family: 'Poppins', sans-serif;
@@ -40,71 +40,53 @@ h1 {
 }
 
 .modal-info{
-    width: 75vw;
-    height: 75vh;
+    border-radius: 5px;
     position: fixed;
-    background-color: white;
+    top: calc(50% - 20vh);
+    left: calc(50% - 45vw);
+    color: white;
+    background-color: rgb(255, 255, 255);
+    width: 90vw;
+    height: 40vh;
+    z-index: 3;
 }
+.modal-info > button{
+    position: relative;
+    top: 5%;
+    left: 90%;
+}
+.modal-info-container{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: black;
+    
+}
+.image-modal{
+    width: 35%;
+    height: 45%;
+    border-radius: 5px;
+}
+
+.modal-info-text{
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+}
+
+
 
 @media screen and (min-width: 768px) {
-    .container {
-        display: flex;
-        align-items: center;
-    }
-
-    .container:nth-child(1) {
-        grid-column: 1;
-        grid-row: 1;
-
-    }
-
-    .container:nth-child(2) {
-        grid-column: 2;
-        grid-row: 2;
-        flex-direction: row-reverse;
-    }
-
-    .container:nth-child(3) {
-        grid-column: 1;
-        grid-row: 3;
-    }
-
-    .image {
-        width: 200px;
-        height: 120px;
-        border-radius: 10px;
-    }
-
-    .text-box {
-        width: 400px;
-        height: 200px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .textinfo {
-        font-size: 20px;
-    }
+ 
 }
 
-
-
 @media screen and (min-width: 1280px) and (min-height: 720px) {
-
-
-    .text-box {
-        width: 500px;
-        height: 175px;
-    }
 
 }
 
 @media screen and (min-width: 1440px) {
 
-    .text-box {
-        width: 500px;
-        height: 175px;
-    }
 }

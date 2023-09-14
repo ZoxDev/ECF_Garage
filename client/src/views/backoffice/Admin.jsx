@@ -33,14 +33,11 @@ export default function AdminBack() {
         const [isOpen, setIsOpen] = useState(false);
         const [id, setId] = useState(0);
 
-
-
         // Put request
         const { callback: putData, dataPut } = useFetchPut("http://localhost:5000/infos/" + id);
 
         // Get to see on table (infoid | infotitle | infotext)
         const [data, loading, error] = useFetch("http://localhost:5000/infos")
-
 
         const sendFormInfos = async (e) => {
             e.preventDefault();
@@ -91,7 +88,6 @@ export default function AdminBack() {
                 </td>
             </tr>
         ));
-
 
         //INFO SECTION
         return (
@@ -147,7 +143,6 @@ export default function AdminBack() {
 
         const [isOpen, setIsOpen] = useState(false);
         const [id, setId] = useState("");
-
 
         // Put fetch
         const { callback: putData, dataPut } = useFetchPut("http://localhost:5000/schedule/" + id);
@@ -211,7 +206,6 @@ export default function AdminBack() {
             </tr>
         ));
 
-
         // Schdule return
         return (
             <>
@@ -265,7 +259,6 @@ export default function AdminBack() {
         )
     }
 
-
     // Employee 
     const Employee = () => {
         // Schedule (hourstart, hourpause, hourstoppause, hourstop)
@@ -276,7 +269,6 @@ export default function AdminBack() {
         const [isOpen, setIsOpen] = useState(false);
         const [isAdd, setIsAdd] = useState(false);
         const [id, setId] = useState("");
-
 
         // Post fetch
         const { callback: postData } = useFetchPost("http://localhost:5000/auth/createemployee")
@@ -484,8 +476,6 @@ export default function AdminBack() {
         )
     }
 
-
-
     // Buttons
     const onClickButton = event => {
         setSelectPanel(event.currentTarget.id);
@@ -583,7 +573,6 @@ export default function AdminBack() {
                         </svg>
                     </button>
                 </div>
-
 
                 <div className="admin-content">
                     <ShowPanel />

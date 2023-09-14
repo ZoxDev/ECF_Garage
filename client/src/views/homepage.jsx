@@ -8,14 +8,13 @@ import cardeal from '../assets/images/cardeal.jpg'
 import Navbar from "../components/navbar"
 import ServicesButton from '../components/servicesbut'
 import Info from '../components/info'
-import Banderole from '../components/banderole'
 import Noticecard from '../components/noticecard'
 
 // page
 import Footer from './footer'
 
 // Use
-import { useState, useLayoutEffect } from 'react'
+import { useState } from 'react'
 // import { gsap } from 'gsap'
 
 function Homepage() {
@@ -35,23 +34,6 @@ function Homepage() {
     }
   }
 
-  // Gsap anim of footer
-
-  // useLayoutEffect(() => {
-
-
-  //  gsap.set("footer",
-  //   {
-  //      yPercent: -50,
-  //      display: "none",
-  //   })
-
-  //     gsap.to(".footer",
-  //     {
-  //       duration: 10,
-  //     })
-  // }, [])
-
 
   return (
     <>
@@ -64,9 +46,9 @@ function Homepage() {
 
       {/* Second section */}
       <section id='second' className="second-section">
-        <Info infid={0} url={motor} id='inf1' />
-        <Info infid={1} url={entretien} id='inf2' />
-        <Info infid={2} url={cardeal} id='inf3' />
+        <Info infid={6} url={motor} id='inf1' />
+        <Info infid={7} url={entretien} id='inf2' />
+        <Info infid={9} url={cardeal} id='inf3' />
       </section>
 
       {/* Third section */}
