@@ -16,9 +16,6 @@ app.use("/auth", require("./routes/jwtAuth"));
 // Middle ware
 const authorization = require("../server/middleware/authorization")
 
-// Dashboard
-app.use("/dashboard", require("./routes/dashboard"));
-
 // Presentation page (GET UPDATE) infoid | infotitle | infotext
 // Get infos
 app.get("/infos", async(req,res) => {
@@ -86,6 +83,7 @@ app.put("/schedule/:id", authorization,async(req, res) =>{
         console.log(hourstart);
         const dayUpdate = await pool.query("UPDATE schedule SET (hourstart, hourpause, hourstoppause, hourstop) = ($1,$2,$3,$4) WHERE dayname = $5",
         [hourstart, hourpause, hourstoppause, hourstop, id]);
+
         
         res.json("Day time update");
 
@@ -130,7 +128,7 @@ app.put("/cars/:id", authorization,async(req, res) =>{
         const {id} = req.params;
         
         const {carbrand, carmodel, circulationdate, engine, price ,distancetravel} = req.body;
-        const dayUpdate = await pool.query("UPDATE cars SET (carbrand, carmodel, circulationdate, engine, price ,distancetravel) = ($1,$2,$3,$4,$5,$6) WHERE dayname = $7",
+        const carUpdate = await pool.query("UPDATE cars SET (carbrand, carmodel, circulationdate, engine, price ,distancetravel) = ($1,$2,$3,$4,$5,$6) WHERE carid = $7",
         [carbrand, carmodel, circulationdate, engine, price ,distancetravel, id]);
         
         res.json("Car update");
