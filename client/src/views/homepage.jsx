@@ -47,8 +47,8 @@ function Homepage() {
       {/* Second section */}
       <section id='second' className="second-section">
         <Info infid={6} url={motor} id='inf1' />
-        <Info infid={7} url={entretien} id='inf2' />
         <Info infid={9} url={cardeal} id='inf3' />
+        <Info infid={7} url={entretien} id='inf2' />
       </section>
 
       {/* Third section */}

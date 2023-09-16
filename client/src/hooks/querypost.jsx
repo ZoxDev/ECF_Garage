@@ -31,10 +31,10 @@ export const useFetchPost = (url) => {
             setResStatus(resStat);
             setLoading(false);
         } catch (e) {
+            
             setError(e);
             setLoading(false);
         }
-        
     }, [url]);
     return { callback, dataPost: { response, resStatus, loading, error } };
 }

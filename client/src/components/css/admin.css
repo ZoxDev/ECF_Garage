@@ -68,12 +68,23 @@ font-family: 'Quicksand', sans-serif; */
     font-size: 9px;
     box-shadow: 2px 5px 16px 0px #8a8a8a;
 }
-button:hover{
+
+
+.admin-menu-desktop > button:hover {
     scale: 1.1;
     transition: scale 100ms ease-out;
 }
-button:not(:hover){
-    scale: 1;
+.admin-menu-mobile > button:hover{
+    scale: 1.1;
+    transition: scale 100ms ease-out;
+}
+
+.admin-menu-desktop > button:not(:hover) {
+    scale: 1.1;
+    transition: scale 100ms ease-out;
+}
+.admin-menu-mobile > button:not(:hover){
+    scale: 1.1;
     transition: scale 100ms ease-out;
 }
 

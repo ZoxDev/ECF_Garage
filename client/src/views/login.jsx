@@ -1,7 +1,7 @@
 import '../components/css/login.css'
 
 // Utils
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useFetchPost } from '../hooks/querypost'
 import { Navigate } from 'react-router-dom'
 
@@ -28,12 +28,10 @@ export default function LoginPage() {
     const onSubmitForm = async (e) => {
         e.preventDefault();
         await logIn({
-            name: name,
-            password: password,
+            name,
+            password,
         });
     }
-
-    
 
     if (dataPost.resStatus == 200) {
         cookieTok.set('token', dataPost.response.token)

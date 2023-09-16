@@ -36,14 +36,14 @@ export default function Schedule(props) {
 
     return (
         <>
-            <tr>
-                <td>
+            <tr >
+                <td className="schedule-td">
                     {dayname}
                 </td>
-                <td>
+                <td className="schedule-td">
                     {hourstart} à {hourpause}
                 </td>
-                <td>
+                <td className="schedule-td">
                     {hourstoppause} à {hourstop}
                 </td>
             </tr>

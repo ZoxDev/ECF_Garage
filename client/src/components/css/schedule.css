@@ -1,20 +1,20 @@
-td{
+.schedule-td{
     padding: 10px;
-    font-size: 15px;
+    font-size: 12px;
     font-family: 'Quicksand', sans-serif;
 }
 
 @media screen and (min-width: 768px) {
-    td{
-        font-size: 24px;
+    .schedule-td{
+        font-size: 19px;
         padding: 13px;
     }
 }
 
 @media screen and (min-width: 1280px) and (min-height: 720px) {
 
-    td{
-        font-size: 14px;
+    .schedule-td{
+        font-size: 20px;
         padding: 10px;
     }
 

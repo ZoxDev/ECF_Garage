@@ -67,9 +67,14 @@ h3 {
 .perso-info-text {
     width: 80%;
     height: 30px;
+    outline: none;
+    
     border-radius: 5px;
     background: #070707;
     color: white;
+}
+.perso-info-text:focus{
+    border: 1px solid white;
 }
 
 .label-text {
@@ -90,7 +95,10 @@ h3 {
     color: white;
     padding-left: 10px;
     padding-right: 10px;
-
+    outline: none;
+}
+.message:focus{
+    border: 1px solid white;
 }
 
 .number-box {
@@ -105,6 +113,10 @@ h3 {
     color: white;
     padding-left: 10px;
     padding-right: 10px;
+    outline: none;
+}
+.number:focus{
+    border: 1px solid white;
 }
 
 .number-box>h3 {

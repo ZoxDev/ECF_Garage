@@ -5,52 +5,87 @@ import '../../src/index.css'
 // Component
 import Schedule from '../components/schedule';
 
+// Utils
+import { styled } from 'styled-components';
+
 // Hook
 import { useState } from 'react';
 import { useFetchPost } from '../hooks/querypost';
 
+const FooterForm = styled.div`
+        display : ${props => props.isActive ? 'flex' : 'none'};
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: 2;
+        `
+const FooterSucces = styled.div`
+        display : ${props => props.isActive ? 'none' : 'flex'};
+        color: green;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: 2;
+        font-size: 42px;
+        justify-content: center;
+        align-items: center;
+        width: 750px;
+        height: 450px;
+        `
 
 export default function Footer() {
     // Data to sent
+
     const [noticeusername, setName] = useState("");
     const [noticeuserlastname, setLastName] = useState("");
     const [noticeusermessage, setMessage] = useState("");
     const [noticeusernote, setNote] = useState("");
+    const [isActive, setIsActive] = useState(true);
 
     // Fetch api
     const { callback: postNotice } = useFetchPost("http://localhost:5000/noticemessage");
 
     // await for the callback and post the data
     const sendFormFoot = async (e) => {
-    e.preventDefault();
-      await postNotice({
-        noticeusername,
-        noticeuserlastname,
-        noticeusermessage,
-        noticeusernote,
-      });
+        e.preventDefault();
+        await postNotice({
+            noticeusername,
+            noticeuserlastname,
+            noticeusermessage,
+            noticeusernote
+        });
+        setName("");
+        setLastName("");
+        setMessage("");
+        setNote("");
+
+        setIsActive(!isActive);
     }
 
     return (
         <>
-
             <footer id='foot' className='foot'>
                 <p className="text-footer pres-text">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>
-                <button className='button-footer'>UN AVIS ?</button>
+                <a href='/avis' className='button-footer'>UN AVIS ?</a>
+                
+                    <FooterSucces isActive={isActive}>
+                        <p>Avis envoyé !</p>
+                    </FooterSucces>
+                    <FooterForm isActive={isActive}>
+                    <form className='notice-form' onSubmit={sendFormFoot}>
+                        <div className='form-container'>
+                            <h1 className='notice-hone'>Un avis ?</h1>
+                            <div className='form-user-info'>
+                                <input className='form-user-info-box' type='text' placeholder='Prénom' value={noticeuserlastname} onChange={e => setLastName(e.target.value)} />
+                                <input className='form-user-info-box' type='text' placeholder='Nom' value={noticeusername} onChange={e => setName(e.target.value)} />
+                            </div>
+                            <textarea className='form-message' type='text' placeholder='Message' value={noticeusermessage} onChange={e => setMessage(e.target.value)} />
+                            <input className='form-user-note' type='number' placeholder='Note' value={noticeusernote} onChange={e => setNote(e.target.value)} />
 
-                <form className='notice-form' onSubmit={sendFormFoot}>
-                    <div className='form-container'>
-                        <p>Un avis ?</p>
-                        <div className='form-user-info'>
-                            <input className='form-user-info-box' type='text' placeholder='Prénom' value={noticeuserlastname} onChange={e => setLastName(e.target.value)} />
-                            <input className='form-user-info-box' type='text' placeholder='Nom' value={noticeusername} onChange={e => setName(e.target.value)} />
+                            <button type='submit' className='form-button'>ENVOYÉ</button>
                         </div>
-                        <textarea className='form-message' type='text' placeholder='Message' value={noticeusermessage} onChange={e => setMessage(e.target.value)} />
-                        <input className='form-user-note' type='number' placeholder='Note' value={noticeusernote} onChange={e => setNote(e.target.value)} />
-
-                        <button type='submit' className='form-button'>ENVOYÉ</button>
-                    </div>
-                </form>
+                        
+                    </form>
+                    </FooterForm>
+                
 
                 <div className='schedule'>
                     <table className="table-style text-white">

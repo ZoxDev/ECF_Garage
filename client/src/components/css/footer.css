@@ -4,7 +4,7 @@
     background-color: #0C0910;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
 }
 
@@ -16,11 +16,16 @@
 }
 
 .text-footer {
-    margin-top: 10px;
-    font-size: 15px;
+    margin-top: 30px;
+    font-size: 12px;
     text-align: center;
     color: white;
     font-family: 'Poppins', sans-serif;
+}
+
+.pres-text{
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .button-footer {
@@ -37,7 +42,7 @@
 }
 
 .schedule {
-    height: 50vh;
+    height: 300px;
     background: rgba(33, 33, 33, 0.54);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
     border-radius: 30px;
@@ -45,7 +50,7 @@
 
 @media screen and (min-width: 768px) {
     .text-footer {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .button-footer {
@@ -55,15 +60,19 @@
     }
 
     .schedule {
-        font-size: 22px;
+        width: 95%;
     }
 
     .text-footer {
-        margin-top: 65px;
+        margin-top: 10px;
     }
 }
 
 @media screen and (min-width: 1280px) and (min-height: 720px) {
+
+    .schedule{
+        height: 400px;
+    }
 
     .foot {
         gap: 0px;
@@ -77,16 +86,12 @@
         justify-items: center;
     }
 
-    .schedule {
-        font-size: 14px;
-    }
-
     .button-footer {
         display: none;
     }
 
     .schedule {
-        width: 300px;
+        width: 500px;
         grid-column: 3;
         grid-row: 2;
     }
@@ -111,17 +116,20 @@
     }
 
     .notice-form {
-        grid-column-start: 1;
-        grid-column-end: 3;
         color: white;
         display: block;
         width: 750px;
-        height: 350px;
+        height: 450px;
         border-radius: 30px;
         border: 1px solid #1E1E1E;
         background: #0C0910;
     }
 
+    .notice-hone{
+        color: white;
+        font-size: 26px;
+    }
+    
     .form-container {
         font-family: 'Poppins', sans-serif;
         margin-top: 5px;
@@ -129,7 +137,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 20px;
     }
 
     .form-user-info {
@@ -138,15 +146,22 @@
     }
 
     .form-user-info-box {
-        border-radius: 20px;
+        border-radius: 5px;
         background: #212121;
         width: 150px;
-        height: 30px;
+        font-size: 20px;
+        height: 40px;
+    }
+    .form-user-info-box:focus{
+        outline: none;
+        border: 1px solid white;
     }
 
     .form-message {
+        padding: 10px;
+        font-size: 20px;
         width: 500px;
-        height: 175px;
+        height: 200px;
         border-radius: 10px;
         background: #212121;
     }
@@ -154,7 +169,8 @@
     .form-user-note {
         border-radius: 20px;
         background: #212121;
-        width: 50px;
+        width: 75px;
+        font-size: 20px;
     }
 
     .form-button {

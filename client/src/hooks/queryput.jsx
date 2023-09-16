@@ -25,6 +25,7 @@ export const useFetchPut = (url) => {
                 },
                 body: JSON.stringify(putData),
             })
+            console.log(JSON.stringify(putData))
             const dataPut = await res.json();
             const resStat = await res.status;
             setResponse(dataPut);
