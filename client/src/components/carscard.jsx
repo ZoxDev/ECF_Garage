@@ -3,12 +3,20 @@ import '../components/css/carscard.css'
 
 // Utilites
 import { useFetch } from '../hooks/queryget';
+import { useState, useEffect } from 'react';
 import Contactcars from './contact-cars';
 import Loading from './loading';
 
 export default function Carscard(props) {
+    // Image url
+    const [imageURL, setImageURL] = useState("");
+
     // Get cars
     const [data, loading, error] = useFetch("http://localhost:5000/cars")
+
+    useEffect(() =>{
+        setImageURL("../../src/server/images/" + props.carid.carbrand + props.carid.carmodel + ".png");
+    }, []);
 
     if (loading) {
         <Loading></Loading>
@@ -19,12 +27,13 @@ export default function Carscard(props) {
     }
     const name = props.carid.carbrand;
 
+   
+
+    
     return (
         <>
             <section className='cards-container'>
-                <div className='card-image'>
-                    IMAGE
-                </div>
+                    <img className='card-image' src={imageURL}/>
                 <div className='card-content'>
                     <div className='main-info'>
                         <p>{props.carid.carbrand}</p>

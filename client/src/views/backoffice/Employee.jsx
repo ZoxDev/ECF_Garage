@@ -7,11 +7,12 @@ import Loading from '../../components/loading';
 
 // Utils
 import { useFetch } from "../../hooks/queryget";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useFetchPut } from '../../hooks/queryput';
 import { useFetchPost } from '../../hooks/querypost';
 import { useFetchDelete } from '../../hooks/querydelete';
 import styled from 'styled-components';
+import Cookies from 'universal-cookie';
 
 const OpenModalDelete = styled.div`
         display : ${props => props.showmodal ? 'flex' : 'none'};
@@ -38,6 +39,10 @@ export default function AdminBack() {
         const [engine, setEngine] = useState("");
         const [price, setPrice] = useState()
         const [distancetravel, setTravel] = useState();
+        const [image, setImage] = useState("");
+        const [imageName, setImageName] = useState("");
+
+        const imageRef = useRef();
 
 
         const [isOpen, setIsOpen] = useState(false);
@@ -64,8 +69,8 @@ export default function AdminBack() {
             setIsOpen(!isOpen);
         }
 
-        // Post request
-        const { callback: postData, dataPost } = useFetchPost("http://localhost:5000/cars");
+        // Post request cars
+        const { callback: postCarsData, dataPost } = useFetchPost("http://localhost:5000/cars");
 
         // Put
         const { callback: putData, dataPut } = useFetchPut("http://localhost:5000/cars/" + id);
@@ -83,15 +88,37 @@ export default function AdminBack() {
         // Post
         const sendFormCars = async (e) => {
             e.preventDefault();
-            await postData({
+            await postCarsData({
                 carbrand,
                 carmodel,
                 circulationdate,
                 engine,
                 price,
-                distancetravel
+                distancetravel,
             });
             setPostStatus(dataPost.resStatus);
+
+            const cookie = new Cookies;
+            const tokenValue = cookie.get("token");
+
+            try {
+                // Change file name 
+                const newFileName = carbrand + carmodel;
+
+                const formData = new FormData();
+                formData.set('image', imageRef.current.files[0], newFileName);
+          
+                await fetch('http://localhost:5000/image', {
+                  method: 'POST',
+                  headers: {
+                    "token": tokenValue
+                  },
+                  body: formData,
+                });
+          
+            } catch (err) {
+                console.error(err);
+            }
         }
 
         // Put
@@ -122,6 +149,7 @@ export default function AdminBack() {
                 setEngine("");
                 setPrice("");
                 setTravel("");
+                setImage("");
             }
         }
 
@@ -130,7 +158,8 @@ export default function AdminBack() {
             handleSuccesSubmit();
 
             setIsAdd(false);
-        }, [postStatus])
+        }, [postStatus])      
+
 
         useEffect(() => {
             handleSuccesSubmit();
@@ -192,7 +221,7 @@ export default function AdminBack() {
                         </svg>
                     </button>
                     <div>
-                        <form className='form-panel' onSubmit={sendFormCars}>
+                        <form className='form-panel' onSubmit={sendFormCars} encType="multipart/form-data">
                             <label className='label-panel'>
                                 Marque
                                 <input value={carbrand} onChange={(e) => setBrand(e.target.value)} type="text" placeholder="Audi" />
@@ -216,6 +245,10 @@ export default function AdminBack() {
                             <label className='label-panel'>
                                 Distance
                                 <input value={distancetravel} onChange={(e) => setTravel(e.target.value)} type="text" placeholder='1500 (km)' />
+                            </label>
+                            <label>
+                                Image
+                                <input ref={imageRef} type='file' accept="image/png, image/jpeg" name='image'/>
                             </label>
                             <button type='submit'>Envoyez</button>
                         </form>
