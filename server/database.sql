@@ -1,5 +1,9 @@
 -- Create the table here then copy/past on terminal
 
+CREATE TABLE images(
+    imageid serial PRIMARY KEY,
+    imagename VARCHAR(50)
+);
 
 CREATE TABLE users (
     user_id uuid PRIMARY KEY DEFAULT
