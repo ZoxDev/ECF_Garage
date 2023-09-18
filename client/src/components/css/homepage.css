@@ -15,20 +15,27 @@ font-family: 'Quicksand', sans-serif; */
     align-items: center;
 }
 
+/* Second Section */
 .second-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: auto;
     height: 100vh;
-    background: linear-gradient(182.5deg, #090909 8%, #F94539 0%);
+    background-color: #FFF;
+    /* background: linear-gradient(182.5deg, #090909 8%, #ffffff 0%); */
 }
+.second-secion-info{
+ display: none;
+}
+
 
 .third-section {
     width: auto;
     height: 100vh;
-    background: linear-gradient(183.5deg, #F94539 11.2%, #FFF 0%);
+    /* background: linear-gradient(175.5deg, #ffffff 11.2%, #F03A47 0%); */
+    background-color: #F03A47;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,8 +64,8 @@ font-family: 'Quicksand', sans-serif; */
     margin-left: 20px;
     width: 25px;
     height: 25px;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
+    border-top: 2px solid rgb(255, 255, 255);
+    border-right: 2px solid rgb(255, 255, 255);
     transform: rotate(-130deg);
 }
 
@@ -66,8 +73,8 @@ font-family: 'Quicksand', sans-serif; */
     margin-right: 20px;
     width: 25px;
     height: 25px;
-    border-top: 2px solid black;
-    border-right: 2px solid black;
+    border-top: 2px solid rgb(255, 255, 255);
+    border-right: 2px solid rgb(255, 255, 255);
     transform: rotate(45deg);
 }
 
@@ -80,16 +87,6 @@ font-family: 'Quicksand', sans-serif; */
         width: 700px;
         font-size: 32px;
     }
-
-    /* Second-section */
-    .second-section {
-        background: linear-gradient(182.5deg, #090909 8%, #F94539 0%);
-    }
-
-    /* Third-section */
-    .third-section {
-        background: linear-gradient(183.5deg, #F94539 11.2%, #FFF 0%);
-    }
 }
 
 @media screen and (min-width: 1280px) and (min-height: 720px) {
@@ -101,11 +98,30 @@ font-family: 'Quicksand', sans-serif; */
     }
 
     .second-section{
-        background: linear-gradient(182.5deg, #090909 9%, #F94539 0%);
+        background-color: #FFF;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .second-secion-info{
+        margin-left: 40px;
+        margin-right: 40px;
+        box-shadow: 5px 5px 10px #0000006b;
+        margin-bottom: 100px;
+        display: flex;
+
+        align-items: center;
+    }
+    .second-section-image{
+        width: 25%;
+      
+    }
+    .second-section-text{
+        margin-left: 20px;
+        font-size: 18px;
     }
 
     .third-section{
-        background: linear-gradient(183.5deg, #F94539 11.2%, #FFF 0%);
+        background-color: #F03A47;
     }
 }
 
@@ -115,10 +131,18 @@ font-family: 'Quicksand', sans-serif; */
         background-image: url("../../assets/images/car.jpg");
         background-position: bottom;
     }
+    .second-secion-info{
+        margin-left: 120px;
+       
+    }
 
     /* Carrousel */
     .notice-side{
         display: block;
-        opacity: 0.2;
+        opacity: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 60%;
+        box-shadow: 10px 10px 10px #0000006b;
     }
 }

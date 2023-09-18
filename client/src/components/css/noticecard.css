@@ -2,14 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 10px 10px 10px #0000006b;
+    border-radius: 10px;
 }
 
 .card-container{
-    border-radius: 15px;
+
     
     /* Glassmorphisme */
-    background: rgba(128, 128, 128, 0.096);
-    border: rgb(255, 58, 58) 2px solid;
+    background: rgb(255, 255, 255);
+    
     width: 15rem;
     height: 30rem;
     display: flex;
@@ -49,8 +51,8 @@
     }
 
     .card-container{
-        width: 30rem;
-        height: 45rem;
+        width: 25rem;
+        height: 35rem;
     }
 
     .card-name{
