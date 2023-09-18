@@ -31,6 +31,7 @@ export default function Cars() {
     const [price, setPrice] = useState()
     const [distancetravel, setTravel] = useState();
     const [putStat, setPutStat] = useState(0);
+    const [carData, setCarData] = useState([]);
 
     const imageRef = useRef();
 
@@ -65,12 +66,42 @@ export default function Cars() {
 
     // Get
     const [data, loading, error] = useFetch("http://localhost:5000/cars");
+    useEffect(() => {
+        setCarData(data)
+    }, [data])
+
 
     // Delete fetch
     const { callback: deleteData } = useFetchDelete("http://localhost:5000/cars/" + id);
+
+    // Behavior
+    // handleAdd, handleDelete, handleUpdate
+    const handleAdd = () => {
+        setCarData((prevCarData) => [...prevCarData,
+        {
+            carbrand,
+            carmodel,
+            circulationdate,
+            engine,
+            price,
+            distancetravel
+        }]);
+    }
+
+    const handleUpdate = () => {
+        const carSelect = carData.find((car) => car.carid == id);
+        setCarData((prevCarData) => prevCarData.map((car) => (id == car.carid ?
+            { carbrand: carSelect.carbrand, carmodel: carSelect.carmodel, circulationdate, engine, price, distancetravel } : car
+        )));
+    }
+
+    const handleDelete = () => {
+        setCarData((prevCarData) => prevCarData.filter((car) => car.carid !== id));
+    };
+
     const clickDelete = async () => {
         await deleteData();
-        console.log()
+        handleDelete();
     }
 
     // Post
@@ -95,6 +126,7 @@ export default function Cars() {
         setEngine("");
         setPrice("");
         setTravel("");
+        handleAdd();
 
         setIsAdd(!isAdd);
         try {
@@ -111,9 +143,6 @@ export default function Cars() {
                 },
                 body: formData,
             });
-
-
-
         } catch (err) {
             console.error(err);
         }
@@ -123,8 +152,6 @@ export default function Cars() {
     const sendFormCarsPut = async (e) => {
         e.preventDefault();
         await putData({
-            carbrand,
-            carmodel,
             circulationdate,
             engine,
             price,
@@ -141,9 +168,9 @@ export default function Cars() {
         setEngine("");
         setPrice("");
         setTravel("");
-
-        setIsAdd(!isAdd);
         setIsOpen(!isOpen);
+
+        handleUpdate();
     }
 
     useEffect(() => {
@@ -165,8 +192,9 @@ export default function Cars() {
         return <p>Error: {error}</p>;
     }
 
+
     // Instance each rows of the table (carbrand | carmodel | circulationdate | engine | distancetravel)
-    const rows = data.map((cars) => (
+    const rows = carData.map((cars) => (
         <>
             <tr key={cars.carid}>
                 <td>{cars.carbrand}</td>
@@ -236,7 +264,7 @@ export default function Cars() {
                             Distance
                             <input value={distancetravel} onChange={(e) => setTravel(e.target.value)} type="text" placeholder='1500 (km)' />
                         </label>
-                        <label>
+                        <label className="label-panel">
                             Image
                             <input ref={imageRef} type='file' accept="image/png, image/jpeg" name='image' />
                         </label>

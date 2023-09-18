@@ -18,7 +18,6 @@ import { useState } from 'react'
 // import { gsap } from 'gsap'
 
 function Homepage() {
-
   // Carrousel
   let [currentNotice, setCurrentNotice] = useState(0);
 
@@ -33,7 +32,6 @@ function Homepage() {
       setCurrentNotice(currentNotice = 0);
     }
   }
-
 
   return (
     <>
@@ -50,17 +48,13 @@ function Homepage() {
         <Info infid={9} url={cardeal} id='inf3' />
         <Info infid={7} url={entretien} id='inf2' />
       </section>
-
       {/* Third section */}
       <section className='third-section'>
-        {/* <Banderole /> */}
         <button className='prev-button' onClick={prevNotice}></button>
         <div className='notice-side'>
           <Noticecard notid={currentNotice - 1} />
         </div>
-
         <Noticecard notid={currentNotice} />
-
         <div className='notice-side'>
           <Noticecard notid={currentNotice + 1} />
         </div>
@@ -68,7 +62,7 @@ function Homepage() {
       </section>
 
       {/* Footer */}
-      <footer>
+      <footer id='footer'>
         <Footer />
       </footer>
 

@@ -1,31 +1,33 @@
- import { useState } from "react";
- import { useFetchDelete } from "../../../hooks/querydelete";
- import { useFetch } from "../../../hooks/queryget";
- import styled from "styled-components"
- import Loading from "../../../components/loading";
- 
- const OpenModal = styled.div`
+import { useState, useEffect } from "react";
+import { useFetchDelete } from "../../../hooks/querydelete";
+import { useFetch } from "../../../hooks/queryget";
+import styled from "styled-components"
+import Loading from "../../../components/loading";
+
+const OpenModal = styled.div`
  display : ${props => props.showmodal ? 'flex' : 'none'};
  `
 
-export default function Notice () {
+export default function Notice() {
     // Notice (noticeid | noticeusername | noticeuserlastname | noticeusermessage | noticeusernote )
     // Use states
     const [isOpen, setIsOpen] = useState(false);
     const [id, setId] = useState("");
+    const [notice, setNotice] = useState([]);
 
     // Delete fetch
     const { callback: deleteData } = useFetchDelete("http://localhost:5000/noticemessage/" + id)
 
     // Get fetch
     let [data, loading, error] = useFetch("http://localhost:5000/noticemessage")
+    useEffect(() => {
+        setNotice(data)
+    }, [data])
 
     // Delete
     const clickDelete = async () => {
+        setNotice(notice.filter((notice) => notice.noticeid !== id))
         await deleteData();
-        console.log()
-        data = data.filter(notice => notice.noticeid == id);
-        console.log(data);
     }
 
     // btn
@@ -42,7 +44,7 @@ export default function Notice () {
     }
 
     // Instance each rows of the table (noticeid | noticeusername | noticeuserlastname | noticeusermessage | noticeusernote )
-    const rows = data.map((user) => (
+    const rows = notice.map((user) => (
         <tr key={user.noticeid}>
             <td>{user.noticeuserlastname}</td>
             <td>{user.noticeusername}</td>

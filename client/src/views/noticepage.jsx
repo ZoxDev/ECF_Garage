@@ -109,7 +109,9 @@ export default function Noticepage() {
 
             </section>
 
-            <Footer></Footer>
+            <footer id='footer'>
+                <Footer />
+            </footer>
         </>
     )
 }

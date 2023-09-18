@@ -38,13 +38,6 @@ export default function CarsPage() {
     if (error) {
         return <p>Error: {error}</p>;
     }
-    const length = data.length;
-
-
-    // Aray contain all filtered data
-
-    // Click on the filter
-
 
     let newData = []
     const globalFilter = () => {
@@ -157,7 +150,9 @@ export default function CarsPage() {
                     </section>
                 </NormalData>
             </section>
-            <Footer></Footer>
+            <footer id='footer'>
+                <Footer />
+            </footer>
         </>
     )
 }

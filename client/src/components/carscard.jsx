@@ -26,9 +26,6 @@ export default function Carscard(props) {
         return <p>Error: {error}</p>;
     }
     const name = props.carid.carbrand;
-
-   
-
     
     return (
         <>

@@ -9,7 +9,9 @@ const OpenModal = styled.div`
         `
 
 
- export default function Schedule () {
+
+
+export default function Schedule() {
     // Schedule (hourstart, hourpause, hourstoppause, hourstop)
     // Use states
     const [hourstart, setHourStart] = useState("");
@@ -17,6 +19,7 @@ const OpenModal = styled.div`
     const [hourstoppause, setHousrStopPause] = useState("");
     const [hourstop, setHourStop] = useState("");
     const [stat, setStat] = useState(0);
+    const [scheduleData, setScheduleData] = useState([]);
 
     const [isOpen, setIsOpen] = useState(false);
     const [id, setId] = useState("");
@@ -26,6 +29,9 @@ const OpenModal = styled.div`
 
     // Get fetch
     const [data, loading, error] = useFetch("http://localhost:5000/schedule")
+    useEffect(() => {
+        setScheduleData(data)
+    }, [data])
 
     // Put
     const sendFormInfos = async (e) => {
@@ -39,7 +45,21 @@ const OpenModal = styled.div`
         setStat(dataPut.resStatus)
     }
 
-    useEffect(() =>{
+    const handleUpdate = () => {
+        const scheduleSelect = scheduleData.find((schedule) => schedule.dayname == id);
+        setScheduleData((prevScheduleData) => prevScheduleData.map((schedule) => (id == schedule.dayname ?
+            {
+                dayname : scheduleSelect.dayname,
+                hourstart,
+                hourpause,
+                hourstoppause,
+                hourstop
+            } 
+            : schedule
+        )));
+    }
+
+    useEffect(() => {
         if (dataPut.resStatus == 200) {
             setHourStart("");
             setHourPause("");
@@ -47,9 +67,9 @@ const OpenModal = styled.div`
             setHourStop("");
             setIsOpen(!isOpen);
         }
-    }, [stat])
 
-    
+        handleUpdate();
+    }, [stat])
 
     // btn
     const closeBtn = () => {
@@ -69,7 +89,7 @@ const OpenModal = styled.div`
     }
 
     // Instance each rows of the table
-    const rows = data.map((schedule) => (
+    const rows = scheduleData.map((schedule) => (
         <tr key={schedule.dayname}>
             <td>{schedule.dayname}</td>
             <td>{schedule.hourstart} / {schedule.hourpause}</td>
@@ -116,7 +136,7 @@ const OpenModal = styled.div`
                             Fin de journée
                             <input value={hourstop} onChange={(e) => setHourStop(e.target.value)} type="text" placeholder='Fin journée, Format : (HH:MM)' />
                         </label>
-                        
+
 
                         <button type='submit'>Envoyez</button>
                     </form>

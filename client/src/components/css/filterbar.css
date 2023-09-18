@@ -12,13 +12,17 @@
     padding-left: 10px;
 }
 
+
 input{
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 @media screen and (min-width: 768px) {
     
-
+    .label-filter{
+        display: flex;
+        gap: 10px;
+    }
 
     .filter-container{
         display: flex;

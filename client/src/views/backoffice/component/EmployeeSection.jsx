@@ -8,9 +8,10 @@ import styled from 'styled-components';
 const OpenModal = styled.div`
         display : ${props => props.showmodal ? 'flex' : 'none'};
         `
+
 const OpenModalAdd = styled.div`
-display : ${props => props.showmodal ? 'flex' : 'none'};
-`
+        display : ${props => props.showmodal ? 'flex' : 'none'};
+        `
 
 export default function Employee(){
     // Schedule (hourstart, hourpause, hourstoppause, hourstop)
@@ -21,24 +22,31 @@ export default function Employee(){
     const [isOpen, setIsOpen] = useState(false);
     const [isAdd, setIsAdd] = useState(false);
     const [id, setId] = useState("");
+    const [employee, setEmployee] = useState([]);
 
     // Post fetch
-    const { callback: postData, dataPost } = useFetchPost("http://localhost:5000/auth/createemployee")
+    const { callback: postData } = useFetchPost("http://localhost:5000/auth/createemployee")
 
     // Delete
-    const { callback: deleteData, dataDelete } = useFetchDelete("http://localhost:5000/auth/delete/" + id)
+    const { callback: deleteData } = useFetchDelete("http://localhost:5000/auth/delete/" + id)
 
     // Get fetch
-    const [data, loading, error] = useFetch("http://localhost:5000/auth/getemployee")
+    let [data, loading, error] = useFetch("http://localhost:5000/auth/getemployee")
+    useEffect(() => {
+        setEmployee(data)
+    }, [data])
+
+    const handleAdd = () => {
+        setEmployee((prevEmployee) => [...prevEmployee,
+        {
+            user_name : name
+        }]);
+    }
 
     // Delete
     const clickDelete = async () => {
+        setEmployee(employee.filter((emp) => emp.user_id !== id));
         await deleteData();
-
-        if (dataDelete == 200) {
-            console.log("less go");
-        }
-        // If res = 200 then filter the data to delete the good one for update data.
     }
 
     // Post data (name, email, password, role)
@@ -49,13 +57,8 @@ export default function Employee(){
             email,
             password
         });
+        handleAdd();
     }
-
-    useEffect(() =>{
-        if(dataPost.resStatus == 200){
-            console.log("yes")
-        }
-    })
 
     // btn
     const closeDelete = () => {
@@ -78,7 +81,7 @@ export default function Employee(){
     }
 
     // Instance each rows of the table (user_id | user_name | user_email | user_paswword)
-    const rows = data.map((user) => (
+    const rows = employee.map((user) => (
         <tr key={user.user_id}>
             <td>{user.user_name}</td>
             <td>

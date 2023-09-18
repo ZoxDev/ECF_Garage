@@ -6,6 +6,7 @@
     align-items: flex-end;
     justify-content: center;
     border-radius: 5px;
+    box-shadow: 5px 5px 10px 3px #000000a1;
 }
 
 
@@ -15,8 +16,9 @@
 }
 
 .text-box {
-    background: linear-gradient(180deg, rgba(33, 33, 33, 0.50) 0%, #212121 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.041) 0%, #000000 100%);
     position: absolute;
+    overflow: hidden;
     z-index: 2;
     text-transform: uppercase;
     width: 30%;
@@ -86,33 +88,54 @@
 
 @media screen and (min-width: 768px) {
     .container {
-        width: 50%;
-        height: 25%;
-        opacity: 0.90;
+        width: 30%;
+        height: 50%;
+        background-color: rgb(255, 255, 255);
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image{
+        height: 40%;
+    }
+    .text-box{
+        position: absolute;
+        top: 35%;
+        width: 100%;
+    }
+
+    .about-btn {
+        width: 70%;
+        height: 15%;
+        background-color: rgb(255, 78, 78);
+        border-radius: 50px;
+        font-size: 19px;
+        color: white;
     }
 
     .container:nth-child(1) {
         position: absolute;
-        top: calc(120% - 12.5%);
-        left: calc(30% - 25%);
+        top: calc(130% - 25%);
+        left: calc(18% - 15%);
     }
 
     .container:nth-child(3) {
         position: absolute;
-        top: calc(150% - 12.5%);
-        left: calc(50% - 25%);
+        top: calc(150% - 25%);
+        left: calc(50% - 15%);
     }
 
     .container:nth-child(5) {
         position: absolute;
-        top: calc(180% - 12.5%);
-        left: calc(70% - 25%);
+        top: calc(170% - 25%);
+        left: calc(82% - 15%);
     }
 
     .container:hover {
         cursor: pointer;
-        opacity: 1;
-        transition: opacity 400ms ease-out;
+        
     }
 
     .modal-info {

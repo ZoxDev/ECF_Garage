@@ -64,7 +64,10 @@ export default function LoginPage() {
                     <button className='btn-form' type='submit'>SE CONNECTER</button>
                 </form>
             </section>
-            <Footer />
+            <footer id='footer'>
+                <Footer />
+            </footer>
+            
         </>
     )
 }

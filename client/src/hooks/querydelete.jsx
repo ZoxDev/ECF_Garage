@@ -1,6 +1,5 @@
 // utilites
 import { useState, useCallback } from "react";
-import { Navigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 export const useFetchDelete = (url) => {

@@ -44,11 +44,12 @@ export default function Info(props) {
 
     return (
         <>
-            <article className='container' onClick={clickModal}>
+            <article className='container' >
                 <img className='image' alt={props.url} src={props.url} />
                 <div className='text-box'>
                     <h1>{infotitle}</h1>
                 </div>
+                <button className='about-btn' onClick={clickModal}>EN SAVOIR PLUS</button>
             </article>
 
             <TextModal isOpen={modal}>

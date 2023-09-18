@@ -8,8 +8,7 @@ import styled from 'styled-components';
 const OpenModal = styled.div`
         display : ${props => props.showmodal ? 'flex' : 'none'};
         `
-
-export default function Info (){
+export default function Info() {
     // UseState
     const [infoTitle, setTitle] = useState("");
     const [infoText, setContent] = useState("");
@@ -17,11 +16,23 @@ export default function Info (){
     const [id, setId] = useState(0);
     const [stat, setStat] = useState(0);
 
+    const [infoData, setInfoData] = useState([]);
+
     // Put request
     const { callback: putData, dataPut } = useFetchPut("http://localhost:5000/infos/" + id);
 
     // Get to see on table (infoid | infotitle | infotext)
     const [data, loading, error] = useFetch("http://localhost:5000/infos")
+    useEffect(() => {
+        setInfoData(data)
+    }, [data])
+
+    const handleUpdate = () => {
+        const infoSelect = infoData.find((info) => info.infoid == id);
+        setInfoData((prevInfoData) => prevInfoData.map((info) => (id == info.infoid ?
+            { infoid: infoSelect.infoid ,infotext : infoText, infotitle : infoTitle} : info
+        )));
+    }    
 
     const sendFormInfos = async (e) => {
         e.preventDefault();
@@ -32,16 +43,17 @@ export default function Info (){
         setStat(dataPut.resStatus);
     }
 
-    useEffect(() =>{
+    useEffect(() => {
         if (dataPut.resStatus == 200) {
             setTitle("");
             setContent("");
             setIsOpen(!isOpen);
+            handleUpdate();
         }
 
     }, [stat]);
 
-    
+
     const closeBtn = () => {
         setIsOpen(!isOpen);
     }
@@ -60,7 +72,7 @@ export default function Info (){
     }
 
     // Instance each rows of the table
-    const rows = data.map((info) => (
+    const rows = infoData.map((info) => (
         <tr key={info.infoid}>
             <td>{info.infoid}</td>
             <td>{info.infotitle}</td>

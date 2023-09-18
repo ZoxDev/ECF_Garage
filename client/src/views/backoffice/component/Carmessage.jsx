@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetchDelete } from "../../../hooks/querydelete";
 import { useFetch } from "../../../hooks/queryget";
 import Loading from "../../../components/loading";
@@ -8,32 +8,32 @@ const OpenModal = styled.div`
         display : ${props => props.showmodal ? 'flex' : 'none'};
         `
 
-// Notice
 export default function CarMessage() {
     // Notice ( carmessageid | carusermail | carusermessagee )
     // Use states
     const [isOpen, setIsOpen] = useState(false);
     const [id, setId] = useState("");
+    const [carMessageData, setCarMessageData] = useState([]);
 
     // Delete fetch
     const { callback: deleteData } = useFetchDelete("http://localhost:5000/carsmessage/" + id)
 
     // Get fetch
     let [data, loading, error] = useFetch("http://localhost:5000/carsmessage")
+    useEffect(() => {
+        setCarMessageData(data)
+    }, [data])
 
     // Delete
     const clickDelete = async () => {
+        setCarMessageData(carMessageData.filter((carmessage) => carmessage.carmessageid !== id))
         await deleteData();
-        console.log()
-        data = data.filter(notice => notice.noticeid == id);
-        console.log(data);
     }
 
     // btn
     const closeDelete = () => {
         setIsOpen(!isOpen);
     }
-
 
     // Get
     if (loading) {
@@ -44,7 +44,7 @@ export default function CarMessage() {
     }
 
     // Instance each rows of the table ( carmessageid | carusermail | carusermessagee )
-    const rows = data.map((carm) => (
+    const rows = carMessageData.map((carm) => (
         <tr key={carm.carmessageid}>
             <td>{carm.carmessageid}</td>
             <td>{carm.carusermail}</td>
