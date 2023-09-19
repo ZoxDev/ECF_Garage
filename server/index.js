@@ -5,18 +5,13 @@ const pool = require("./db");
 const path = require('path');
 const multer = require('multer');
 
-
-
 app.use(cors());
-app.use(express.json()); // req.body
+app.use(express.json());
 
-// Routes
-
-// Tout les appel API
 // Create user JWT AUTH
 app.use("/auth", require("./routes/jwtAuth"));
 
-// Middle ware
+// Middleware
 const authorization = require("../server/middleware/authorization")
 
 // Presentation page (GET UPDATE) infoid | infotitle | infotext

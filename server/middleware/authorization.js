@@ -3,6 +3,7 @@ require("dotenv").config();
 
 module.exports = async(req, res, next) => {
     try {
+        // Search for token in the request
         const jwtToken = req.header("token");
         console.log(jwtToken);
 
@@ -10,6 +11,7 @@ module.exports = async(req, res, next) => {
            return res.status(403).json("Non autorisé");
         }
 
+        // Verify if the token match with secret
         const payload = jwt.verify(jwtToken, process.env.jwtSecret);
 
         req.user = payload.user;
