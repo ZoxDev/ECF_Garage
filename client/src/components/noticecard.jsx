@@ -1,5 +1,6 @@
 import '../components/css/noticecard.css'
-
+import { useFetch } from '../hooks/useFetch';
+import Loading from '../components/loading';
 import { useState, useEffect } from 'react';
 
 export default function Noticecard(props) {
@@ -7,22 +8,19 @@ export default function Noticecard(props) {
     const [notice, setNotice] = useState([]);
 
     // Request
-    const getNotice = async () => {
-        try {
-            const response = await fetch("/noticemessage");
-            const jsonData = await response.json();
 
-            setNotice(jsonData);
-        } catch (err) {
-            console.error(err.message);
-        }
-    }
-
-    // Request do once
+    const [data, loading, error] = useFetch("/noticemessage");
     useEffect(() => {
-        getNotice();
-    }, [])
+        setNotice(data)
+    }, [data])
 
+
+    if (loading) {
+        <Loading></Loading>
+    }
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
     // Get all the information only when the fetch is ended
 
     const selectedInfo = notice[props.notid];
@@ -38,8 +36,8 @@ export default function Noticecard(props) {
 
     return (
         <>
-            
-            <div className='container-notice'> 
+
+            <div className='container-notice'>
                 <div className='card-container'>
                     <h2 className='card-name'>{noticename}<br></br>{noticelastname}</h2>
                     <div className='card-note'>
@@ -48,7 +46,7 @@ export default function Noticecard(props) {
                     <p className='card-message'>{noticemessage}</p>
                 </div>
             </div>
-            
+
         </>
     )
 }

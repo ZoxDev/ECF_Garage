@@ -1,5 +1,5 @@
-
-
+import { useFetch } from '../hooks/useFetch';
+import Loading from '../components/loading';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import '../components/css/info.css';
@@ -15,22 +15,18 @@ export default function Info(props) {
     const [modal, setModal] = useState(false);
 
     // Request
-    const getText = async () => {
-        try {
-            const response = await fetch("/infos");
-            const jsonData = await response.json();
-
-            setInfo(jsonData);
-        } catch (err) {
-            console.error(err.message);
-        }
-    }
-
-    // Request do once
+    const [data, loading, error] = useFetch("/infos");
     useEffect(() => {
-        getText();
-    }, [])
+        setInfo(data)
+    }, [data])
 
+
+    if (loading) {
+        <Loading></Loading>
+    }
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
     // Modal
     const clickModal = () => {
         setModal(!modal);
