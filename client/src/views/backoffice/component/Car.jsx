@@ -59,20 +59,20 @@ export default function Cars() {
     }
 
     // Post request cars
-    const { callback: postCarsData } = useFetchPost("http://localhost:5000/cars");
+    const { callback: postCarsData } = useFetchPost("/cars");
 
     // Put
-    const { callback: putData, dataPut } = useFetchPut("http://localhost:5000/cars/" + id);
+    const { callback: putData, dataPut } = useFetchPut("/cars/" + id);
 
     // Get
-    const [data, loading, error] = useFetch("http://localhost:5000/cars");
+    const [data, loading, error] = useFetch("/cars");
     useEffect(() => {
         setCarData(data)
     }, [data])
 
 
     // Delete fetch
-    const { callback: deleteData } = useFetchDelete("http://localhost:5000/cars/" + id);
+    const { callback: deleteData } = useFetchDelete("/cars/" + id);
 
     // Behavior
     // handleAdd, handleDelete, handleUpdate
@@ -136,7 +136,7 @@ export default function Cars() {
             const formData = new FormData();
             formData.set('image', imageRef.current.files[0], newFileName);
 
-            await fetch('http://localhost:5000/image', {
+            await fetch('/image', {
                 method: 'POST',
                 headers: {
                     "token": tokenValue

@@ -16,10 +16,10 @@ export default function CarMessage() {
     const [carMessageData, setCarMessageData] = useState([]);
 
     // Delete fetch
-    const { callback: deleteData } = useFetchDelete("http://localhost:5000/carsmessage/" + id)
+    const { callback: deleteData } = useFetchDelete("/carsmessage/" + id)
 
     // Get fetch
-    let [data, loading, error] = useFetch("http://localhost:5000/carsmessage")
+    let [data, loading, error] = useFetch("/carsmessage")
     useEffect(() => {
         setCarMessageData(data)
     }, [data])

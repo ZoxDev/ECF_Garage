@@ -10,7 +10,7 @@ export default function Schedule(props) {
     // Request
     const getSchedule = async () => {
         try {
-            const response = await fetch("http://localhost:5000/schedule");
+            const response = await fetch("/schedule");
             const jsonData = await response.json();
 
             setSchedule(jsonData);

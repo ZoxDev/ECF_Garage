@@ -22,7 +22,7 @@ export default function LoginPage() {
     const cookieRole = new Cookies({path: "/"});
 
     // Fetch api
-    const { callback: logIn, dataPost } = useFetchPost("http://localhost:5000/auth/login");
+    const { callback: logIn, dataPost } = useFetchPost("/auth/login");
 
     // await for the callback and post the data
     const onSubmitForm = async (e) => {

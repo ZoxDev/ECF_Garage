@@ -9,7 +9,7 @@ export default function Noticecard(props) {
     // Request
     const getNotice = async () => {
         try {
-            const response = await fetch("http://localhost:5000/noticemessage");
+            const response = await fetch("/noticemessage");
             const jsonData = await response.json();
 
             setNotice(jsonData);

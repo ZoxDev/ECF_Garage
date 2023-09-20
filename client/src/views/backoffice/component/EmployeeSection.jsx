@@ -25,13 +25,13 @@ export default function Employee(){
     const [employee, setEmployee] = useState([]);
 
     // Post fetch
-    const { callback: postData } = useFetchPost("http://localhost:5000/auth/createemployee")
+    const { callback: postData } = useFetchPost("/auth/createemployee")
 
     // Delete
-    const { callback: deleteData } = useFetchDelete("http://localhost:5000/auth/delete/" + id)
+    const { callback: deleteData } = useFetchDelete("/auth/delete/" + id)
 
     // Get fetch
-    let [data, loading, error] = useFetch("http://localhost:5000/auth/getemployee")
+    let [data, loading, error] = useFetch("/auth/getemployee")
     useEffect(() => {
         setEmployee(data)
     }, [data])

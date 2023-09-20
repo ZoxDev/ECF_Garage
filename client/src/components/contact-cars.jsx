@@ -19,7 +19,7 @@ export default function Contactcars(props) {
     const [carusermessage, setMessage] = useState("");
 
     // Requête 
-    const { callback: postMessage } = useFetchPost("http://localhost:5000/carsmessage")
+    const { callback: postMessage } = useFetchPost("/carsmessage")
     const sendForm = async (e) => {
         e.preventDefault();
         await postMessage({

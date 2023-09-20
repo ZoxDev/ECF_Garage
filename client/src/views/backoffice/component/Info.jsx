@@ -19,10 +19,10 @@ export default function Info() {
     const [infoData, setInfoData] = useState([]);
 
     // Put request
-    const { callback: putData, dataPut } = useFetchPut("http://localhost:5000/infos/" + id);
+    const { callback: putData, dataPut } = useFetchPut("/infos/" + id);
 
     // Get to see on table (infoid | infotitle | infotext)
-    const [data, loading, error] = useFetch("http://localhost:5000/infos")
+    const [data, loading, error] = useFetch("/infos")
     useEffect(() => {
         setInfoData(data)
     }, [data])

@@ -17,7 +17,7 @@ export default function Info(props) {
     // Request
     const getText = async () => {
         try {
-            const response = await fetch("http://localhost:5000/infos");
+            const response = await fetch("/infos");
             const jsonData = await response.json();
 
             setInfo(jsonData);

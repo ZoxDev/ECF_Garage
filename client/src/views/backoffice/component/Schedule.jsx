@@ -25,10 +25,10 @@ export default function Schedule() {
     const [id, setId] = useState("");
 
     // Put fetch
-    const { callback: putData, dataPut } = useFetchPut("http://localhost:5000/schedule/" + id);
+    const { callback: putData, dataPut } = useFetchPut("/schedule/" + id);
 
     // Get fetch
-    const [data, loading, error] = useFetch("http://localhost:5000/schedule")
+    const [data, loading, error] = useFetch("/schedule")
     useEffect(() => {
         setScheduleData(data)
     }, [data])

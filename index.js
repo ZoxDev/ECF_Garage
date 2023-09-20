@@ -4,15 +4,31 @@ const cors = require("cors");
 const pool = require("./db");
 const path = require('path');
 const multer = require('multer');
+const PORT = process.env.PORT || 5000;
+
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static(path.join("client/dist")));
+app.get('*', function (req, res) {
+    res.sendFile('index.html', { root: path.join('client/dist/') });
+});
+// Production
+if (process.env.NODE_ENV === "production") {
+    // server static content
+    app.use(express.static(path.join(__dirname, "client/dist")));
+    app.get('*', function (req, res) {
+        res.sendFile('index.html', { root: path.join('client/dist/') });
+    });
+}
 
 // Create user JWT AUTH
 app.use("/auth", require("./routes/jwtAuth"));
 
 // Middleware
-const authorization = require("../server/middleware/authorization")
+const authorization = require("./middleware/authorization")
 
 // Presentation page (GET UPDATE) infoid | infotitle | infotext
 // Get infos
@@ -108,15 +124,15 @@ app.get("/cars", async (req, res) => {
 // post new car
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, '../client/src/server/images')
+        cb(null, '../client/src/server/images')
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname + '.png')
+        cb(null, file.originalname + '.png')
     }
-  })
-  const upload = multer({ storage: storage })
+})
+const upload = multer({ storage: storage })
 
-app.post("/image", authorization, upload.single('image'), async (req,res) =>{
+app.post("/image", authorization, upload.single('image'), async (req, res) => {
     try {
         const image = req.file;
         console.log(image + " C'est l'image");
@@ -252,6 +268,6 @@ app.delete("/noticemessage/:id", authorization, async (req, res) => {
 
 // create multiple .js 
 // Listening app
-app.listen(5000, () => {
-    console.log("server start port : 5000")
+app.listen(PORT, () => {
+    console.log("server start port : " + PORT)
 });

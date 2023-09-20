@@ -41,7 +41,7 @@ export default function Footer() {
     const [isActive, setIsActive] = useState(true);
 
     // Fetch api
-    const { callback: postNotice } = useFetchPost("http://localhost:5000/noticemessage");
+    const { callback: postNotice } = useFetchPost("/noticemessage");
 
     // await for the callback and post the data
     const sendFormFoot = async (e) => {

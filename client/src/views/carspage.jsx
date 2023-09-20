@@ -31,7 +31,7 @@ export default function CarsPage() {
     const [isFiltered, setIsFiltered] = useState(false);
 
     // Get all the cars
-    const [data, loading, error] = useFetch("http://localhost:5000/cars")
+    const [data, loading, error] = useFetch("/cars")
     if (loading) {
         <Loading></Loading>
     }

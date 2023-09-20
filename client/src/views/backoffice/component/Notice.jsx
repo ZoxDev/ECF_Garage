@@ -16,10 +16,10 @@ export default function Notice() {
     const [notice, setNotice] = useState([]);
 
     // Delete fetch
-    const { callback: deleteData } = useFetchDelete("http://localhost:5000/noticemessage/" + id)
+    const { callback: deleteData } = useFetchDelete("/noticemessage/" + id)
 
     // Get fetch
-    let [data, loading, error] = useFetch("http://localhost:5000/noticemessage")
+    let [data, loading, error] = useFetch("/noticemessage")
     useEffect(() => {
         setNotice(data)
     }, [data])
