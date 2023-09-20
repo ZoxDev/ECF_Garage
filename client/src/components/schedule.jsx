@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import '../components/css/schedule.css'
 
 export default function Schedule(props) {
@@ -27,24 +27,24 @@ export default function Schedule(props) {
     console.log()
 
     //Check if the value is available
-    const selectedSchedule = schedule.find((element) => element.dayname == props.dayid);
-    const dayname = selectedSchedule ? selectedSchedule.dayname : "";
-    const hourstart = selectedSchedule ? selectedSchedule.hourstart : "";
-    const hourpause = selectedSchedule ? selectedSchedule.hourpause : "";
-    const hourstoppause = selectedSchedule ? selectedSchedule.hourstoppause : "";
-    const hourstop = selectedSchedule ? selectedSchedule.hourstop : "";
+    // const selectedSchedule = schedule.find((element) => element.dayname == props.dayid);
+    // const dayname = selectedSchedule ? selectedSchedule.dayname : "";
+    // const hourstart = selectedSchedule ? selectedSchedule.hourstart : "";
+    // const hourpause = selectedSchedule ? selectedSchedule.hourpause : "";
+    // const hourstoppause = selectedSchedule ? selectedSchedule.hourstoppause : "";
+    // const hourstop = selectedSchedule ? selectedSchedule.hourstop : "";
 
     return (
         <>
             <tr >
                 <td className="schedule-td">
-                    {dayname}
+                    {/* {dayname} */}
                 </td>
                 <td className="schedule-td">
-                    {hourstart} à {hourpause}
+                    {/* {hourstart} à {hourpause} */}
                 </td>
                 <td className="schedule-td">
-                    {hourstoppause} à {hourstop}
+                    {/* {hourstoppause} à {hourstop} */}
                 </td>
             </tr>
         </>
