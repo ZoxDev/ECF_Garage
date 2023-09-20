@@ -51,9 +51,9 @@ function Homepage() {
         Nous offrons des services d'entretien, de réparation et de diagnostic pour toutes marques et modèles.<br/> Notre équipe dévouée et compétente s'engage à vous offrir un service de qualité, transparent et rapide.<br/> Faites confiance à V.Parrot pour prendre soin de votre véhicule avec expertise et passion.</p>
         </div>
         <div className='info-section'>
-        <Info infid={6} url={motor} id='inf1' />
-        <Info infid={9} url={cardeal} id='inf3' />
-        <Info infid={7} url={entretien} id='inf2' />
+        <Info infid={1} url={motor} id='inf1' />
+        <Info infid={2} url={cardeal} id='inf3' />
+        <Info infid={3} url={entretien} id='inf2' />
         </div>
        
       </section>
