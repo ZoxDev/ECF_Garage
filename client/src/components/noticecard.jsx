@@ -1,5 +1,5 @@
 import '../components/css/noticecard.css'
-import { useFetch } from '../hooks/useFetch';
+import { useFetch } from '../hooks/queryget';
 import Loading from '../components/loading';
 import { useState, useEffect } from 'react';
 

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import '../components/css/schedule.css'
-import { useFetch } from '../hooks/useFetch';
+import { useFetch } from '../hooks/queryget';
 import Loading from '../components/loading';
 
 export default function Schedule(props) {
