@@ -5,24 +5,24 @@ import '../components/css/schedule.css'
 export default function Schedule(props) {
 
     // Get info in an array 
-    const [schedule, setSchedule] = useState([]);
+    // const [schedule, setSchedule] = useState([]);
 
     // Request
-    const getSchedule = async () => {
-        try {
-            const response = await fetch("/schedule");
-            const jsonData = await response.json();
+    // const getSchedule = async () => {
+    //     try {
+    //         const response = await fetch("/schedule");
+    //         const jsonData = await response.json();
 
-            setSchedule(jsonData);
-        } catch (err) {
-            console.error(err.message);
-        }
-    }
+    //         setSchedule(jsonData);
+    //     } catch (err) {
+    //         console.error(err.message);
+    //     }
+    // }
 
     // Request do once
-    useEffect(() => {
-        getSchedule();
-    }, [])
+    // useEffect(() => {
+    //     getSchedule();
+    // }, [])
     
     console.log()
 
