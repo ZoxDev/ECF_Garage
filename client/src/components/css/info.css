@@ -161,7 +161,7 @@
     }
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px) {
+@media screen and (min-width: 1280px){
     .text-box {
         font-size: 20px;
         width: 75%;

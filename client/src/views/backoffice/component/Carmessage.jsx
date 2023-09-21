@@ -65,7 +65,7 @@ export default function CarMessage() {
     // Notice return
     return (
         <>
-            <h1 className='section-title'>Les demande de renseingnement !</h1>
+            <h1 className='section-title'>Les demandes de renseignement</h1>
             <table>
                 <thead>
                     <tr>

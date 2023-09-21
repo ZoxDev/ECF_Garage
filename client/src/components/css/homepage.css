@@ -94,7 +94,7 @@ font-family: 'Quicksand', sans-serif; */
     }
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px) {
+@media screen and (min-width: 1280px){
 
     .first-section {
         background-image: url("../../assets/images/car.jpg");

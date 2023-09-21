@@ -100,7 +100,7 @@ export default function Employee(){
     // Employee return
     return (
         <>
-            <h1 className='section-title'>Epmployés</h1>
+            <h1 className='section-title'>Employés</h1>
             <button className='btn-add' onClick={onClickAdd}>AJOUTEZ</button>
             {/* Modal */}
             <OpenModalAdd className='modal-panel' showmodal={isAdd}>

@@ -92,7 +92,7 @@ export default function Footer() {
         <>
             <footer id='foot' className='foot'>
 
-                <p className="text-footer pres-text">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>
+                <p className="text-footer pres-text">BESOIN D'INFORMATIONS COMPLÉMENTAIRES<br />TOUT EST LÀ !</p>
                 <a href='/avis' className='button-footer'>UN AVIS ?</a>
 
                 <FooterSucces isActive={isActive}>
