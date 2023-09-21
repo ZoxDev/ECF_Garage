@@ -2,6 +2,10 @@
 import '../components/css/footer.css'
 import '../../src/index.css'
 
+// TOAST
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Component
 import Schedule from '../components/schedule';
 
@@ -46,6 +50,10 @@ export default function Footer() {
     // await for the callback and post the data
     const sendFormFoot = async (e) => {
         e.preventDefault();
+        if (noticeusernote > 5 || noticeusernote < 0) {
+            toast.warning("La note doit être comprise entre 0 et 5");
+        }
+
         await postNotice({
             noticeusername,
             noticeuserlastname,
@@ -62,14 +70,16 @@ export default function Footer() {
 
     return (
         <>
+
             <footer id='foot' className='foot'>
+
                 <p className="text-footer pres-text">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>
                 <a href='/avis' className='button-footer'>UN AVIS ?</a>
-                
-                    <FooterSucces isActive={isActive}>
-                        <p>Avis envoyé !</p>
-                    </FooterSucces>
-                    <FooterForm isActive={isActive}>
+
+                <FooterSucces isActive={isActive}>
+                    <p>Avis envoyé !</p>
+                </FooterSucces>
+                <FooterForm isActive={isActive}>
                     <form className='notice-form' onSubmit={sendFormFoot}>
                         <div className='form-container'>
                             <h1 className='notice-hone'>Un avis ?</h1>
@@ -79,13 +89,11 @@ export default function Footer() {
                             </div>
                             <textarea className='form-message' type='text' placeholder='Message' value={noticeusermessage} onChange={e => setMessage(e.target.value)} />
                             <input className='form-user-note' type='number' placeholder='Note' value={noticeusernote} onChange={e => setNote(e.target.value)} />
-
                             <button type='submit' className='form-button'>ENVOYÉ</button>
                         </div>
-                        
                     </form>
-                    </FooterForm>
-                
+                </FooterForm>
+
 
                 <div className='schedule'>
                     <table className="table-style text-white">
@@ -115,6 +123,18 @@ export default function Footer() {
                     <a href='/ventes' className='footer-link'>Ventes</a>
                 </div>
                 <p className='text-footer copy-text'>© GarageVParrot / All Rights Reserved</p>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
             </footer>
         </>
     );
