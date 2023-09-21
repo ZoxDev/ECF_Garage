@@ -138,7 +138,7 @@ jwtSecret=cat123
 {
     "name": "ExempleNom",
     "email": "ExempleEmail",
-    "passowrd": "ExempleMotDePasse"
+    "password": "ExempleMotDePasse"
 }
 ```
 5. Cliquer sur `Send`

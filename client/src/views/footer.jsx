@@ -62,7 +62,7 @@ export default function Footer() {
             handleUnsetInput();
             return;
         }
-        if (noticeuserlastname.length < 50 || noticeusername.length > 50) {
+        if (noticeuserlastname.length > 50 || noticeusername.length > 50) {
             toast.warning("Le nom et le prénom doivent être compris entre 1 et 50 caractères");
             handleUnsetInput();
             return;
