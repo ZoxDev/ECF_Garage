@@ -72,7 +72,7 @@
     
 }
 
-@media screen and (min-width: 1280px) and (min-height: 720px){
+@media screen and (min-width: 1280px){
     .navbar{display: none;}
 
     .logo{
