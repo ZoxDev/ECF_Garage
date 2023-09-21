@@ -129,15 +129,16 @@ jwtSecret=cat123
 
 
 ### Créer un utilisateur
-1. Créer une requête POST
+1. Allez sur le fichier `jwtAuth.js` dans `/routes` et sur la ligne 22 enlever `authorization,` et relancer le serveur.
+1. Allez sur post man et crée une requête POST
 2. Taper l'URL `http://localhost:5000/auth/createemployee`
 3. Dans l'onglet `Body`, sélectionner `raw` et `JSON`
 4. Taper le code suivant :
 ```json
 {
-    "name": "",
-    "email": "",
-    "passowrd": ""
+    "name": "ExempleNom",
+    "email": "ExempleEmail",
+    "passowrd": "ExempleMotDePasse"
 }
 ```
 5. Cliquer sur `Send`
