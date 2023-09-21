@@ -1,6 +1,8 @@
 ## Liens
 - Lien du projet : (Désolé sur le document word le lien ne fonctionne pas)
 https://garageecf-970df12b266a.herokuapp.com/
+-Lien figma : 
+https://www.figma.com/file/zBnZRnclDTK8CP0fpSJsij/Untitled?type=design&node-id=0%3A1&mode=design&t=uT6wAMQii6D91dIP-1
 
 ## Prérequis
 Vous avez besoin en prérequis de : 
