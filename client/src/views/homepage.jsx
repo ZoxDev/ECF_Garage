@@ -32,7 +32,7 @@ function Homepage() {
   let [currentNotice, setCurrentNotice] = useState(0);
 
   const arrayLenght = () => {
-    if (currentNotice >= notice.length - 2) {
+    if (currentNotice >= notice.length - 1) {
       setCurrentNotice(currentNotice = currentNotice - 1);
     }
   }
