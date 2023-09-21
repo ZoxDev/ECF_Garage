@@ -7,13 +7,31 @@ export const useFetch = (url) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
     
-  
+    const config = {
+      headers: {
+        accept: 'application/json',
+      },
+      data: {},
+    };
+
     useEffect(() => {
-        fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          setError(data.error);
-          setData(data);
+      fetch(url, config)
+        .then((res) => {
+          if (!res.ok) {
+            throw Error('Could not fetch the data for that resource');
+          } else {
+            // Utilisez .json() pour obtenir les données JSON de la réponse
+            return res.json();
+          }
+        })
+        .then((jsonData) => {
+          setData(jsonData); // Mettez les données JSON dans votre state
+          console.log(data)
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error.message);
+          console.log(error.message);
           setLoading(false);
         });
     }, [url]);
