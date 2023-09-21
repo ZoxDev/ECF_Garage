@@ -37,7 +37,6 @@ app.post("/infos", authorization, async (req, res) => {
         const newInfo = await pool.query("INSERT INTO presinfo (infotitle, infotext) VALUES($1, $2) RETURNING *",
             [infoTitle, infoText]
         );
-        console.log(req.body);
         res.json(newInfo.rows[0]);
 
 
@@ -54,7 +53,6 @@ app.put("/infos/:id", authorization, async (req, res) => {
 
         const updateInfo = await pool.query("UPDATE presinfo SET (infoTitle, infoText) = ($1,$2) WHERE infoid = $3",
             [infoTitle, infoText, id]);
-        console.log(req.body);
         res.json("updated")
     } catch (err) {
         console.error(err.message);
@@ -79,8 +77,7 @@ app.put("/schedule/:id", authorization, async (req, res) => {
         const { id } = req.params;
 
         const { hourstart, hourpause, hourstoppause, hourstop } = req.body;
-        console.log(req.body);
-        console.log(hourstart);
+
         const dayUpdate = await pool.query("UPDATE schedule SET (hourstart, hourpause, hourstoppause, hourstop) = ($1,$2,$3,$4) WHERE dayname = $5",
             [hourstart, hourpause, hourstoppause, hourstop, id]);
 
@@ -100,7 +97,6 @@ app.get("/cars", async (req, res) => {
     try {
         const getCars = await pool.query("SELECT * FROM cars");
 
-        console.log("we get cars");
         res.json(getCars.rows);
     } catch (err) {
         console.error(err.message);
@@ -121,7 +117,6 @@ const upload = multer({ storage: storage })
 app.post("/image", authorization, upload.single('image'), async (req, res) => {
     try {
         const image = req.file;
-        console.log(image + " C'est l'image");
     } catch (err) {
         console.error(err.message);
     }
@@ -181,7 +176,6 @@ app.post("/carsmessage", async (req, res) => {
         const createMessage = await pool.query("INSERT INTO carsmessage (carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet) VALUES($1, $2, $3, $4, $5, $6)",
             [carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet]);
 
-        console.log("car message sent");
         res.json(createMessage.rows[0]);
 
     } catch (err) {
@@ -206,7 +200,6 @@ app.delete("/carsmessage/:id", authorization, async (req, res) => {
         const deleteCarMessage = await pool.query("DELETE FROM carsmessage WHERE carmessageid = $1",
             [id]);
 
-        console.log(id + "deleted");
     } catch (err) {
         console.error(err.message);
     }
@@ -220,7 +213,6 @@ app.post("/noticemessage", async (req, res) => {
         const createNotice = await pool.query("INSERT INTO noticemessage (noticeusername, noticeuserlastname, noticeusermessage, noticeusernote) VALUES($1, $2, $3, $4)",
             [noticeusername, noticeuserlastname, noticeusermessage, noticeusernote]);
 
-        console.log("Notice send !");
         res.json(createNotice.rows[0]);
 
     } catch (err) {
@@ -232,7 +224,6 @@ app.post("/noticemessage", async (req, res) => {
 app.get("/noticemessage", async (req, res) => {
     try {
         const getNotice = await pool.query("SELECT * FROM noticemessage");
-        console.log("work");
         res.json(getNotice.rows);
     } catch (err) {
         console.error(err.message);
@@ -246,7 +237,6 @@ app.delete("/noticemessage/:id", authorization, async (req, res) => {
         const deleteCarMessage = await pool.query("DELETE FROM noticemessage WHERE noticeid = $1",
             [id]);
 
-        console.log("Notice deleted");
     } catch (err) {
         console.error(err.message);
     }

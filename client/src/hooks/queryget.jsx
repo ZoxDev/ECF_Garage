@@ -26,12 +26,10 @@ export const useFetch = (url) => {
         })
         .then((jsonData) => {
           setData(jsonData); // Mettez les données JSON dans votre state
-          console.log(data)
           setLoading(false);
         })
         .catch((error) => {
           setError(error.message);
-          console.log(error.message);
           setLoading(false);
         });
     }, [url]);

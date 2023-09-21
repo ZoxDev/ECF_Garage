@@ -14,6 +14,8 @@ export default function Noticecard(props) {
         setNotice(data)
     }, [data])
 
+    
+
 
     if (loading) {
         <Loading></Loading>

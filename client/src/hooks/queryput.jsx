@@ -30,10 +30,8 @@ export const useFetchPut = (url) => {
             const resStat = await res.status;
             setResponse(dataPut);
             setResStatus(resStat);
-            console.log(resStat)
             setLoading(false);
         } catch (e) {
-            console.log(e);
             setError(e);
             setLoading(false);
         }

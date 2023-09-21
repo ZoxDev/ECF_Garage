@@ -31,7 +31,6 @@ export const useFetchPost = (url) => {
             
             setResponse(dataPost);
             setResStatus(resStat);
-            console.log(resStatus);
             setLoading(false);
         } catch (e) {
             setError(e);
