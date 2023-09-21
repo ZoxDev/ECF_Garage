@@ -13,10 +13,10 @@ export default function Carscard(props) {
     const [imageURL, setImageURL] = useState("");
 
     // Get cars
-    const [data, loading, error] = useFetch("/cars");
+    const [data, loading, error] = useFetch("/cars")
 
     useEffect(() =>{
-        setImageURL("/assets" + props.carid.carbrand + props.carid.carmodel + ".png");
+        setImageURL("../../src/server/images/" + props.carid.carbrand + props.carid.carmodel + ".png");
     }, []);
 
     if (loading) {
