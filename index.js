@@ -12,14 +12,17 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "client/dist")));
+app.get('*', function (req, res) {
+    res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist') });
+});
 
 // Production
 if (process.env.NODE_ENV === "production") {
     // server static content
     app.use(express.static(path.join(__dirname, "client/dist")));
-//     app.get('/*', function (req, res) {
-//         res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist') });
-//     });
+    //     app.get('/*', function (req, res) {
+    //         res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist') });
+    //     });
 }
 
 // Create user JWT AUTH
