@@ -5,6 +5,10 @@ import { useState } from 'react'
 import { useFetchPost } from '../hooks/querypost'
 import { Navigate } from 'react-router-dom'
 
+// TOAST
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Cookie
 import Cookies from 'universal-cookie'
 
@@ -17,9 +21,8 @@ export default function LoginPage() {
     const [password, setUserPassword] = useState();
 
     // Cookie
-    
     const cookieTok = new Cookies({ path: "/" })
-    const cookieRole = new Cookies({path: "/"});
+    const cookieRole = new Cookies({ path: "/" });
 
     // Fetch api
     const { callback: logIn, dataPost } = useFetchPost("/auth/login");
@@ -36,14 +39,16 @@ export default function LoginPage() {
     if (dataPost.resStatus == 200) {
         cookieTok.set('token', dataPost.response.token)
         cookieRole.set('role', dataPost.response.role);
-        
+
         // Redirect to admin back office if his admin else go to employee back office
-        if(dataPost.response.role == "admin"){
-            return <Navigate to='/dashboard/admin'/>
+        if (dataPost.response.role == "admin") {
+            return <Navigate to='/dashboard/admin' />
         }
-        else{
-            return <Navigate to='/dashboard/employee'/>
+        else {
+            return <Navigate to='/dashboard/employee' />
         }
+    } else {
+        toast.error("Identifiant ou mot-de-passe incorrect");
     }
 
     return (
@@ -67,7 +72,18 @@ export default function LoginPage() {
             <footer id='footer'>
                 <Footer />
             </footer>
-            
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
     )
 }

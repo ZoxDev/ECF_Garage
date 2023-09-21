@@ -90,7 +90,6 @@ export default function Footer() {
 
     return (
         <>
-
             <footer id='foot' className='foot'>
 
                 <p className="text-footer pres-text">VOUS VOULEZ SAVOIR OU ON EST ? NOUS LAISSE UN AVIS ?<br />TOUT EST LÀ</p>

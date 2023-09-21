@@ -5,6 +5,7 @@
 }
 
 .navbar{
+    box-shadow: 10px 10px 10px #0000006b;
     width: 160px;
     height: 50px;
     position: fixed;

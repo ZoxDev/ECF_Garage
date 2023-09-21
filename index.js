@@ -54,7 +54,6 @@ app.put("/infos/:id", authorization, async (req, res) => {
 
         const updateInfo = await pool.query("UPDATE presinfo SET (infoTitle, infoText) = ($1,$2) WHERE infoid = $3",
             [infoTitle, infoText, id]);
-
         console.log(req.body);
         res.json("updated")
     } catch (err) {
