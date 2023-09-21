@@ -17,6 +17,10 @@ CREATE TABLE users (
     user_paswword VARCHAR(75) NOT NULL
 );
 
+-- Inset new column
+ALTER TABLE users
+ADD user_role VARCHAR(255);
+
 CREATE TABLE Cars (
    carId serial PRIMARY KEY,
    carBrand VARCHAR(25) NOT NULL,
@@ -74,11 +78,5 @@ INSERT INTO schedule VALUES ('Samedi', '8:00','12:00');
 INSERT INTO presInfo (infoTitle, infoText) VALUES ('Réparation', 'réparationtext');
 INSERT INTO presInfo (infoTitle, infoText) VALUES ('Ventes', 'ventestext');
 INSERT INTO presInfo (infoTitle, infoText) VALUES ('Entretien', 'entretientext');
-
--- DONT DO THAT ONLY DEMONSTARTION
--- Inset new column
-
-ALTER TABLE users
-ADD user_role VARCHAR(255);
 
 -- There is also the SET ROLE
