@@ -13,7 +13,7 @@ import Schedule from '../components/schedule';
 import { styled } from 'styled-components';
 
 // Hook
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useFetchPost } from '../hooks/querypost';
 
 const FooterForm = styled.div`
@@ -47,10 +47,17 @@ export default function Footer() {
     // Fetch api
     const { callback: postNotice } = useFetchPost("/noticemessage");
 
+
+    useEffect(() => {
+        toast.success("Bienvenue sur le site de GarageVParrot");
+    },
+    []);
+
     // await for the callback and post the data
     const sendFormFoot = async (e) => {
         e.preventDefault();
         if (noticeusernote > 5 || noticeusernote < 0) {
+
             toast.warning("La note doit être comprise entre 0 et 5");
         }
 
