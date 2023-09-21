@@ -1,6 +1,10 @@
 // css
 import '../components/css/noticepage.css'
 
+// Toast
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 // Components
 import Footer from './footer'
@@ -50,19 +54,44 @@ export default function Noticepage() {
     // Fetch api
     const { callback: postNotice } = useFetchPost("/noticemessage");
 
+
+    const handleUnsetInput = () => {
+        setName("");
+        setLastName("");
+        setMessage("");
+        setNote("");
+    }
+
     // await for the callback and post the data
     const sendFormFoot = async (e) => {
         e.preventDefault();
+        if (noticeusernote > 5 || noticeusernote < 0) {
+            toast.warning("La note doit être comprise entre 0 et 5");
+            handleUnsetInput();
+            return;
+        }
+        if (noticeuserlastname.length < 50 || noticeusername.length > 50) {
+            toast.warning("Le nom et le prénom doivent être compris entre 1 et 50 caractères");
+            handleUnsetInput();
+            return;
+        }
+        if (noticeusermessage.length > 250) {
+            toast.warning("J'imagine que vous avez beaucoup de choses à dire mais 250 caractères maximum");
+            handleUnsetInput();
+            return;
+        }
+        if (noticeuserlastname === "" || noticeusername === "" || noticeusermessage === "" || noticeusernote === "") {
+            toast.warning("Veuillez remplir tous les champs");
+            handleUnsetInput();
+            return;
+        }
+
         await postNotice({
             noticeusername,
             noticeuserlastname,
             noticeusermessage,
             noticeusernote,
         });
-        setName("");
-        setLastName("");
-        setMessage("");
-        setNote("");
 
         setIsActive(!isActive);
     }
@@ -112,6 +141,18 @@ export default function Noticepage() {
             <footer id='footer'>
                 <Footer />
             </footer>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
     )
 }
