@@ -19,6 +19,7 @@ import Footer from './footer'
 export default function LoginPage() {
     const [name, setUserName] = useState();
     const [password, setUserPassword] = useState();
+    const [canToast, setCanToast] = useState(true);
 
     // Cookie
     const cookieTok = new Cookies({ path: "/" })
@@ -29,6 +30,7 @@ export default function LoginPage() {
 
     // await for the callback and post the data
     const onSubmitForm = async (e) => {
+        setCanToast(true);
         e.preventDefault();
         await logIn({
             name,
@@ -49,9 +51,9 @@ export default function LoginPage() {
         }
     }
 
-    if (dataPost.resStatus == 401) {
+    if (dataPost.resStatus == 401 && canToast == true) {
         toast.error("Identifiant ou mot-de-passe incorrect");
-        dataPost.resStatus = 0;
+        setCanToast(false);
     }
 
 
