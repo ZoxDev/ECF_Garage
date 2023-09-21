@@ -111,7 +111,7 @@ app.get("/cars", async (req, res) => {
 // post new car
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, '/client/src/server/images')
+        cb(null, 'client/src/server/images')
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname + '.png')
