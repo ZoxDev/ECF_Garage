@@ -47,9 +47,13 @@ export default function LoginPage() {
         else {
             return <Navigate to='/dashboard/employee' />
         }
-    } else {
+    }
+
+    if (dataPost.resStatus == 401) {
         toast.error("Identifiant ou mot-de-passe incorrect");
     }
+
+
 
     return (
         <>
