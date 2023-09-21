@@ -51,6 +51,7 @@ export default function LoginPage() {
 
     if (dataPost.resStatus == 401) {
         toast.error("Identifiant ou mot-de-passe incorrect");
+        dataPost.resStatus = 0;
     }
 
 

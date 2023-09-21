@@ -110,7 +110,7 @@ export default function Schedule() {
     // Schdule return
     return (
         <>
-            <h1 className='section-title'>Horraires</h1>
+            <h1 className='section-title'>Horaires</h1>
             {/* Modal */}
             <OpenModal className='modal-panel' showmodal={isOpen}>
                 <div className='modal-update'>
