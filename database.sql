@@ -71,9 +71,6 @@ INSERT INTO schedule VALUES ('Jeudi', '8:00', '12:00', '14:00', '18:00');
 INSERT INTO schedule VALUES ('Vendredi', '8:00', '12:00', '14:00', '18:00');
 INSERT INTO schedule VALUES ('Samedi', '8:00','12:00');
 
--- Create User Admin
--- INSERT INTO users (user_name, user_email, user_paswword, user_role) VALUES ('VincentP', 'vincentparrot@gmail.com','vincentlepatron1442*', 'admin');
-
 -- Create the three basics informations
 INSERT INTO presInfo (infoTitle, infoText) VALUES ('Réparation', 'réparationtext');
 INSERT INTO presInfo (infoTitle, infoText) VALUES ('Ventes', 'ventestext');

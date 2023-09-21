@@ -56,8 +56,6 @@ export default function LoginPage() {
         setCanToast(false);
     }
 
-
-
     return (
         <>
             <Navbar />
