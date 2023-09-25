@@ -62,7 +62,7 @@ export default function Footer() {
             handleUnsetInput();
             return;
         }
-        if (noticeuserlastname.length > 50 || noticeusername.length > 50) {
+        if (noticeuserlastname.length > 50 || noticeusername.length > 50 || noticeuserlastname.length < 1 || noticeusername.length < 1) {
             toast.warning("Le nom et le prénom doivent être compris entre 1 et 50 caractères");
             handleUnsetInput();
             return;
@@ -108,7 +108,7 @@ export default function Footer() {
                             </div>
                             <textarea className='form-message' type='text' placeholder='Message' value={noticeusermessage} onChange={e => setMessage(e.target.value)} />
                             <input className='form-user-note' type='number' placeholder='Note' value={noticeusernote} onChange={e => setNote(e.target.value)} />
-                            <button type='submit' className='form-button'>ENVOYÉ</button>
+                            <button type='submit' className='form-button'>ENVOYER</button>
                         </div>
                     </form>
                 </FooterForm>
@@ -137,7 +137,7 @@ export default function Footer() {
                 {/* See how to render a map */}
                 <p className='text-footer credits-text'>Made by : ZoxxxDev</p>
                 <div className='footer-links'>
-                    <a href='' className='footer-link'>Se connecter</a>
+                    <a href='/se-connecter' className='footer-link'>Se connecter</a>
                     <a href='#second' className='footer-link'>Nos services</a>
                     <a href='/ventes' className='footer-link'>Ventes</a>
                 </div>

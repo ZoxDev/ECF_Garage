@@ -13,8 +13,8 @@ import Footer from './footer'
 import { useFetch } from '../hooks/queryget'
 import styled from 'styled-components'
 import { useState } from 'react'
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CarsPage() {
 
@@ -48,6 +48,10 @@ export default function CarsPage() {
                 newData = data.filter(car => car.price <= priceFilter);
             }
         }
+        else {
+            toast.warning("Le prix doit être supérieur à 0€");
+        }
+
         if (circulation > 0) {
             if (newData.length != 0) {
                 newData = newData.filter(car => car.circulationdate >= circulation);
@@ -55,6 +59,10 @@ export default function CarsPage() {
                 newData = data.filter(car => car.circulationdate >= circulation);
             }
         }
+        else {
+            toast.warning("L'année doit être supérieur à 0");
+        }
+
         if (distance > 0) {
             if (newData.length != 0) {
                 newData = newData.filter(car => car.distancetravel <= distance);
@@ -62,12 +70,19 @@ export default function CarsPage() {
                 newData = data.filter(car => car.distancetravel <= distance);
             }
         }
+        else {
+            toast.warning("La distance doit être supérieur à 0km");
+        }
+
         if (engine != "") {
             if (newData.length != 0) {
                 newData = newData.filter(car => car.engine == engine);
             } else {
                 newData = data.filter(car => car.engine == engine);
             }
+        }
+        else {
+            toast.warning("Le moteur doit être renseigné");
         }
 
         setFilteredData(newData)
@@ -153,6 +168,19 @@ export default function CarsPage() {
             <footer id='footer'>
                 <Footer />
             </footer>
+
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
     )
 }

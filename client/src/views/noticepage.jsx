@@ -109,7 +109,6 @@ export default function Noticepage() {
                     <p>Avis envoyé !</p>
                 </FooterSucces>
                 <FooterForm isActive={isActive}>
-
                     <form className='form-notice' onSubmit={sendFormFoot}>
                         <div className='perso-info'>
                             <label>
@@ -131,11 +130,9 @@ export default function Noticepage() {
                             <input className='number' type='number' placeholder='Note' value={noticeusernote} onChange={e => setNote(e.target.value)} />
                         </label>
 
-
-                        <button className='form-button' type='submit' >ENVOYÉ</button>
+                        <button className='form-button' type='submit' >ENVOYER</button>
                     </form>
                 </FooterForm>
-
             </section>
 
             <footer id='footer'>
