@@ -19,8 +19,6 @@ import { useFetchPost } from '../hooks/querypost';
 
 const FooterForm = styled.div`
         display : ${props => props.isActive ? 'flex' : 'none'};
-        
-       
         width: 100%;
         height: 100%;
         margin-top: 50px;
@@ -31,7 +29,6 @@ const FooterForm = styled.div`
 const FooterSucces = styled.div`
         display : ${props => props.isActive ? 'none' : 'flex'};
         color: #ffffff;
-        
         font-size: 32px;
         width: 90%;
         height: 50%;
@@ -92,14 +89,12 @@ export default function Noticepage() {
             noticeusermessage,
             noticeusernote,
         });
-
         setIsActive(!isActive);
     }
 
     return (
         <>
             <Navbar />
-
             <section className='notice-page-section'>
                 <div className="circles" />
                 <div className="circles" />

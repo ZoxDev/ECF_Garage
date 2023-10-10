@@ -242,10 +242,13 @@ app.delete("/noticemessage/:id", authorization, async (req, res) => {
     }
 });
 
-app.use(express.static(path.join(__dirname, "client/dist")));
-app.get('*', function (req, res) {
-    res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist') });
-});
+// Dev
+if (PORT == 5000) {
+    app.use(express.static(path.join(__dirname, "client/dist")));
+    app.get('*', function (req, res) {
+        res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist') });
+    });
+}
 
 // Production
 if (process.env.NODE_ENV === "production") {

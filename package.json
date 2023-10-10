@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "dev": "cd client && npm install && npm install vite && npm run build && cd .. && nodemon index",
     "heroku-postbuild": "cd client && npm install && npm install vite && npm run build"
   },
   "repository": {

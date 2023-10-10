@@ -28,10 +28,21 @@ export default function Schedule(props) {
     // Check if the value is available
     const selectedSchedule = schedule.find((element) => element.dayname == props.dayid);
     const dayname = selectedSchedule ? selectedSchedule.dayname : "";
-    const hourstart = selectedSchedule ? selectedSchedule.hourstart : "";
-    const hourpause = selectedSchedule ? selectedSchedule.hourpause : "";
+    const hourstart = selectedSchedule ? selectedSchedule.hourstart.split(':').slice(0, 2).join(':') : "";
+    const hourpause = selectedSchedule ? selectedSchedule.hourpause.split(':').slice(0, 2).join(':') : "";
     const hourstoppause = selectedSchedule ? selectedSchedule.hourstoppause : "";
     const hourstop = selectedSchedule ? selectedSchedule.hourstop : "";
+
+    let hourStopPause = null;
+    let hourStop = null;
+
+    if(hourstoppause != null){
+       hourStopPause = hourstoppause.split(':').slice(0, 2).join(':');
+    }
+
+    if(hourstop != null){
+       hourStop = hourstop.split(':').slice(0, 2).join(':'); 
+    }
 
     return (
         <>
@@ -43,10 +54,9 @@ export default function Schedule(props) {
                     {hourstart} à {hourpause}
                 </td>
                 <td className="schedule-td">
-                    {hourstoppause} à {hourstop}
+                    {hourStopPause} à {hourStop}
                 </td>
             </tr>
         </>
     );
-
 }
