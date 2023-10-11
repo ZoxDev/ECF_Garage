@@ -9,7 +9,6 @@ export default function PrivateRoutes(){
     // Get cookie
     const jwtToken = cookieTok.get("token")
     const role = cookieRole.get("role");
-
     
     let isAuth = false
 

@@ -1,7 +1,7 @@
 import '../components/css/login.css'
 
 // Utils
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useFetchPost } from '../hooks/querypost'
 import { Navigate } from 'react-router-dom'
 
@@ -24,6 +24,23 @@ export default function LoginPage() {
     // Cookie
     const cookieTok = new Cookies({ path: "/" })
     const cookieRole = new Cookies({ path: "/" });
+    const cookieAlreadyRole = new Cookies({ path: "/" });
+
+    // Check if the user is already logged in
+    console.log(cookieAlreadyRole.get('role'));
+
+    if (cookieAlreadyRole.get('role') != undefined) {
+        if (cookieAlreadyRole.get('role') == "admin") {
+            return <Navigate to='/dashboard/admin' />
+        }
+        else {
+            return <Navigate to='/dashboard/employee' />
+        }
+    }
+    else {
+        cookieAlreadyRole.remove;
+    }
+
 
     // Fetch api
     const { callback: logIn, dataPost } = useFetchPost("/auth/login");
@@ -55,6 +72,8 @@ export default function LoginPage() {
         toast.error("Identifiant ou mot-de-passe incorrect");
         setCanToast(false);
     }
+
+
 
     return (
         <>

@@ -8,13 +8,14 @@
     gap: 30px;
 }
 
-h1{
+
+.login-container > h1{
     color: black;
 }
 
 .form-login {
     width: 60vw;
-    height: 60%;
+    height: 75%;
 
     display: flex;
     flex-direction: column;
@@ -72,4 +73,33 @@ h1{
     .label-form > input{
         width: 300px;
     }
+
+    .form-login{
+        width: 60%;
+    }
+
+    .login-container > h1{
+        color: black;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1280px){
+
+    .form-login{
+        width: 30%;
+    }
+    .login-container > h1{
+       
+        font-size: 24px;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+  
+    .form-login{
+        height: 55%;
+    }
+    
 }

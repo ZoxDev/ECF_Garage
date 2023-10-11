@@ -1,7 +1,6 @@
 .container {
     margin-top: 50px;
     width: 45%;
-    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,18 +12,19 @@
     border-radius: 50px;
     font-size: 14px;
     width: 80%;
-    height: 20%;
+    height: auto;
     color: white;
     background: linear-gradient(90deg, rgba(89,89,89,1) 15%, rgba(48,48,48,1) 100%);
+    z-index: 4;
 }
 .about-btn:hover{
     cursor: pointer;
-    scale: 1.1;
-    transition: scale 400ms ease-out;
+    scale: 1.05;
+    transition: scale 100ms ease-out;
 }
 .about-btn:not(:hover){
     scale: 1;
-    transition: scale 400ms ease-out;
+    transition: scale 100ms ease-out;
 }
 
 .image {
