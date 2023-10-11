@@ -2,6 +2,7 @@
 import '../../components/css/admin.css'
 
 // Components
+import DashNav from './component/DashNav';
 import Notice from './component/Notice'
 import Info from './component/Info';
 import Schedule from './component/Schedule';
@@ -40,6 +41,7 @@ export default function AdminBack() {
         <>
             <section className="admin-container">
                 <Navbar />
+                <DashNav/>
                 <div className="admin-menu-mobile">
                     <button onClick={onClickButton} id='info' className="btn-admin">
                         <svg width="20" height="20" viewBox="0 0 202 404" fill="none" xmlns="http://www.w3.org/2000/svg">

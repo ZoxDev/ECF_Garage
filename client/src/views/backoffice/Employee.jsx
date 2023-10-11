@@ -2,6 +2,7 @@
 import '../../components/css/admin.css'
 
 // Components
+import DashNav from './component/DashNav';
 import Cars from './component/Car';
 import CarMessage from './component/Carmessage';
 import Notice from './component/Notice';
@@ -37,7 +38,7 @@ export default function AdminBack() {
         <>
             <section className="admin-container">
                 <Navbar />
-
+                <DashNav/>
                 {/* Mobile */}
                 <div className="admin-menu-mobile">
                     <button onClick={onClickButton} id='cars' className="btn-admin">

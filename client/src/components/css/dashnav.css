@@ -1,0 +1,28 @@
+.dash-nav-container{
+    position: absolute;
+    top: 0%;
+    right: 5%;
+    width: 20%;
+    height: 7.5%;
+    background-color: white;
+    box-shadow: 5px 5px 10px #0000006b;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.dash-nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.dash-nav-link{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dash-nav-link > h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+}

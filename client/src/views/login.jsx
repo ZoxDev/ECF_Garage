@@ -29,18 +29,19 @@ export default function LoginPage() {
     // Check if the user is already logged in
     console.log(cookieAlreadyRole.get('role'));
 
-    if (cookieAlreadyRole.get('role') != undefined) {
-        if (cookieAlreadyRole.get('role') == "admin") {
-            return <Navigate to='/dashboard/admin' />
+    if (cookieTok.get('token') != undefined) {
+        if (cookieAlreadyRole.get('role') != undefined) {
+            if (cookieAlreadyRole.get('role') == "admin") {
+                return <Navigate to='/dashboard/admin' />
+            }
+            else {
+                return <Navigate to='/dashboard/employee' />
+            }
         }
         else {
-            return <Navigate to='/dashboard/employee' />
+            cookieAlreadyRole.remove;
         }
     }
-    else {
-        cookieAlreadyRole.remove;
-    }
-
 
     // Fetch api
     const { callback: logIn, dataPost } = useFetchPost("/auth/login");
