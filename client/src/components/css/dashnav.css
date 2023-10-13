@@ -1,28 +1,95 @@
-.dash-nav-container{
+.dash-nav-container {
     position: absolute;
     top: 0%;
     right: 5%;
     width: 20%;
-    height: 7.5%;
+    height: 5%;
     background-color: white;
     box-shadow: 5px 5px 10px #0000006b;
     border-radius: 0px 0px 15px 15px;
 }
 
-.dash-nav-links{
+.dash-nav-links {
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 100%;
 }
 
-.dash-nav-link{
+.dash-nav-link {
+    width: 25px;
+    height: 25px;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.dash-nav-link > h4 {
+.dash-nav-svg{
+    width: 25px;
+    height: 25px;
+}
+
+.dash-nav-text {
+    display: none;
+}
+
+.dash-nav-link>h4 {
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
 }
+
+@media screen and (min-width: 768px) {
+    .dash-nav-container {
+        width: 15%;
+        height: 5%;
+    }
+
+    .dash-nav-link>h4 {
+        font-size: 14px;
+    }
+
+  
+}
+
+@media screen and (min-width: 1024px) {
+    .dash-nav-container {
+        width: 15%;
+        height: 7.5%;
+    }
+
+    .dash-nav-link>h4 {
+        font-size: 12px;
+    }
+
+
+    .dash-nav-link {
+        width: auto;
+        height: auto;
+    }
+
+    .dash-nav-svg{
+        width: 30px;
+        height: 30px;
+    }
+
+    .dash-nav-text {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1660px) {
+    .dash-nav-container {
+        width: 20%;
+        height: 7.5%;
+    }
+
+    .dash-nav-svg{
+        width: auto;
+        height: auto;
+    }
+
+    .dash-nav-link>h4 {
+        font-size: 16px;
+    }
+}
+    
