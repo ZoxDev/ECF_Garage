@@ -49,7 +49,9 @@ export default function CarsPage() {
             }
         }
         else {
-            toast.warning("Le prix doit être supérieur à 0€");
+            if(newData < 0){
+                toast.warning("Le prix doit être supérieur à 0€");
+            }
         }
 
         if (circulation > 0) {
@@ -60,7 +62,9 @@ export default function CarsPage() {
             }
         }
         else {
-            toast.warning("L'année doit être supérieur à 0");
+            if(newData < 0){
+                toast.warning("L'année doit être supérieur à 0");
+            }
         }
 
         if (distance > 0) {
@@ -71,7 +75,10 @@ export default function CarsPage() {
             }
         }
         else {
-            toast.warning("La distance doit être supérieur à 0km");
+            if(newData < 0){
+                toast.warning("La distance doit être supérieur à 0km");
+            }
+         
         }
 
         if (engine != "") {
@@ -82,7 +89,9 @@ export default function CarsPage() {
             }
         }
         else {
-            toast.warning("Le moteur doit être renseigné");
+            if(newData < 0){
+                toast.warning("Le moteur doit être renseigné");
+            }
         }
 
         setFilteredData(newData)

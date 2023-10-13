@@ -22,11 +22,16 @@ export default function FilterBar(props) {
                 </label>
                 <label className='label-filter'>
                     Carburant
-                    <input type='text' placeholder='Diesel ou Essence ?' value={props.myEngine} onChange={e => props.myEngineFunc(e.target.value)}></input>
+                    <select name="carburant" id="pet-select" value={props.myEngine} onChange={e => props.myEngineFunc(e.target.value)}>
+                        <option value="">Choisissez votre carburant</option>
+                        <option value="Essence">Essence</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Électrique">Électrique</option>
+                    </select>
                 </label>
 
             </div>
-     
+
         </>
     )
 }
