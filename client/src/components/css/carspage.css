@@ -1,5 +1,5 @@
 .page-container{
-    background: linear-gradient(174deg, #DA4350 45.31%, #FFF 45.32%);
+    background: white;
     height: auto;
     width: 100%;
 }
@@ -106,6 +106,5 @@
 @media screen and (min-width: 1440px) {
     .multiple-div-card{
         width: 33%;
-        
     }
 }

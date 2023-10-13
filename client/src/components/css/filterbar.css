@@ -1,10 +1,8 @@
 .filter-container{
     width: 90vw;
     height: 250px;
-    background-color: rgb(255, 255, 255);
+    background-color: #000000;
     border-radius: 15px;
-    border: 1px solid rgb(0, 0, 0); 
-
 
     display: flex;
     gap: 10px;
@@ -17,17 +15,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .label-filter > input {
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     padding-left: 5px;
+    color: rgb(255, 255, 255);
+    background-color: black;
 }
 
+.label-filter > input:focus {
+    border: 3px solid rgb(255, 255, 255); 
+    outline: 0;
+}
 
-input{
+.label-filter > select {
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
     padding-left: 5px;
+    color: rgb(255, 255, 255);
+    background-color: black;
+}
+
+.label-filter > select:focus {
+    border: 3px solid rgb(255, 255, 255); 
+    outline: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -40,9 +54,12 @@ input{
 
     .filter-container{
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         padding-left: 20px;
+        height: 150px;
+        gap: 0px;
     }
 }
