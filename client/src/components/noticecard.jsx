@@ -12,6 +12,7 @@ export default function Noticecard(props) {
     const [data, loading, error] = useFetch("/noticemessage");
     useEffect(() => {
         setNotice(data)
+        
     }, [data])
 
     

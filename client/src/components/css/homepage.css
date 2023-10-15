@@ -25,25 +25,72 @@ font-family: 'Quicksand', sans-serif; */
     background-color: #ffffff;
     /* background: linear-gradient(182.5deg, #090909 8%, #ffffff 0%); */
 }
-.info-section{
+
+.info-section {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
 }
-.second-secion-info{
- display: none;
+
+.second-secion-info {
+    display: none;
 }
 
-
+/* Notice section */
 .third-section {
     width: auto;
     height: 100vh;
-    /* background: linear-gradient(175.5deg, #ffffff 11.2%, #F03A47 0%); */
-    background-color: #F03A47;
+    background-color: #ffffff;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.section-infos {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-infos>p {
+    width: 80%;
+    font-size: small;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.notice-div {
+    width: 80%;
+    height: 75%;
+    border: 1px solid black;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notice-container{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.notices{
+    flex: 0 0 100%;
+}
+
+.notice-div:first-child {
+    overflow: visible;
+}
+
+.notice-div:last-child {
+    overflow: visible;
 }
 
 .text {
@@ -61,26 +108,46 @@ font-family: 'Quicksand', sans-serif; */
 
 /* Carrousel */
 
-.notice-side{
+.notice-side {
     display: none;
 }
 
 .prev-button {
-    margin-left: 20px;
-    width: 25px;
-    height: 25px;
-    border-top: 2px solid rgb(255, 255, 255);
-    border-right: 2px solid rgb(255, 255, 255);
-    transform: rotate(-130deg);
+    position: relative;
+    transform: translateX(-25px);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 100px;
 }
 
 .next-button {
-    margin-right: 20px;
-    width: 25px;
-    height: 25px;
-    border-top: 2px solid rgb(255, 255, 255);
-    border-right: 2px solid rgb(255, 255, 255);
-    transform: rotate(45deg);
+    position: relative;
+    transform: translateX(25px);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 100px;
+}
+
+.slide-next{
+    transform: translateX(-100%);
+    transition: transform 500ms ease-in-out;
+}
+
+.slide-prev{
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
 }
 
 /* Repsonvie */
@@ -92,9 +159,10 @@ font-family: 'Quicksand', sans-serif; */
         width: 700px;
         font-size: 32px;
     }
+
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
 
     .first-section {
         background-image: url("../../assets/images/car.jpg");
@@ -102,12 +170,13 @@ font-family: 'Quicksand', sans-serif; */
         background-position: bottom;
     }
 
-    .second-section{
+    .second-section {
         background-color: #FFF;
         justify-content: space-around;
         align-items: flex-start;
     }
-    .second-secion-info{
+
+    .second-secion-info {
         margin-left: 40px;
         margin-right: 40px;
         box-shadow: 5px 5px 10px #0000006b;
@@ -116,17 +185,73 @@ font-family: 'Quicksand', sans-serif; */
 
         align-items: center;
     }
-    .second-section-image{
+
+    .second-section-image {
         width: 25%;
-      
-    }
-    .second-section-text{
-        margin-left: 20px;
-        font-size: 18px;
+
     }
 
-    .third-section{
-        background-color: #F03A47;
+    .second-section-text {
+        margin-left: 20px;
+        font-size: 22px;
+    }
+
+
+    /* Notice-side */
+
+    .third-section {
+        width: auto;
+        height: 100vh;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+    }
+
+    .section-infos {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .section-infos>p {
+        font-size: 22px;
+    }
+
+    .section-infos>svg {
+        width: 150px;
+        height: 150px;
+    }
+
+    .notice-div {
+        width: 75%;
+        height: 55%;
+    }
+
+
+    .third-section {
+        background-color: #ffffff;
+    }
+
+    .prev-button:hover {
+        scale: 1.1;
+        transition: scale 0.1s ease-in-out;
+    }
+
+    .prev-button:not(:hover) {
+        scale: 1;
+        transition: scale 0.1s ease-in-out;
+    }
+
+    .next-button:hover {
+        scale: 1.1;
+        transition: scale 0.1s ease-in-out;
+    }
+
+    .next-button:not(:hover) {
+        scale: 1;
+        transition: scale 0.1s ease-in-out;
     }
 }
 
@@ -136,13 +261,21 @@ font-family: 'Quicksand', sans-serif; */
         background-image: url("../../assets/images/car.jpg");
         background-position: bottom;
     }
-    .second-secion-info{
+
+    .second-section-text {
+        font-size: 26px;
+    }
+
+    .second-secion-info {
         margin-left: 120px;
-       
+    }
+
+    .section-infos>p {
+        font-size: 26px;
     }
 
     /* Carrousel */
-    .notice-side{
+    .notice-side {
         display: block;
         opacity: 1;
         border-radius: 10px;

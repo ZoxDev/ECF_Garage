@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    overflow: hidden;
+    overflow: visible;
 }
 .about-btn{
     border-radius: 50px;
