@@ -1,4 +1,4 @@
-import '../../components/css/error.css'
+import './error.css'
 
 export default function PageForbOrUnauth(props) {
 

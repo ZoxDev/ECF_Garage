@@ -1,13 +1,13 @@
 // Css
-import '../../components/css/admin.css'
+import './admin.css'
 
 // Components
-import DashNav from './component/DashNav';
-import Notice from './component/Notice'
-import Info from './component/Info';
-import Schedule from './component/Schedule';
-import Employee from './component/EmployeeSection';
-import Navbar from '../../components/navbar';
+import DashNav from './component/DashNav/DashNav';
+import Notice from './component/Notice/Notice'
+import Info from './component/Info/Info';
+import Schedule from './component/Schedule/Schedule';
+import Employee from './component/Employee/EmployeeSection';
+import Navbar from '../../components/Navbar/navbar';
 
 // Utils
 import { useState } from 'react';

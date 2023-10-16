@@ -1,8 +1,8 @@
 // Views
-import Homepage from './views/homepage.jsx';
-import CarsPage from './views/carspage.jsx';
-import Noticepage from './views/noticepage.jsx';
-import LoginPage from './views/login.jsx';
+import Homepage from './views/HomePage/homepage.jsx';
+import CarsPage from './views/CarsPage/carspage.jsx';
+import Noticepage from './views/NoticePage/noticepage.jsx';
+import LoginPage from './views/Login/login.jsx';
 import AdminBack from './views/backoffice/Admin.jsx';
 import Employee from './views/backoffice/Employee.jsx';
 

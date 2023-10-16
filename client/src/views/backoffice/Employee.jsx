@@ -1,12 +1,12 @@
 // Css
-import '../../components/css/admin.css'
+import './admin.css'
 
 // Components
-import DashNav from './component/DashNav';
-import Cars from './component/Car';
-import CarMessage from './component/Carmessage';
-import Notice from './component/Notice';
-import Navbar from '../../components/navbar';
+import DashNav from './component/DashNav/DashNav';
+import Cars from './component/Car/Car';
+import CarMessage from './component/CarMessage/Carmessage';
+import Notice from './component/Notice/Notice';
+import Navbar from '../../components/Navbar/navbar';
 
 // Utils
 import { useState } from 'react';
