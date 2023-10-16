@@ -185,8 +185,9 @@ font-family: 'Quicksand', sans-serif; */
     .second-secion-info {
         margin-left: 40px;
         margin-right: 40px;
-        box-shadow: 5px 5px 10px #0000006b;
+        border: 2px solid #D60C0F;
         margin-bottom: 100px;
+        border-radius: 5px;
         display: flex;
 
         align-items: center;
