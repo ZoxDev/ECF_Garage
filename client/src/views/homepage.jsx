@@ -41,25 +41,32 @@ function Homepage() {
     return <p>Error: {error}</p>;
   }
 
-  const handleNext = () => {
+  let canClick = true;
 
-    setPrev(false);
-    setNext(true);
-    setTimeout(() => {
-      setOrder((prevOrder) => (prevOrder - 1 + notice.length) % notice.length);
-      setNext(false);
-    }, 500);
+  const handleNext = () => {
+    if (canClick == true) {
+      canClick = false;
+      setPrev(false);
+      setNext(true);
+      setTimeout(() => {
+        setOrder((prevOrder) => (prevOrder - 1 + notice.length) % notice.length);
+        setNext(false);
+        canClick = true;
+      }, 500);
+    }
   }
 
   const handlePrev = () => {
-
-
-    setNext(false);
-    setPrev(true);
-    setTimeout(() => {
-      setOrder((prevOrder) => (prevOrder + 1) % notice.length);
-      setPrev(false);
-    }, 500);
+    if (canClick == true) {
+      canClick = false;
+      setNext(false);
+      setPrev(true);
+      setTimeout(() => {
+        setOrder((prevOrder) => (prevOrder + 1) % notice.length);
+        setPrev(false);
+        canClick = true;
+      }, 500);
+    }
   }
 
   return (

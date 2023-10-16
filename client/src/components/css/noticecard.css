@@ -1,27 +1,16 @@
-.container-notice{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 10px 10px 10px #0000006b;
-    border-radius: 10px;
-}
-
-.card-container{
+.card-container {
     background: rgb(255, 255, 255);
-    
-    width: 15rem;
-    height: 30rem;
+
+    position: relative;
+    width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.title{
-    color: black;
-    font-size: 2rem;
-}
-
-.card-name{
+.card-name {
     font-size: 16px;
     font-weight: bold;
     font-family: 'Quicksand', sans-serif;
@@ -29,13 +18,13 @@
     text-align: center;
 }
 
-.card-note{
+.card-note {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.card-message{
+.card-message {
     margin-top: 20px;
     margin-left: 10px;
     font-size: 14px;
@@ -44,46 +33,51 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.svg-top {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.svg-bottom {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+}
+
 @media screen and (min-width: 768px) {
-    .title{
-        font-size: 4rem;
-    }
-
-    .card-container{
-        width: 25rem;
-        height: 35rem;
-    }
-
-    .card-name{
+    .card-name {
         font-size: 26px;
     }
 
-    .card-message{
+    .card-message {
         font-size: 24px;
     }
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
+    .card-name {
+        font-size: 20px;
+    }
 
-    .card-message{
+    .card-message {
         padding-left: 20px;
         padding-right: 20px;
-    }
-    .card-container{
-        width: 45rem;
-        height: 30rem;
+        font-size: 18px;
     }
 
 }
 
 @media screen and (min-width: 1440px) {
-    .card-container{
-        width: 25rem;
-        height: 35rem;
+    .card-container {
+        align-items: center;
+        justify-content: flex-start;
     }
-    .card-message{
+
+    .card-message {
         padding-left: 20px;
         padding-right: 20px;
     }
-    
+
 }

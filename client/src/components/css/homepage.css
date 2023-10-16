@@ -63,8 +63,6 @@ font-family: 'Quicksand', sans-serif; */
     font-family: 'Poppins', sans-serif;
 }
 
-
-
 .notice-div {
     width: 80%;
     height: 75%;
@@ -76,13 +74,17 @@ font-family: 'Quicksand', sans-serif; */
 }
 
 .notice-container{
+    height: 100%;
     width: 100%;
     overflow: hidden;
     display: flex;
 }
 
 .notices{
+    display: flex;
     flex: 0 0 100%;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .notice-div:first-child {
@@ -123,7 +125,7 @@ font-family: 'Quicksand', sans-serif; */
     width: 50px;
     height: 50px;
     border: 1px solid black;
-    border-radius: 100px;
+    border-radius: 50%;
 }
 
 .next-button {
@@ -137,7 +139,7 @@ font-family: 'Quicksand', sans-serif; */
     width: 50px;
     height: 50px;
     border: 1px solid black;
-    border-radius: 100px;
+    border-radius: 50%;
 }
 
 .slide-next{
@@ -158,6 +160,10 @@ font-family: 'Quicksand', sans-serif; */
     .text {
         width: 700px;
         font-size: 32px;
+    }
+
+    .section-infos>p {
+        font-size: 22px;
     }
 
 }
@@ -198,6 +204,10 @@ font-family: 'Quicksand', sans-serif; */
 
 
     /* Notice-side */
+
+    .notice-container{
+        height: 75%;
+    }
 
     .third-section {
         width: auto;
@@ -257,6 +267,11 @@ font-family: 'Quicksand', sans-serif; */
 
 @media screen and (min-width: 1440px) {
 
+    .notices{
+        flex: 0 0 33.33%;
+        width: 33.33%;
+    }
+
     .first-section {
         background-image: url("../../assets/images/car.jpg");
         background-position: bottom;
@@ -282,5 +297,27 @@ font-family: 'Quicksand', sans-serif; */
         overflow: hidden;
         height: 60%;
         box-shadow: 10px 10px 10px #0000006b;
+    }
+
+    /* Button */
+
+    .prev-button {
+        transform: translateX(-37.5px);
+        width: 75px;
+        height: 75px;
+    }
+    .prev-button > svg{
+        height: 30px;
+        width: 30px;
+    }
+    
+    .next-button {
+        transform: translateX(37.5px);
+        width: 75px;
+        height: 75px;
+    }
+    .next-button > svg{
+        height: 30px;
+        width: 30px;
     }
 }
