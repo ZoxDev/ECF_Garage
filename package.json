@@ -2,6 +2,7 @@
     "workspaces": ["./packages/*"],
     "scripts": {
     "dev": "cd packages && cd client && npm install && npm install vite && npm run build && cd .. && cd server && nodemon index",
-    "heroku-postbuild": "cd packages && cd client && npm install && npm install vite && npm run build"
+    "heroku-postbuild": "cd packages && cd client && npm install && npm install vite && npm run build",
+    "start" : "cd server && node index.js"
   }
 }
