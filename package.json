@@ -1,35 +1,7 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": "18.16.1",
-    "npm": "9.5.1"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "dev": "cd client && npm install && npm install vite && npm run build && cd .. && nodemon index",
+
+"scripts": {
+    "dev": "cd client && npm install && npm install vite && npm run build && cd .. && cd server && nodemon index",
     "heroku-postbuild": "cd client && npm install && npm install vite && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZoxDev/ECF_Garage.git"
-  },
-  "author": "Zox",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ZoxDev/ECF_Garage/issues"
-  },
-  "homepage": "https://github.com/ZoxDev/ECF_Garage#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.0.1",
-    "pg": "^8.11.2"
   }
 }

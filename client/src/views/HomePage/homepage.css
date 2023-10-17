@@ -151,6 +151,70 @@ font-family: 'Quicksand', sans-serif; */
     transition: transform 500ms ease-in-out;
 }
 
+/* Fourth section */
+.fourth-section{
+    width: auto;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.section-map{
+    display: flex;
+    align-items: center;
+    gap: 300px;
+    font-size: 28px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Map */
+.map-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.map{
+    width: 650px;
+    height: 500px;
+    border-radius: 30px;
+    border: 10px solid #D60C0F;
+}
+
+.make-path-button{
+    width: 233px;
+    height: 50px;
+    border-radius: 50px;
+    color: white;
+    background-color: rgb(36, 36, 36);
+}
+
+/* Contact-side */
+.contact-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+}
+
+.contact-style{
+    width: 250px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D60C0F;
+    border-radius: 50px;
+    color: white;
+}
+
 /* Repsonvie */
 /* Tablet (768px) */
 @media screen and (min-width: 768px) {
@@ -200,6 +264,7 @@ font-family: 'Quicksand', sans-serif; */
     .second-section-text {
         margin-left: 20px;
         font-size: 22px;
+        font-family: 'Quicksand', sans-serif;
     }
 
 

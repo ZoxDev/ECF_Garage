@@ -80,8 +80,6 @@ app.put("/schedule/:id", authorization, async (req, res) => {
 
         const dayUpdate = await pool.query("UPDATE schedule SET (hourstart, hourpause, hourstoppause, hourstop) = ($1,$2,$3,$4) WHERE dayname = $5",
             [hourstart, hourpause, hourstoppause, hourstop, id]);
-
-
         res.json("Day time update");
 
     } catch (err) {
@@ -244,18 +242,18 @@ app.delete("/noticemessage/:id", authorization, async (req, res) => {
 
 // Dev
 if (PORT == 5000) {
-    app.use(express.static(path.join(__dirname, "client/dist")));
+    app.use(express.static(path.join(__dirname, "../client/dist")));
     app.get('*', function (req, res) {
-        res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist') });
+        res.sendFile('index.html', { root: path.join(__dirname, '..', 'client', 'dist') });
     });
 }
 
 // Production
 if (process.env.NODE_ENV === "production") {
     // server static content
-    app.use(express.static(path.join(__dirname, "client/dist")));
+    app.use(express.static(path.join(__dirname, "../client/dist")));
         app.get('/*', function (req, res) {
-            res.sendFile('index.html', { root: path.join(__dirname, 'client', 'dist') });
+            res.sendFile('index.html', { root: path.join(__dirname, '..', 'client', 'dist') });
         });
 }
 
