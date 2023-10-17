@@ -1,7 +1,7 @@
 {
     "workspaces": ["./packages/*"],
     "scripts": {
-    "dev": "cd client && npm install && npm install vite && npm run build && cd .. && cd server && nodemon index",
-    "heroku-postbuild": "cd client && npm install && npm install vite && npm run build"
+    "dev": "cd packages && cd client && npm install && npm install vite && npm run build && cd .. && cd server && nodemon index",
+    "heroku-postbuild": "cd packages && cd client && npm install && npm install vite && npm run build"
   }
 }
