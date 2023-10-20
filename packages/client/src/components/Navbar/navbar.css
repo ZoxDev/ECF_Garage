@@ -10,6 +10,7 @@
     height: 50px;
     position: fixed;
     left: calc(50% - 80px);
+    top: 0%;
     background-color: rgb(255, 255, 255);
     border-radius: 0px 0px 15px 15px;
     display: flex;
