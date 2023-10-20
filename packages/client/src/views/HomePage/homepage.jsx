@@ -141,15 +141,13 @@ function Homepage() {
         </div>
 
         <div className='section-map'>
-          <div className='map-div'>
-            <span className='map'>
-              <Map/>
-            </span>
-          </div>
+          <span className='map'>
+            <Map />
+          </span>
           <div className='contact-div'>
-            <p>Pour nous appellez c'est juste sur ce bouton.<br/>
-            Ou au 05.52.39.25.89</p>
-            <a className='contact-style button-map' href='tel:0562392589'>
+            <p>Pour nous appellez c'est juste sur ce bouton.<br />
+              Ou au 05.52.39.25.89</p>
+            <a className='contact-style' href='tel:0562392589'>
               APPELEZ
             </a>
           </div>
