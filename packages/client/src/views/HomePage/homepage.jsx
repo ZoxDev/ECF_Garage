@@ -145,19 +145,13 @@ function Homepage() {
             <span className='map'>
               <Map/>
             </span>
-            <button className='make-path-button button-map'>
-              Itinéraire
-            </button>
           </div>
-
           <div className='contact-div'>
+            <p>Pour nous appellez c'est juste sur ce bouton.<br/>
+            Ou au 05.52.39.25.89</p>
             <a className='contact-style button-map' href='tel:0562392589'>
               APPELEZ
             </a>
-            <span>OU</span>
-            <button className='contact-style'>
-              CONTACTEZ
-            </button>
           </div>
         </div>
       </section>

@@ -182,7 +182,6 @@ font-family: 'Quicksand', sans-serif; */
 .map{
     width: 650px;
     height: 500px;
-    border-radius: 30px;
     border: 10px solid #D60C0F;
 }
 
@@ -201,7 +200,10 @@ font-family: 'Quicksand', sans-serif; */
     align-items: center;
     justify-content: center;
     gap: 25px;
+}
 
+.contact-div > p {
+    text-align: center;
 }
 
 .contact-style{
