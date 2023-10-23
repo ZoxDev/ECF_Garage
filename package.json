@@ -1,8 +1,14 @@
 {
-    "workspaces": ["./packages/*"],
-    "scripts": {
+  "engines": {
+    "node": "18.16.1",
+    "npm": "9.5.1"
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
     "dev": "cd packages && cd client && npm install && npm install vite && npm run build && cd .. && cd server && nodemon index",
     "heroku-postbuild": "cd packages && cd client && npm install && npm install vite && npm run build",
-    "start" : "cd packages && cd server && node index.js"
+    "start": "cd packages && cd server && node index.js"
   }
 }
