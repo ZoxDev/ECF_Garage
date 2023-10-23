@@ -21,7 +21,6 @@ import { useEffect, useState } from 'react'
 // page
 import Footer from '../Footer/footer'
 
-
 function Homepage() {
   // Carrousel
   const [notice, setNotice] = useState([]);
@@ -34,6 +33,9 @@ function Homepage() {
   useEffect(() => {
     setNotice(data)
   }, [data])
+
+
+  
 
   if (loading) {
     <Loading></Loading>
