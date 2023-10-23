@@ -28,6 +28,8 @@ app.get("/infos", async (req, res) => {
     }
 });
 
+
+
 // Post info
 app.post("/infos", authorization, async (req, res) => {
     try {
