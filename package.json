@@ -7,8 +7,8 @@
     "./packages/*"
   ],
   "scripts": {
-    "dev": "cd packages && cd client && npm install && npm install vite && npm run build && cd .. && cd server && nodemon index",
-    "heroku-postbuild": "cd packages && cd server && npm install && cd .. && cd client && npm install && npm install vite && npm run build",
+    "dev": "cd packages && cd server && npm install && cd .. && cd client && npm install && npm install vite && npm run build && cd .. && cd server && node index",
+    "heroku-postbuild": "cd packages && cd server && npm install && cd .. && cd client && npm install && npm install vite && npm run build && cd .. && cd server && node index",
     "start": "cd packages && cd server && node index.js"
   }
 }
