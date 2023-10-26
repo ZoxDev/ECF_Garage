@@ -49,28 +49,26 @@ export default function Contactcars(props) {
                         <path d="M8.68677 9.31885L108.533 109.165" stroke="black" strokeWidth="16.641" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     </span>
-                    <div className='modal-header'>
-                        <h3>Vous souhaitez en savoir plus sur là {props.carName} ?</h3>
-                    </div>
+                    <h3 className='modal-header'>Vous souhaitez en savoir plus sur là {props.carName} ?</h3>
                     <form className='modal-form' onSubmit={sendForm}>
-                        <div className='input-text'>
+                        <label className='input-text'>
                             <h4 className='name-text'>Nom</h4>
                             <input className='input-style' type='text' placeholder='Nom' defaultValue={caruserlastname} onChange={e => setNom(e.target.value)} />
-                        </div>
-                        <div className='input-text'>
+                        </label>
+                        <label className='input-text'>
                             <h4 className='name-text'>Prénom</h4>
                             <input className='input-style' type='text' placeholder='Prénom' value={carusername} onChange={e => setPrenom(e.target.value)} />
-                        </div>
-                        <div className='input-text'>
+                        </label>
+                        <label className='input-text'>
                             <h4 className='name-text'>Mail</h4>
                             <input className='input-style' placeholder='Mail' type='text' value={carusermail} onChange={e => setMail(e.target.value)} />
-                        </div>
-                        <div>
+                        </label>
+                        <label className='input-text'>
+                            <h4 className='name-text'>Message</h4>
                             <textarea className='text-area' placeholder='Votre message' value={carusermessage} onChange={e => setMessage(e.target.value)} />
-                        </div>
+                        </label>
 
                         <button className='button-form' type='submit'>ENVOYÉ</button>
-
                     </form>
                 </div>
             </MyModal>
