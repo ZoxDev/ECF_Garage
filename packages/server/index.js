@@ -242,6 +242,7 @@ app.delete("/noticemessage/:id", authorization, async (req, res) => {
     }
 });
 
+
 // Dev
 if (PORT == 5000) {
     app.use(express.static(path.join(__dirname, "../client/dist")));

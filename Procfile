@@ -1,2 +1,1 @@
-
-web : node packages/server/index.js
+web: npm start
