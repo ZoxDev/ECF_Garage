@@ -172,9 +172,9 @@ app.delete("/cars/:id", authorization, async (req, res) => {
 // User can send message (form)
 app.post("/carsmessage", async (req, res) => {
     try {
-        const { carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet } = req.body;
-        const createMessage = await pool.query("INSERT INTO carsmessage (carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet) VALUES($1, $2, $3, $4, $5, $6)",
-            [carusername, caruserlastname, carusermail, carusermessage, datemeet, hourmeet]);
+        const { carusername, caruserlastname, carusermail, carusermessage, carbrand, carmodel} = req.body;
+        const createMessage = await pool.query("INSERT INTO carsmessage (carusername, caruserlastname, carusermail, carusermessage, carbrand, carmodel) VALUES($1, $2, $3, $4, $5, $6)",
+            [carusername, caruserlastname, carusermail, carusermessage, carbrand, carmodel]);
 
         res.json(createMessage.rows[0]);
 

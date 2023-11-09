@@ -46,7 +46,10 @@ export default function CarMessage() {
     // Instance each rows of the table ( carmessageid | carusermail | carusermessagee )
     const rows = carMessageData.map((carm) => (
         <tr key={carm.carmessageid}>
-            <td>{carm.carmessageid}</td>
+            <td>{carm.carbrand}</td>
+            <td>{carm.carmodel}</td>
+            <td></td>
+            <td>{carm.caruserlastname}</td>
             <td>{carm.carusermail}</td>
             <td>{carm.carusermessage}</td>
             <td>
@@ -69,7 +72,10 @@ export default function CarMessage() {
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>Marque</th>
+                        <th>Model</th>
+                        <th>-</th>
+                        <th>Nom</th>
                         <th>Mail</th>
                         <th>Message</th>
                         <th>Supprimer</th>

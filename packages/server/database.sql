@@ -59,8 +59,8 @@ CREATE TABLE carsMessage(
     carUserLASTNAME VARCHAR (50) NOT NULL,
     carUserMAIL VARCHAR (50) NOT NULL,
     carUserMessage VARCHAR (350) NOT NULL,
-    dateMeet DATE,
-    hourMeet TIME
+    carBrand VARCHAR (50) NOT NULL,
+    carModel VARCHAR (50) NOT NULL
 );
 
 -- Insert schedule basics

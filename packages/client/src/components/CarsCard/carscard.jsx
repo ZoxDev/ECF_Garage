@@ -25,7 +25,10 @@ export default function Carscard(props) {
     if (error) {
         return <p>Error: {error}</p>;
     }
+
+    // Set carmodel and car brand for children (If time work on props drilling)
     const name = props.carid.carbrand;
+    const model = props.carid.carmodel;
     
     return (
         <>
@@ -46,7 +49,7 @@ export default function Carscard(props) {
                     
                 </div>
                 <div className='btn-card'>
-                   <Contactcars carName={name}/>
+                   <Contactcars carName={name} carModel={model}/>
                 </div>
 
             </section>
