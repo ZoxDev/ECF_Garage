@@ -9,4 +9,6 @@ export default defineConfig({
   },
 })
 
+// For env var on heroku you have to define import.meta.env in vite.config.js
+
 
