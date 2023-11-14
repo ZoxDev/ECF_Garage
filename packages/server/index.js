@@ -110,6 +110,8 @@ app.get("/cars", async (req, res) => {
 
 // ADD IMAGES SYSTEME
 // S3
+
+// Expliquer tout ce qui se passe ici + les autorisation du bucket pour récup le lien image
 const s3Config = {
     region: 'eu-west-3',
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -127,7 +129,7 @@ app.post("/image", authorization, async (req, res) => {
         Bucket: process.env.AWS_BUCKET_NAME,
         Key: imageName,
         Body: image.data,
-    };
+    }
 
     try {
         const data = await s3Client.send(new PutObjectCommand(bucketParams));
