@@ -133,14 +133,18 @@ export default function Employee(){
                         <th>Nom</th>
                         <th>Supprimer</th>
                         <OpenModal showmodal={isOpen}>
-                            <h1>Vraiment supprimer ?</h1>
-                            <button onClick={() => {
-                                clickDelete();
-                                setIsOpen(!isOpen);
-                            }}>
-                                Oui
-                            </button>
-                            <button onClick={closeDelete}>Non</button>
+                        <section className='delete-modal'>
+                            <h1 className='delete-modal-hone'>Vraiment supprimer ?</h1>
+                            <div className='delete-modal-btns'>
+                                <button onClick={() => {
+                                    clickDelete();
+                                    setIsOpen(!isOpen);
+                                }}>
+                                    Oui
+                                </button>
+                                <button onClick={closeDelete}>Non</button>
+                            </div>
+                        </section>
                         </OpenModal>
                     </tr>
                 </thead>
