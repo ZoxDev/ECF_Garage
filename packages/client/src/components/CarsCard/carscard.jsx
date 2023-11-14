@@ -16,7 +16,7 @@ export default function Carscard(props) {
 
     useEffect(() =>{
         // https://garageecf.s3.eu-west-3.amazonaws.com/Calendrier-1.pdf
-        setImageURL("https://" + import.meta.env.VITE_BUCKET_NAME + ".s3.eu-west-3.amazonaws.com/" + props.carid.carbrand + props.carid.carmodel + ".png");
+        setImageURL("https://" + import.meta.env.VITE_BUCKET_NAME + ".s3.eu-west-3.amazonaws.com/" + props.carid.carbrand + props.carid.carmodel);
     }, []);
 
     if (loading) {
