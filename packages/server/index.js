@@ -1,15 +1,20 @@
 const express = require("express");
+const fileUpload = require("express-fileupload");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
 const path = require('path');
-const multer = require('multer');
+const {
+    S3Client,
+    PutObjectCommand
+} = require("@aws-sdk/client-s3");
 const PORT = process.env.PORT || 5000;
 
 require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
+app.use(fileUpload());
 
 // Create user JWT AUTH
 app.use("/auth", require("./routes/jwtAuth"));
@@ -92,7 +97,7 @@ app.put("/schedule/:id", authorization, async (req, res) => {
 // Cars (post / get / delete) (carid (primarikey) | carbrand | carmodel | circulationdate | engine | distancetravel)
 // get cars
 
-// ADD IMAGES SYSTEME
+
 app.get("/cars", async (req, res) => {
     try {
         const getCars = await pool.query("SELECT * FROM cars");
@@ -103,22 +108,32 @@ app.get("/cars", async (req, res) => {
     }
 });
 
-// post new car
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './client/dist/assets')
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname + '.png')
-    }
-})
-const upload = multer({ storage: storage })
+// ADD IMAGES SYSTEME
+// S3
+const s3Config = {
+    region: 'eu-west-3',
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+};
 
-app.post("/image", authorization, upload.single('image'), async (req, res) => {
+const s3Client = new S3Client(s3Config);
+
+// Post image
+app.post("/image", authorization, async (req, res) => {
+    const image = req.files.image;
+    const imageName = req.files.image.name
+
+    const bucketParams = {
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Key: imageName,
+        Body: image.data,
+    };
+
     try {
-        const image = req.file;
+        const data = await s3Client.send(new PutObjectCommand(bucketParams));
+        res.send(data)
     } catch (err) {
-        console.error(err.message);
+        console.log("Error", err)
     }
 })
 
@@ -172,7 +187,7 @@ app.delete("/cars/:id", authorization, async (req, res) => {
 // User can send message (form)
 app.post("/carsmessage", async (req, res) => {
     try {
-        const { carusername, caruserlastname, carusermail, carusermessage, carbrand, carmodel} = req.body;
+        const { carusername, caruserlastname, carusermail, carusermessage, carbrand, carmodel } = req.body;
         const createMessage = await pool.query("INSERT INTO carsmessage (carusername, caruserlastname, carusermail, carusermessage, carbrand, carmodel) VALUES($1, $2, $3, $4, $5, $6)",
             [carusername, caruserlastname, carusermail, carusermessage, carbrand, carmodel]);
 
@@ -255,9 +270,9 @@ if (PORT == 5000) {
 if (process.env.NODE_ENV === "production") {
     // server static content
     app.use(express.static(path.join(__dirname, "../client/dist")));
-        app.get('/*', function (req, res) {
-            res.sendFile('index.html', { root: path.join(__dirname, '..', 'client', 'dist') });
-        });
+    app.get('/*', function (req, res) {
+        res.sendFile('index.html', { root: path.join(__dirname, '..', 'client', 'dist') });
+    });
 }
 
 // create multiple .js 

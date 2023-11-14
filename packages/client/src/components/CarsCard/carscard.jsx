@@ -1,5 +1,5 @@
 // Css
-import './carscard.css'
+import './carscard.css';
 
 // Utilites
 import { useFetch } from '../../hooks/queryget';
@@ -15,7 +15,7 @@ export default function Carscard(props) {
     const [data, loading, error] = useFetch("/cars")
 
     useEffect(() =>{
-        setImageURL("/assets/" + props.carid.carbrand + props.carid.carmodel + ".png");
+        setImageURL("../../../../server/images/" + props.carid.carbrand + props.carid.carmodel + ".png");
     }, []);
 
     if (loading) {
