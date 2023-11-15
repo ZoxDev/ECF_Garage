@@ -24,24 +24,18 @@ const s3Client = new S3Client(s3Config);
 
 // Post image
 router.post("", authorization, async (req, res) => {
-
-    console.log("début requête")
     const image = req.files.image;
     const imageName = req.files.image.name
-    console.log("Image récup")
 
     const bucketParams = {
         Bucket: process.env.AWS_BUCKET_NAME,
         Key: imageName,
         Body: image.data,
     }
-    console.log("Paramètre bucket")
 
     try {
-        console.log("try")
         const data = await s3Client.send(new PutObjectCommand(bucketParams));
         res.send(data)
-        console.log("fin try")
     } catch (err) {
         console.log("Error", err)
     }
