@@ -99,8 +99,13 @@ thead{
     font-size: 14px;
 }
 
+th{
+    width: 1fr;
+}
+
 td{
     font-size: 12px;
+    width: 1fr;
 }
 
 /* Modal */

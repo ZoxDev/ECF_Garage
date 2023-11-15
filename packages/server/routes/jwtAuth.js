@@ -19,7 +19,7 @@ router.get("/getemployee", async(req, res) =>{
 });
 
 // Register (Admin create users)
-router.post("/createemployee", authorization, async(req, res) =>{
+router.post("/createemployee", authorization ,async(req, res) =>{
     try {
         //Destructure
         const {name, email, password} = req.body;
