@@ -7,6 +7,13 @@ import { useState, useEffect } from 'react';
 import Contactcars from './contact-cars';
 import Loading from '../Loading/loading';
 
+// Prop validation
+import PropTypes from 'prop-types';
+
+Carscard.propTypes = {
+    carid: PropTypes.object.isRequired,
+};
+
 export default function Carscard(props) {
     // Image url
     const [imageURL, setImageURL] = useState("");

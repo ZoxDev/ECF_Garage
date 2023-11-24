@@ -47,7 +47,7 @@ app.put("/:id", authorization, async (req, res) => {
 
 
 // delete car
-app.delete("/cars/:id", authorization, async (req, res) => {
+app.delete("/:id", authorization, async (req, res) => {
     try {
         const { id } = req.params;
 

@@ -4,6 +4,13 @@ import './schedule.css'
 import { useFetch } from '../../hooks/queryget';
 import Loading from "../Loading/loading";
 
+// Props validation
+import PropTypes from 'prop-types'
+
+Schedule.propTypes = {
+    dayid: PropTypes.number,
+};
+
 export default function Schedule(props) {
 
     // Get info in an array 

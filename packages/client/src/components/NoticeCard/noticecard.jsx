@@ -3,6 +3,13 @@ import { useFetch } from '../../hooks/queryget';
 import Loading from '../Loading/loading';
 import { useState, useEffect } from 'react';
 
+// Props validation
+import PropTypes from 'prop-types'
+
+Noticecard.propTypes = {
+    notid: PropTypes.number,
+};
+
 export default function Noticecard(props) {
     // Get notice in array
     const [notice, setNotice] = useState([]);

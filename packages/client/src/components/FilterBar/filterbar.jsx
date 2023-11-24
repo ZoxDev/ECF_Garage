@@ -1,10 +1,20 @@
 import './filterbar.css'
 
+// Props validation
+import PropTypes from 'prop-types'
+
+FilterBar.propTypes = {
+    myPrice: PropTypes.number,
+    myCircu: PropTypes.number,
+    myDist: PropTypes.number,
+    myEngine: PropTypes.string,
+    myPriceFunc: PropTypes.func,
+    myCircuFunc: PropTypes.func,
+    myDistFunc: PropTypes.func,
+    myEngineFunc: PropTypes.func,
+};
 
 export default function FilterBar(props) {
-
-
-
     return (
         <>
             <div className="filter-container">

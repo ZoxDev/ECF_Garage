@@ -127,7 +127,6 @@ export default function CarsPage() {
                     <p className='text-nodata'>Nous n'avons pas de voiture qui vous convienne chez nous.</p>
                 </section>
             </>
-
         )
     }
     // Basic render

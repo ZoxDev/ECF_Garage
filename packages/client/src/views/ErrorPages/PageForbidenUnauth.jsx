@@ -1,5 +1,14 @@
 import './error.css'
 
+// Prop validation
+import PropTypes from 'prop-types';
+
+PageForbOrUnauth.propTypes = {
+    errName: PropTypes.string.isRequired,
+    errInfo: PropTypes.string.isRequired,
+
+};
+
 export default function PageForbOrUnauth(props) {
 
     return (

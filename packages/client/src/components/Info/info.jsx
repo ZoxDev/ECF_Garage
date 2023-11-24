@@ -5,6 +5,14 @@ import styled from 'styled-components'
 import './info.css';
 // anime.js or gsap
 
+// Props validation
+import PropTypes from 'prop-types'
+
+Info.propTypes = {
+    infid: PropTypes.number,
+    url: PropTypes.string,
+};
+
 const TextModal = styled.div`
 display: ${props => props.isOpen ? `active` : `none`};
 `
