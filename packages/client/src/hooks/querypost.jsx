@@ -24,14 +24,17 @@ export const useFetchPost = (url) => {
                     "token": tokenValue
                 },
                 body: JSON.stringify(postData),
-                
+
             })
             const dataPost = await res.json();
             const resStat = await res.status;
-            
+
             setResponse(dataPost);
             setResStatus(resStat);
             setLoading(false);
+
+            console.log(JSON.stringify(postData));
+            console.log(dataPost);
         } catch (e) {
             setError(e);
             setLoading(false);

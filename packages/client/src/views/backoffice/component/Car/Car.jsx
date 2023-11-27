@@ -108,6 +108,9 @@ export default function Cars() {
     const sendFormCars = async (e) => {
         e.preventDefault();
 
+        // Set value as good type at base string so convert to number only needed
+      
+
         await postCarsData({
             carbrand,
             carmodel,

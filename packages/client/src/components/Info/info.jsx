@@ -40,7 +40,6 @@ export default function Info(props) {
         setModal(!modal);
     }
 
-
     // Get the id of the to select the good index of arry then in return get his infotext
     const selectedInfo = info.find((element) => element.infoid == props.infid);
     const infotext = selectedInfo ? selectedInfo.infotext : "";
