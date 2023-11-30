@@ -5,7 +5,6 @@ module.exports = async(req, res, next) => {
     try {
         // Search for token in the request
         const jwtToken = req.header("token");
-        console.log(jwtToken);
 
         if(!jwtToken){
            return res.status(403).json("Non autorisé");

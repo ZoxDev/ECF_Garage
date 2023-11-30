@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./db");
 const path = require('path');
 const fileUpload = require("express-fileupload");
 

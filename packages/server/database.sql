@@ -2,7 +2,7 @@
 -- Create database only on local
 CREATE DATABASE garageveparrot;
 
- CREATE EXTENSION "uuid-ossp";
+CREATE EXTENSION "uuid-ossp";
 
 CREATE TABLE images(
     imageid serial PRIMARY KEY,
