@@ -43,6 +43,7 @@ const putCars = async (req, res) => {
     }
 };
 
+// Delete
 const deleteCars = async (req, res) => {
     try {
         const { id } = req.params;
