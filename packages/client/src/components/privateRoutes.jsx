@@ -16,10 +16,7 @@ export default function PrivateRoutes(){
        isAuth = true
     }
 
-    // If employee try to access Admin dashboard 
-    // RTFM <3
     const location = useLocation();
-
 
     if(location.pathname == "/dashboard/admin" && role == 'employee'){
         return <Navigate to='/dashboard/employee'/>

@@ -1,33 +1,9 @@
 const app = require("express").Router();
-const pool = require("../db");
 const authorization = require("../middleware/authorization");
+const scheduleController = require("../controllers/ScheduleController");
 
-// Schedule (Dayname | hourstart | hourpause | hourstoppause | hourstop)(Get & Update)
-// Get
-app.get("", async (req, res) => {
-    try {
-        const getSchedule = await pool.query("SELECT * FROM schedule");
+app.get("", scheduleController.getSchedule);
 
-        res.json(getSchedule.rows);
-    } catch (err) {
-        console.error(err.message);
-    }
-});
-
-// Update
-app.put("/:id", authorization, async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const { hourstart, hourpause, hourstoppause, hourstop } = req.body;
-
-        const dayUpdate = await pool.query("UPDATE schedule SET (hourstart, hourpause, hourstoppause, hourstop) = ($1,$2,$3,$4) WHERE dayname = $5",
-            [hourstart, hourpause, hourstoppause, hourstop, id]);
-        res.json("Day time update");
-
-    } catch (err) {
-        console.error(err.message);
-    }
-});
+app.put("/:id", authorization, scheduleController.updateSchedule);
 
 module.exports = app;

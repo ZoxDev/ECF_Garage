@@ -10,3 +10,7 @@ function jwtGenerator (user_id){
 }
 
 module.exports = jwtGenerator;
+
+
+
+

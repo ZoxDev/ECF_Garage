@@ -7,12 +7,14 @@ import Navbar from '../../components/Navbar/navbar'
 import Carscard from '../../components/CarsCard/carscard'
 import FilterBar from '../../components/FilterBar/filterbar'
 import Loading from '../../components/Loading/loading'
+import Footer from '../Footer/footer'
 
 // Utilities
-import Footer from '../Footer/footer'
-import { useFetch } from '../../hooks/queryget'
 import styled from 'styled-components'
+import { useFetch } from '../../hooks/queryget'
 import { useState } from 'react'
+
+// Toast
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -78,7 +80,6 @@ export default function CarsPage() {
             if(newData < 0){
                 toast.warning("La distance doit être supérieur à 0km");
             }
-         
         }
 
         if (engine != "") {
@@ -154,7 +155,7 @@ export default function CarsPage() {
                 </div>
 
                 <NewData>
-                    <section className='cars-card-container'>
+                    <section className='cars-card-container'>pm create vite@latest
                         {filteredData.map(element => (
                             <div className='multiple-div-card'>
                                 <Carscard carid={element}></Carscard>

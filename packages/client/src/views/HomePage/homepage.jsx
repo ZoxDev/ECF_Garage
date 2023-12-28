@@ -34,9 +34,6 @@ function Homepage() {
     setNotice(data)
   }, [data])
 
-
-  
-
   if (loading) {
     <Loading></Loading>
   }

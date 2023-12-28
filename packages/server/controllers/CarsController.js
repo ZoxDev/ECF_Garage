@@ -16,9 +16,10 @@ const postCars = async (req, res) => {
     try {
         const { carbrand, carmodel, circulationdate, engine, price, distancetravel } = req.body;
 
-
-        const createCar = await pool.query("INSERT INTO cars (carbrand, carmodel, circulationdate, engine, price ,distancetravel) VALUES($1, $2, $3, $4, $5 ,$6)",
-            [carbrand, carmodel, circulationdate, engine, price, distancetravel]);
+        const createCar = await pool.query(
+            "INSERT INTO cars (carbrand, carmodel, circulationdate, engine, price ,distancetravel) VALUES($1, $2, $3, $4, $5 ,$6)",
+            [carbrand, carmodel, circulationdate, engine, price, distancetravel]
+        );
 
         res.json(createCar.rows[0]);
 
@@ -33,8 +34,10 @@ const putCars = async (req, res) => {
         const { id } = req.params;
 
         const { carbrand, carmodel, circulationdate, engine, price, distancetravel } = req.body;
-        const carUpdate = await pool.query("UPDATE cars SET (circulationdate, engine, price ,distancetravel) = ($1,$2,$3,$4) WHERE carid = $5",
-            [circulationdate, engine, price, distancetravel, id]);
+        const carUpdate = await pool.query(
+            "UPDATE cars SET (circulationdate, engine, price ,distancetravel) = ($1,$2,$3,$4) WHERE carid = $5",
+            [circulationdate, engine, price, distancetravel, id]
+        );
 
         res.json("Car update");
 

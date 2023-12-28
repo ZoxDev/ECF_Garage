@@ -21,8 +21,12 @@ export default function Carscard(props) {
     // Get cars
     const [data, loading, error] = useFetch("/cars")
 
-    useEffect(() =>{
-        setImageURL("https://" + import.meta.env.VITE_BUCKET_NAME + ".s3.eu-west-3.amazonaws.com/" + props.carid.carbrand + props.carid.carmodel);
+    useEffect(() => {
+        setImageURL("https://" +
+            import.meta.env.VITE_BUCKET_NAME +
+            ".s3.eu-west-3.amazonaws.com/" +
+            props.carid.carbrand +
+            props.carid.carmodel);
     }, []);
 
     if (loading) {
@@ -33,14 +37,13 @@ export default function Carscard(props) {
         return <p>Error: {error}</p>;
     }
 
-    // Set carmodel and car brand for children (If time work on props drilling)
     const name = props.carid.carbrand;
     const model = props.carid.carmodel;
-    
+
     return (
         <>
             <section className='cards-container'>
-                    <img className='card-image' src={imageURL}/>
+                <img className='card-image' src={imageURL} />
                 <div className='card-content'>
                     <div className='main-info'>
                         <p>{props.carid.carbrand}</p>
@@ -49,17 +52,24 @@ export default function Carscard(props) {
                     <div className='price-info'>
                         <p>{props.carid.price} €</p>
                     </div>
-                   
-                        <p className='circu-date'>{props.carid.circulationdate}</p>
-                        <p className='engine'>{props.carid.engine}</p>
-                        <p className='distance-tavel'>{props.carid.distancetravel} Km</p>
-                    
+
+                    <p className='circu-date'>{props.carid.circulationdate}</p>
+                    <p className='engine'>{props.carid.engine}</p>
+                    <p className='distance-tavel'>{props.carid.distancetravel} Km</p>
+
                 </div>
                 <div className='btn-card'>
-                   <Contactcars carName={name} carModel={model}/>
+                    <Contactcars carName={name} carModel={model} />
                 </div>
 
             </section>
         </>
     )
 }
+
+
+
+
+
+
+
