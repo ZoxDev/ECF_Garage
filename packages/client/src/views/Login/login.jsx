@@ -20,6 +20,7 @@ export default function LoginPage() {
     const [name, setUserName] = useState();
     const [password, setUserPassword] = useState();
     const [canToast, setCanToast] = useState(true);
+    const [canLogin, setCanLogin] = useState(true);
 
     // Cookie
     const cookieTok = new Cookies({ path: "/" })
@@ -48,12 +49,14 @@ export default function LoginPage() {
 
     // await for the callback and post the data
     const onSubmitForm = async (e) => {
-        setCanToast(true);
         e.preventDefault();
-        await logIn({
-            name,
-            password,
-        });
+        if(canLogin == true) {
+            setCanToast(true);
+            await logIn({
+                name,
+                password,
+            });
+        }
     }
 
     if (dataPost.resStatus == 200) {
@@ -70,11 +73,15 @@ export default function LoginPage() {
     }
 
     if (dataPost.resStatus == 401 && canToast == true) {
-        toast.error("Identifiant ou mot-de-passe incorrect");
         setCanToast(false);
+        toast.error("Identifiant ou mot-de-passe incorrect");
+        
+        setCanLogin(false)
+        toast.warn("Vous devez attendre 5 secondes avant de pouvoir vous reconnecter");
+        setTimeout(() => {
+            setCanLogin(true)
+        }, 5000);
     }
-
-
 
     return (
         <>
