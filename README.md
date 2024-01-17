@@ -25,7 +25,7 @@ Vous avez besoin en prérequis de :
     ```npm start```
 7. Vous voilà sur le site avec le port 5000 !
 
-##  Basse de données
+##  Base de données
 1. Installez postgresql
 2. Retenir le mot de passe ainsi que le port de postgresql
 3. Dans un fichier .env à la racine du projet, taper le code suivant :
